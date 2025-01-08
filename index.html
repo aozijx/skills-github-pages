@@ -72,38 +72,18 @@
       .page {
         position: absolute;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         font-size: 2rem;
         padding: 20px;
-        box-sizing: border-box;
-        transition: transform 0.8s ease-in-out;
-        scroll-snap-align: start; /* 每个页面捕捉到顶部 */
       }
       .page-container {
         position: relative;
         width: 100vw;
         height: 100vh;
-        overflow: hidden;
-      }
-      img {
-        margin: 0 auto;
-        max-width: 100%;
-        border: 1px solid transparent;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* 平滑过渡效果 */
-        transition: all 0.8s ease-in-out;  /* 全部属性变化时，过渡时间为0.8秒 */
-        object-fit: contain; /* 保证图片内容完全显示，保持比例 */
-      } 
-      img:hover {
-        transform: scale(1.1); /* 放大 */
-        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3); /* 更明显的阴影 */
-        filter: brightness(1.2); /* 提高亮度 */
-        cursor: pointer; /* 鼠标指针变为手型 */
       }
       .figure-container {
         display: flex;
@@ -120,14 +100,24 @@
         width: auto;
       }
       figure img {
-        display: block;
-        width: 100%;
-        height: auto;
+        margin: 0 auto;
+        max-width: 100%;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* 平滑过渡效果 */
+        transition: all 0.8s ease-in-out;  /* 全部属性变化时，过渡时间为0.8秒 */
+        object-fit: contain; /* 保证图片内容完全显示，保持比例 */
+      }
+      figure img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+        filter: brightness(1.2); /* 提高亮度 */
+        cursor: pointer; /* 鼠标指针变为手型 */
       }
       figcaption {            
-        margin-top: -20px;
         font-size: 16px;
-        color: #555;
+        color: #000000;
       }
       table {
         border-collapse: collapse; /* 合并表格边框 */
@@ -178,8 +168,9 @@
         margin: 0 auto;
         width: 100%;
         opacity: 0;
+        border-radius: 10px;
         transform: translateY(80px); /* 初始位置在视口下方 */
-        transition: all 0.8s ease-in-out;
+        transition: all 1s ease-in-out;
       }
 
       .wid p {
@@ -199,32 +190,16 @@
         transform: scale(1.1);
         rotate: 2deg;
         box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+        filter: brightness(1.2); /* 提高亮度 */
         cursor: pointer;
-      }
-      button {
-        background: #64affa;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 1rem;
-        border-radius: 30px;
-        cursor: pointer;
-        transition:  0.3s ease, transform 0.3s ease;
-      }
-      button:hover {
-        background: #0984e3;
-        transform: translateY(-5px);
-      }
-      button:active {
-        transform: translateY(0);
       }
       .span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      height: 60px;
-      gap: 10px;  
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 60px;
+        gap: 10px;  
       }
       .span a {
         display: inline-block;
@@ -263,12 +238,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(45deg, #ff7e5f, #feb47b, #6a11cb, #2575fc);
+        background: linear-gradient(45deg, #ff7e5f, #feb47b, #9839ff, #3f7de8);
         background-size: 400% 400%;
         animation: gradientAnimation 10s ease infinite;
         z-index: -1;
       }
-
       /* 动态渐变动画 */
       @keyframes gradientAnimation {
         0% {
@@ -281,7 +255,6 @@
           background-position: 0% 50%;
         }
       }
-
       /* 容器样式 */
       .welcome-container {
         display: flex;
@@ -294,7 +267,6 @@
         padding: 20px;
         font-family: 'Roboto', sans-serif;
       }
-
       /* 标题样式 */
       .welcome-title {
         z-index: 8888;
@@ -304,7 +276,6 @@
         animation: float 3s infinite ease-in-out;
         text-shadow: 0 4px 15px rgba(0,0,0,0.7);
       }
-
       /* 文字样式 */
       .welcome-text {
         font-size: 1.2rem;
@@ -312,7 +283,6 @@
         margin-bottom: 30px;
         line-height: 1.5;transition-delay: 4s;
         animation: fadeIn 2.5s ease-out;
-        
       }
       /* 淡入动画 */
       @keyframes fadeIn {
@@ -335,18 +305,12 @@
         }
       }
       .view div {
-        display: flex;
-        flex-direction: column;
-        background-image: "https://p0.pipi.cn/basicdata/54ecde717a3c7eb86051ba69302a462ab0f66.jpg?imageView2/1/w/464/h/644";
-      }
-      .view div div {
-        display: flex;
+        display: block;
+        padding: 10px;
       }
       .view img {
-        width: 20%;
-      }
-      .view span {
-        width: 50%;
+        width: 150px;
+        height: auto;
       }
       .page img {
         width: 20%;
@@ -364,39 +328,24 @@
         <div class="welcome-content">
           <h1 class="welcome-title"> Hello 🎉</h1>
           <img src="https://p3-sign.douyinpic.com/obj/tos-cn-i-3jr8j4ixpe/13dd069cd70f440892d2f9201cb8c31d?lk3s=7b078dd2&x-expires=1736312400&x-signature=K1d1Zr92txpLY96sjPBPs7Q5IuM%3D&from=2064092626&s=sticker_comment&se=false&sc=sticker_heif&biz_tag=aweme_comment&l=202501071250399FA9D46BF496770881BF">
-          <p class="welcome-text">This is a simple HTML page.</p>
+          <div class="welcome-text"> 
+            <p>This is a simple HTML page.</p>
+            <p></p>
+            <p>html还没有写明白，捣鼓了一下GitHub，整一个blog，难不成要中途转去学markdown吗？为什么要学这么多啊！</p>
+          </div> 
         </div>
-      </div>
-      <div class="page" style="justify-content: flex-end;">
-        <img src="https://p26-sign.douyinpic.com/tos-cn-i-p14lwwcsbr/18bbb0ab0f6244439c8954bdd4890c75~tplv-p14lwwcsbr-7.image?lk3s=7b078dd2&x-expires=1736262000&x-signature=R6JeGa0W%2FCLub3r2gkhUugFvtg4%3D&from=2064092626&se=false&sc=image&biz_tag=aweme_comment&l=202501071748186E0C9B7C67100701F6F1">
+        <div style="display: flex;justify-content: end;">
+          <img src="https://qzs.qq.com/qzone/client/photo/qzone_shuoshuo_pic/1485435317.gif" style="border-radius: 10px;">
+        </div>
       </div>
     </div>
     <div id="text-container">
-        <p>受困于过去的失败官司，他现在干着一份卑微的工作，
-          <br>拿着微薄到可笑的薪水。与此同时，弗雷迪希望
-          <br>可能找到一条摆脱过去的出路，并且最终过上那种
-          <br>他从未拥有的生活，比如，拿到一笔不菲的奖金，
-          <br>得到成为律所合伙人的契机。当然，首先他得
-          <br>找到那个毁掉他美满生活的罪魁祸首。</p>
-        <p>瑟维·勒·罗伊在比利时开启了他的魔术生涯，并搬到伦敦
-          <br>开设属于自己的魔术用品专营店。但这位喜爱人体消失魔术
-          <br>的魔术师并没有获得大众认同，也许在曾经出现过无数知名
-          <br>艺术家的欧利蒂斯庄园里，他能找到新的表演灵感？</p>
-        <p>她有野心，极其聪明看起来又不失真诚，但在那双眼睛后面
-          <br>还藏着更多东西，要在这个疯狂的世界里存活，有时候就得做些
-          <br>惊人之举。已经对不停地搬迁感到疲倦，艾米丽希望能借此找到
-          <br>一个可以被称为"家”的地方，并且最终得到她从未拥有的安全感
-          <br>和稳定生活。在此之前，她得解决过去遗留的一些"问题"。</p>
-        <p>与感情不和的丈夫离婚后，没有稳定经济来源的玛格丽莎，
-          <br>对"自由"的另一面有了新的认识。一个成为百万富翁的机会？
-          <br>她当然不会错过。</p>
-        <p>当教会有意在白沙街开设孤儿院时，皮尔森先生慷慨地将经营权
-          <br>和土地转赠给教会并离开了白沙街。虽然他获得了一笔可观
-          <br>的赔偿金，但对于皮尔森先生来说，这笔钱还不足以建设一所
-          <br>新的孤儿院，是时候从别人的口袋里捐出一点资助金了。不过，
-          <br>也许他应该先找一个可信的合作伙伴。</p>
-        <p>世界就像摇晃不停的骰蛊，他一直在赢，而
-          <br>谁也不知道，当它停下时会变成怎样</p>
+        <p>律师是聪明而冷静的求生者，他手中的地图可以指引队伍找到关键线索。无论是解锁密码机还是协助队友，他始终是行动计划中的重要角色，善于利用资源保障团队的胜利。</p>
+        <p>魔术师是一位神秘而机智的求生者，善于利用幻象迷惑监管者。他的魔术棒让他在关键时刻能够迅速脱身，为队伍创造更多机会，是逃脱追捕的关键人物。</p>
+        <p>医生是一位温暖而坚韧的求生者，她的医疗包能迅速治愈队友，提升团队的生存能力。在危机中，她的技能总能为伙伴们带来一线生机，是不可或缺的救援专家。</p>
+        <p>园丁是勇敢而执着的求生者，她的工具箱能迅速拆除监管者的椅子。凭借其敏捷的动作，她能为队友争取更多救援时间，是团队不可替代的坚实后盾。</p>
+        <p>慈善家是一位富有爱心的冒险家，手持手电筒对抗监管者。他凭借灵活的行动与大胆的策略，为队伍争取更多时间，是保护队友的重要后盾，行动果断且充满活力。</p>
+        <p>幸运儿是一个充满潜力的求生者，尽管没有特殊技能，但他的随机应变能力使他能够适应各种状况。他是队伍中的多面手，用行动证明幸运往往青睐有准备的人。</p>
     </div>
     <div class="figure-container">
         <figure>
@@ -430,9 +379,6 @@
         <figure style=" rotate: 2deg;">
           <img src="https://id5.res.netease.com/pc/fab/20241111122056/img/img3_76f984d2.png">
           <figcaption>芳泽霞</figcaption>
-        </figure>
-        <figure>
-          <img src="https://qzs.qq.com/qzone/client/photo/qzone_shuoshuo_pic/1485435317.gif">
         </figure>
     </div>
     <div class="wid">
@@ -544,30 +490,26 @@
     </div>
     <div class="view">
       <div>
-        <div>
+        <div style="display: flex; align-items: flex-start; gap: 20px;">
           <img src="https://p0.pipi.cn/basicdata/54ecde717a3c7eb86051ba69302a462ab0f66.jpg?imageView2/1/w/464/h/644" alt="埃德斯塔福特">
-          <span>
+          <div>
             <h2>埃德·斯塔福德</h2>
             <p>Ed Stafford</p>
-          </span>
-          <span>
             <p>导演 | 演员 | 编剧</p>
             <p>1975-12-26</p>
-          </span>
+          </div>
         </div>
         <div>埃德·斯塔福德是一名前驻阿富汗英国陆军上尉。2010年4月，斯塔福特与一名同伴钻进秘鲁热带雨林，踏上沿亚马孙河徒步之旅。同伴中途退出，赞助商停止赞助，斯塔福德仍坚持旅程，最后用860天走完全程。2013年，斯塔福德在南太平洋一个荒无人烟的小岛，独自生活60天。Ed Stafford is a former British Army captain who, in 2010, became the first human to walk the entire length of the Amazon River. His feat took him 860 days and earned him a place in the Guinness Book of Records.Ed is now a presenter and adventurer on the Discovery Channel. He is also the author of "Walking the Amazon" and "Naked and Marooned"</div>
       </div>
       <div>
-        <div>
+        <div style="display: flex; align-items: flex-start; gap: 20px;">
           <img src="https://p0.pipi.cn/basicdata/25bfd6d7537c6916bd07ac8068a5fd04727a2.jpg?imageView2/1/w/464/h/644" alt="杰瑞米·维德">
-          <span>
+          <div>
             <h2>杰瑞米·维德</h2>
             <p>Jeremy Wade</p>
-          </span>
-          <span>
             <p>演员</p>
             <p>1956-03-23</p>
-          </span>
+          </div>
         </div>
         <div>杰瑞米·维德（Jeremy Wade）是一名英国生物学家，电视节目主持人，极限钓鱼者和作家。他最为人所熟知的身份是电视系列节目《河中巨怪》的主持人。他最爱在淡水中钓鱼，曾环游世界各大淡水流域并在其中捕获巨大的淡水鱼。杰瑞米·维德是一位真正的“爱鱼者”，钓到鱼之后，基本都会将他们放生。</div>
       </div>
@@ -664,56 +606,5 @@
         });
         images.forEach((img) => observer.observe(img)); // 观察每张图片
     </script>
-    <script>
-        const button = document.getElementById('alertButton');
-        button.addEventListener('click', () => {
-          alert('Hello! You clicked the button!');
-        });
-    </script>
-    <script>
-      let currentPage = 0; // 当前页面索引
-      const pages = document.querySelectorAll('.page'); // 获取所有页面
-      const totalPages = pages.length;
-
-      // 更新页面切换
-      function updatePageTransform() {
-        pages.forEach((page, index) => {
-          page.style.transform = `translateY(-${currentPage * 100}vh)`;
-        });
-        document.body.style.backgroundColor = pages[currentPage]?.style.backgroundColor || '';
-      }
-
-      // 处理滚动事件（桌面端）
-      window.addEventListener('wheel', (e) => {
-        if (e.deltaY > 0 && currentPage < totalPages - 1) {
-          currentPage++;
-        } else if (e.deltaY < 0 && currentPage > 0) {
-          currentPage--;
-        }
-        updatePageTransform();
-      });
-
-      // 处理触摸滑动事件（移动端）
-      let startY = 0; // 触摸开始位置
-      let endY = 0; // 触摸结束位置
-
-      window.addEventListener('touchstart', (e) => {
-        startY = e.touches[0].clientY; // 记录触摸开始位置
-      });
-
-      window.addEventListener('touchend', (e) => {
-        endY = e.changedTouches[0].clientY; // 记录触摸结束位置
-
-        // 判断滑动方向
-        if (startY - endY > 50 && currentPage < totalPages - 1) {
-          // 向上滑动，切换到下一页
-          currentPage++;
-        } else if (endY - startY > 50 && currentPage > 0) {
-          // 向下滑动，切换到上一页
-          currentPage--;
-        }
-        updatePageTransform();
-      });
-    </script>  
     </body>
 </html>
