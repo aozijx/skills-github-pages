@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-[网页](https://aozijx.github.io/xuao/assistant/re0)
+[网页](https://aozijx.github.io/xuao/assistant/re1)
 
 这是一个为朋友制作的网站。该网站将会包含以下内容：
 
