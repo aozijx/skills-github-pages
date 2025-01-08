@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yang 网站</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>欢迎来到 yang 网站</h1>
+    </header>
+
+    <nav>
+        <a href="#home">主页</a>
+        <a href="#about">关于</a>
+        <a href="#contact">联系</a>
+    </nav>
+
+    <div id="home" class="container">
+        <h2>主页</h2>
+        <p>这是一个由Hiner为朋友制作的网站。网站的目标是提供简洁的界面，易于用户访问各种信息。</p>
+    </div>
+
+    <div id="about" class="container">
+        <h2>关于 yang 网站</h2>
+        <p>该网站由Hiner开发，主要目的是展示如何使用HTML、CSS和JavaScript构建一个简单的网站。我们目前处于开发阶段，网页内容将逐步更新。</p>
+    </div>
+
+    <div id="contact" class="container">
+        <h2>联系 yang</h2>
+        <form action="#">
+            <label for="name">姓名:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">电子邮件:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <input type="submit" value="提交">
+        </form>
+    </div>
+
+    <footer>
+        <p>开发者：Hiner</p>
+    </footer>
+
+</body>
+</html>
