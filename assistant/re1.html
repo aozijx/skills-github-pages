@@ -177,74 +177,22 @@
 
     <div id="contact" class="container">
         <h2>联系 smile</h2>
-        <form id="messageForm">
+        <form action="mailto:3434565146@qq.com" method="POST" enctype="text/plain" id="messageForm">
             <label for="name">姓名:</label>
             <input type="text" id="name" name="name" required>
             
             <label for="email">电子邮件:</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="message">留言:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="message">留言：</label><br>
+            <textarea id="message" name="message" required></textarea><br><br>
             
-            <input type="submit" value="提交">
+            <button type="submit">提交</button>
         </form>
     </div>
 
     <footer>
         <p>开发者：Hiner | 版权所有 &copy; 2025</p>
     </footer>
-
-    <script>
-        document.getElementById('messageForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            const markdownContent = `
-# 留言 - ${name}
-
-**邮箱:** ${email}
-
-**留言内容:**
-
-${message}
-            `;
-
-            // GitHub API URL - 请替换为你的GitHub用户名和仓库名
-            const apiUrl = 'https://api.github.com/repos/aozijx/xuao/contents/messages/留言-${name}.md';
-
-            // GitHub个人访问令牌 - 用于身份验证
-            const token = 'YOUR_GITHUB_TOKEN';
-
-            const data = {
-                message: '提交留言',
-                content: btoa(markdownContent),  // 将内容转换为Base64编码
-            };
-
-            fetch(apiUrl, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `token ${token}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                },
-                body: JSON.stringify(data),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.content) {
-                    alert('留言提交成功！');
-                } else {
-                    alert('提交失败，请稍后重试。');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('提交失败，请稍后重试。');
-            });
-        });
-    </script>
 </body>
 </html>
