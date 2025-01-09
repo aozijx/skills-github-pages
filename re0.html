@@ -93,7 +93,7 @@
         object-fit: contain; /* 保证图片内容完全显示，保持比例 */
       }
       figure img:hover {
-        transform: scale(1.2);
+        transform: scale(1.3);
         filter: brightness(1.2); /* 提高亮度 */
         cursor: pointer; /* 鼠标指针变为手型 */
       }
@@ -246,7 +246,6 @@
       }
       .welcome-cotent {
         display: flex;
-        width: 80%;
         justify-content: center;
         align-items: center;
       }
@@ -308,6 +307,22 @@
       section p {
         font-size: 1em;
       }
+      .deep {
+        width: 500px;
+        height: 300px;
+        background: rgba(0, 0, 0, 0.5);
+        background-image: url();
+        border-radius: 20px;
+        padding: 20px;
+      }
+      .deep t {
+        color: #ffffff;
+        font-size: 30px;
+      }
+      .deep p {
+        color: #ffffff;
+        font-size: 18px;
+      }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
@@ -338,7 +353,17 @@
         <p>慈善家是一位富有爱心的冒险家，手持手电筒对抗监管者。他凭借灵活的行动与大胆的策略，为队伍争取更多时间，是保护队友的重要后盾，行动果断且充满活力。</p>
         <p>幸运儿是一个充满潜力的求生者，尽管没有特殊技能，但他的随机应变能力使他能够适应各种状况。他是队伍中的多面手，用行动证明幸运往往青睐有准备的人。</p>
     </div>
-    <div style="width: 100vw;height: 100vh;"></div>
+    <div style="display: flex;width: 100vw;height: 100%;gap: 30px;justify-content: center;flex-wrap: wrap;">
+      <div class="deep">
+        <t>汉字</t>
+        <p>badxsm</p>
+      </div>
+      <div class="deep"></div>
+      <div class="deep"></div>
+      <div class="deep"></div>
+      <div class="deep"></div>
+      <div class="deep"></div>
+    </div>
     <h1>第五人格</h1>
     <div class="figure-container">
         <figure>
