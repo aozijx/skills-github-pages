@@ -22,10 +22,31 @@
 ### 4. markdown
 学习markdown中……（用点简单的#、*、-，哈哈，也算是一种练习吧）
 
+**runoob上的一些网页**
+- [烟花](https://aozijx.github.io/xuao/source/HTML/fireworks)
+- [万花筒](https://aozijx.github.io/xuao/source/HTML/canvas)
+- [五子棋](https://aozijx.github.io/xuao/source/HTML/gobang)
+- [菜鸟手机](https://aozijx.github.io/xuao/source/HTML/phone)
+- [百度热力图](https://aozijx.github.io/xuao/source/HTML/map)
+- [菜单](https://aozijx.github.io/xuao/source/HTML/menu)
+- [更多](https://www.jyshare.com/examples/)
+ 
+**CSS的创意辅助网站**
+- [CSS Gradient](https://cssgradient.io/)
+- [Fancy-Border-Radius](https://9elements.github.io/fancy-border-radius/)
+- [Uiverse](https://uiverse.io/)
+- [CSS Loaders](https://css-loaders.com/)
+
+**在线的HTML编辑网站**
+- [菜鸟工具](https://www.jyshare.com/front-end/61/)
+- [W3 school](https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic)
+- [codepen](https://codepen.io/pen/)
+
+(在网页上也好，只不过是帮助人的工具罢了)
+
+
+
 ---
-**idea**：
-- 仓库的结构需要调整
-- 可以通过链接点击到达不同的markdown笔记……网页也需要改善
-- 这一页是不是也可以通过什么手段 加上导航栏之类的？
+**idea**[*](https://aozijx.github.io/xuao/source/idea)
 
 感谢访问我的博客，期待与你一起分享更多的知识与经验！
