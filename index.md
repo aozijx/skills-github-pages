@@ -27,5 +27,15 @@
 - 仓库的结构需要调整
 - 可以通过链接点击到达不同的markdown笔记……网页也需要改善
 - 这一页是不是也可以通过什么手段 加上导航栏之类的？
-
+- 
+{% include navbar.html %}
 感谢访问我的博客，期待与你一起分享更多的知识与经验！
+<!-- 导航栏 -->
+<nav>
+  <ul>
+    <li><a href="#home">首页</a></li>
+    <li><a href="#about">关于我们</a></li>
+    <li><a href="#services">服务</a></li>
+    <li><a href="#contact">联系我们</a></li>
+  </ul>
+</nav>
