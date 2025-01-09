@@ -1,51 +1,31 @@
-# 个人博客
+## 个人博客
 
 欢迎来到我的个人博客！这是我记录学习、成长与生活点滴的地方。
 
-- **编程语言**：Python、C
-- **工具与技术**：VSCode
-- **目标**：提高编程技能，进行项目开发
+#### 爬虫技术
+我开始使用 Python 编写爬虫，学习如何从网页抓取数据。但是，处理复杂网页（如 Ajax、JSON 等）时，我遇到了一些挑战和难题。因为没有经验，我将他搁置了下来，以至于我只会爬取静态网页上的内容，而且写的也不怎么好。
 
-## 我的学习之路
+#### HTML练习
+我正在学习前端等的知识，写了一个不成熟的网页，目前还在磕磕绊绊的写。一直在想能不能通过链接直达我的网页，一开始是只能局域网内访问，因为我使用 Live Server 插件，随后了解到了 GitHub 上的 page ，所以也来写了一个简单的 markdown 文件，通过点击导向我一开始写的 **[网页](https://aozijx.github.io/xuao/re0)** 。
 
-### 1. 编程语言的学习
-我最初接触 Python 语言，通过理解基本的语法、数据结构以及算法设计，奠定了编程的基础。之后，我学习了 C  。
+- **由来**：起初是和第五人格、圣诞相关的，并且使用了 ChatGPT 的帮助，JavaScript都不是我写的，所以一些逻辑很让我头疼，我也没有很好的创意，随便写的属于是……网页中的一些按钮是我试验GPT代码的地方。
+- ✔️ 一些图片的链接，网页中加载不出来是因为图片源是网易官网的，可能是防盗链的原因，显示不出来，后续可能会上传图床或者仓库来解决。
 
-### 2. 爬虫技术
-我开始使用 Python 编写爬虫，学习如何从网页抓取数据。但是，处理复杂网页（如 Ajax、JSON 等）时，我遇到了一些挑战和难题。因为没有经验，我将他搁置了下来，以至于我只会爬取静态网页上的内容，而且也写的不怎么好。
+#### markdown（学习中……***期待我能玩出花来！！***）
+由于我所使用的模板的原因，markdown的页面没有导航栏等等，只是一个简单的不能再简单的页面，换字体，样式等等需要细细摸索。
 
-### 3. HTML练习
-我正在学习前端等的知识，写了一个不成熟的网页，目前还在磕磕绊绊的写。一直在想能不能通过链接直达我的网页，一开始是只能局域网内访问，因为我使用 Live Server 插件，随后了解到了 GitHub 上的 page ，所以也来写了一个简单的 markdown 文件，通过点击导向我一开始写的[网页](https://aozijx.github.io/xuao/re0)。
-
-- **由来**：起初是和第五人格、圣诞相关的，并且使用了 ChatGPT 的帮助，JavaScript都不是我写的，所以一些逻辑很让我头疼，我也没有很好的创意，随便写了一页属于是……网页中的一些按钮是我试验GPT代码的地方，哈哈，包括一些图片的链接，网页中加载不出来的图片的源是网易官网的，可能是防盗链的原因，显示不出来，后续可能会上传图床（不太保险）或者仓库写相对路径来解决。
-
-### 4. markdown
-学习markdown中……（用点简单的#、*、-，哈哈，也算是一种练习吧）
-
-**runoob上的一些网页**
-- [烟花](https://aozijx.github.io/xuao/source/HTML/fireworks)
-- [万花筒](https://aozijx.github.io/xuao/source/HTML/canvas)
-- [五子棋](https://aozijx.github.io/xuao/source/HTML/gobang)
-- [菜鸟手机](https://aozijx.github.io/xuao/source/HTML/phone)
-- [百度热力图](https://aozijx.github.io/xuao/source/HTML/map)
-- [菜单](https://aozijx.github.io/xuao/source/HTML/menu)
-- [更多](https://www.jyshare.com/examples/)
- 
-**CSS的创意辅助网站**
-- [CSS Gradient](https://cssgradient.io/)
-- [Fancy-Border-Radius](https://9elements.github.io/fancy-border-radius/)
-- [Uiverse](https://uiverse.io/)
-- [CSS Loaders](https://css-loaders.com/)
-
-**在线的HTML编辑网站**
-- [菜鸟工具](https://www.jyshare.com/front-end/61/)
-- [W3 school](https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic)
-- [codepen](https://codepen.io/pen/)
-
-(在网页上也好，只不过是帮助人的工具罢了)
-
-##### [仓库](https://github.com/aozijx/xuao)
 ---
-**idea**[*](https://aozijx.github.io/xuao/source/idea)
 
-感谢访问我的博客，期待与你一起分享更多的知识与经验！
+- **runoob上的网页**
+[烟花](https://aozijx.github.io/xuao/source/HTML/fireworks) | [万花筒](https://aozijx.github.io/xuao/source/HTML/canvas) | [五子棋](https://aozijx.github.io/xuao/source/HTML/gobang) | [菜鸟手机](https://aozijx.github.io/xuao/source/HTML/phone) | [百度热力图](https://aozijx.github.io/xuao/source/HTML/map) | [菜单](https://aozijx.github.io/xuao/source/HTML/menu) | [更多](https://www.jyshare.com/examples/)
+
+- **CSS创意辅助网站**
+[CSS Gradient](https://cssgradient.io/) | [Fancy-Border-Radius](https://9elements.github.io/fancy-border-radius/) | [Uiverse](https://uiverse.io/) | [CSS Loaders](https://css-loaders.com/)
+
+- **在线HTML编辑**
+[菜鸟工具](https://www.jyshare.com/front-end/61/) | [W3 school](https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic) | [codepen](https://codepen.io/pen/)
+
+---
+[项目仓库](https://github.com/aozijx/xuao) | > [*](https://aozijx.github.io/xuao/source/idea) < | [友](https://aozijx.github.io/xuao/assistance/yang)
+
+> 感谢访问我的博客，期待与你一起分享更多的知识与经验！
