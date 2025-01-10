@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第五人格</title>
+    <style>
+        body {
+        display: flex; 
+        flex-direction: column;
+        font-family: '楷体',Georgia ;
+        margin: 0;
+        width: 100%;
+        margin: 0 auto;
+        overflow-y: scroll; /* 启用垂直滚动 */
+        scroll-snap-type: y mandatory; /* 启用滚动捕捉效果 */
+        line-height: 1.3;
+        align-items: center;
+        /* background: linear-gradient(135deg, #ff8668, #feb47b,#81ecec); */
+        transition: background-color 2s ease;
+      }
+    .figure-container {
+        display: flex;
+        max-width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: auto;
+        gap: 20px;  
+    }        
+    figure {
+        text-align: center;
+        margin: 0;
+        max-width: 200px;
+        width: auto;
+    }
+    figure img {
+        margin: 0 auto;
+        max-width: 100%;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* 平滑过渡效果 */
+        transition: all 0.8s ease-in-out;  /* 全部属性变化时，过渡时间为0.8秒 */
+        object-fit: contain; /* 保证图片内容完全显示，保持比例 */
+    }
+    figure img:hover {
+        transform: scale(1.3);
+        filter: brightness(1.2); /* 提高亮度 */
+        cursor: pointer; /* 鼠标指针变为手型 */
+    }
+    figcaption {            
+        font-size: 16px;
+        color: #000000;
+    }
+    .wid {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        margin-top: 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .wid div {
+        position: relative;
+        width: 17%;
+        margin: 0 auto;
+    }
+    .wid img {
+        margin: 0 auto;
+        width: 100%;
+        opacity: 0;
+        border-radius: 10px;
+        transform: translateY(80px); /* 初始位置在视口下方 */
+        transition: all 1s ease-in-out;
+    }
+    .wid p {
+        position: absolute;
+        font-size: 16px;
+        bottom: 20px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        width: 100%;
+    }
+    .wid img.show {
+        opacity: 1;
+        transform: translateY(0); /* 图片进入视口时回到原位 */
+    }
+    .wid img:hover {
+        transform: scale(1.1);
+        rotate: 2deg;
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+        filter: brightness(1.2); /* 提高亮度 */
+        cursor: pointer;
+    }
+    /* 动态背景 */
+    .background-gradient {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #ff7e5f, #feb47b, #9839ff, #3f7de8);
+        background-size: 400% 400%;
+        animation: gradientAnimation 10s ease infinite;
+        z-index: -1;
+    }
+    /* 动态渐变动画 */
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    footer {
+        height: 50px;
+        width: 100%;
+        font-size: 20px;
+        margin-top: 40px;
+        background-color: #44fdf7;
+        color: white;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+    }
+    </style>
+</head>
+<body>
+    <h1>欢迎来到我的网站</h1>
+    <div id="text-container">
+        <p>律师是聪明而冷静的求生者，他手中的地图可以指引队伍找到关键线索。无论是解锁密码机还是协助队友，他始终是行动计划中的重要角色，善于利用资源保障团队的胜利。</p>
+        <p>魔术师是一位神秘而机智的求生者，善于利用幻象迷惑监管者。他的魔术棒让他在关键时刻能够迅速脱身，为队伍创造更多机会，是逃脱追捕的关键人物。</p>
+        <p>医生是一位温暖而坚韧的求生者，她的医疗包能迅速治愈队友，提升团队的生存能力。在危机中，她的技能总能为伙伴们带来一线生机，是不可或缺的救援专家。</p>
+        <p>园丁是勇敢而执着的求生者，她的工具箱能迅速拆除监管者的椅子。凭借其敏捷的动作，她能为队友争取更多救援时间，是团队不可替代的坚实后盾。</p>
+        <p>慈善家是一位富有爱心的冒险家，手持手电筒对抗监管者。他凭借灵活的行动与大胆的策略，为队伍争取更多时间，是保护队友的重要后盾，行动果断且充满活力。</p>
+        <p>幸运儿是一个充满潜力的求生者，尽管没有特殊技能，但他的随机应变能力使他能够适应各种状况。他是队伍中的多面手，用行动证明幸运往往青睐有准备的人。</p>
+    </div>
+    <div class="background-gradient"></div>
+    <h1>第五人格</h1>
+    <div class="figure-container">
+        <figure>
+          <img src="https://patchwiki.biligame.com/images/dwrg/2/20/6oeqlr1pchs6nv23h2tbmrdkgfewatn.png">
+          <figcaption>律师</figcaption>
+        </figure>
+        <figure>
+          <img src="https://patchwiki.biligame.com/images/dwrg/c/c7/68458ippn8ksgtuty9vum6z65fle5k7.png">
+          <figcaption>魔术师</figcaption>
+        </figure>
+        <figure>
+          <img src="https://patchwiki.biligame.com/images/dwrg/d/db/axt765jd7wtywdr316xc4ta3xfri3op.png">
+          <figcaption>医生</figcaption>
+        </figure>
+        <figure>
+          <img src="https://patchwiki.biligame.com/images/dwrg/2/2a/g9p48a92ukc57gp3fne3fvna22ibhdk.png">
+          <figcaption>园丁</figcaption>
+        </figure>
+        <figure>
+          <img src="https://patchwiki.biligame.com/images/dwrg/e/e3/bz9o1ba3uc9ndjj3hj9kx1634u25c5m.png">
+          <figcaption>慈善家</figcaption>
+        </figure>
+        <figure>
+          <img src="https://patchwiki.biligame.com/images/dwrg/f/f4/1gpos8s1uq6utxsnwi0zdtn7xizt7tj.png">
+          <figcaption>幸运儿</figcaption>
+        </figure>
+        <div>
+          <img src="source/image/five/下载.png" width="170px" height="auto" alt="失败圣诞树">
+          <p>☃第五人格☃</p>
+        </div>
+    </div>
+    <div class="wid">
+        <div>
+            <img src="source/image/five/记忆余烬·下篇2.jpg" alt="记忆余烬 下篇2">
+            <p>记忆余烬·下篇2</p>
+        </div>
+        <div>
+            <img src="source/image/five/2023愚人节.jpg" alt="2023愚人节">
+            <p>2023愚人节</p>
+        </div>
+        <div>
+            <img src="source/image/five/2023中秋节.jpg" alt="2023中秋节">
+            <p>2023中秋节</p>
+        </div>
+        <div>
+            <img src="source/image/five/【溯洄系列】红夫人-应许之日.jpg" alt="【溯洄系列】红夫人-应许之日">
+            <p>【溯洄系列】红夫人-应许之日</p>
+        </div>
+        <div>
+            <img src="source/image/five/小女孩.jpg" alt="小女孩">
+            <p>小女孩</p>
+        </div>
+    </div>
+    <div class="wid">
+        <div>
+            <img src="source/image/five/舞女-西尔菲德.jpg" alt="舞女-西尔菲德">
+            <p>舞女-西尔菲德</p>
+        </div>
+        <div>
+            <img src="source/image/five/【演绎之星系列】渔女-垂泪的神女.jpg" alt="【演绎之星系列】渔女-垂泪的神女">
+            <p>【演绎之星系列】渔女-垂泪的神女</p>
+        </div>
+        <div>
+            <img src="source/image/five/【演绎之星系列】“心理学家”朱丽叶.jpg" alt="【演绎之星系列】“心理学家”-朱丽叶">
+            <p>【演绎之星系列】“心理学家”-<br>朱丽叶</p>
+        </div>
+        <div>
+            <img src="source/image/five/【溯洄系列】红夫人-应许之日_.jpg" alt="【溯洄系列】红夫人-应许之日">
+            <p>【溯洄系列】红夫人-应许之日</p>
+        </div>
+        <div>
+            <img src="source/image/five/新枪弹辩驳V3联动 倒计时.jpg" alt="新枪弹辩驳V3联动 倒计时">
+            <p>新枪弹辩驳V3联动 倒计时</p>
+        </div>
+        <div>
+            <img src="source/image/five/2023视障儿童公益海报.jpg" alt="2023视障儿童公益海报">
+            <p>2023视障儿童公益海报</p>
+        </div>
+        <div>
+            <img src="source/image/five/记忆余烬精华海报.jpg" alt="记忆余烬精华海报">
+            <p>记忆余烬精华海报</p>
+        </div>
+        <div>
+            <img src="source/image/five/【演绎之星系列】调香师-花序.jpg" alt="【演绎之星系列】调香师-花序">
+            <p>【演绎之星系列】调香师-花序</p>
+        </div>
+        <div>
+            <img src="source/image/five/2023情人节.jpg" alt="2023情人节">
+            <p>2023情人节</p>
+        </div>
+        <div>
+            <img src="source/image/five/2018世界杯.jpg" alt="2018世界杯">
+            <p>2018世界杯</p>
+        </div>
+    </div>
+    <footer>&copy; 第五人格 | All Rights Reserved</footer>
+    <script>
+        // 获取所有的 <p> 标签和 <figure> 标签
+        const paragraphs = document.querySelectorAll('#text-container p');
+        const figures = document.querySelectorAll('.figure-container figure');
+
+        // 计算每个 figure 应分配的 <p> 标签数量
+        const perFigureCount = Math.ceil(paragraphs.length / figures.length);
+
+        // 遍历每个 figure，将 <p> 标签分配进去
+        paragraphs.forEach((p, index) => {
+            const targetFigure = figures[Math.floor(index / perFigureCount)];
+            const textContainer = document.createElement('div'); // 创建一个容器来保存文字
+            textContainer.appendChild(p); // 把 <p> 标签移入容器
+            targetFigure.appendChild(textContainer); // 将文字容器添加到目标 figure 中
+        });
+    </script>
+    <script>
+        // 使用 Intersection Observer API 检测图片是否进入视口
+        const images= document.querySelectorAll("img");
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            // 如果图片进入视口
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show"); // 添加 .show 类触发动画
+            } else {
+              // 如果图片离开视口，则移除 .show 类
+              entry.target.classList.remove("show");
+            }
+          });
+        }, {
+          threshold: 0.3,  // 图片至少 50% 进入视口时触发
+        });
+        document.querySelectorAll('figure img').forEach((img) => {
+          observer.observe(img);
+        });
+        images.forEach((img) => observer.observe(img)); // 观察每张图片
+    </script>
+    <script>
+      window.onload = function() {
+          var links = document.querySelectorAll('a');
+          links.forEach(function(link) {
+              link.setAttribute('target', '_blank');
+          });
+      };
+    </script>
+</body>
+</html>
