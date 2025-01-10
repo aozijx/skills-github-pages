@@ -99,19 +99,43 @@
         object-fit: cover;
         z-index: -1;
       }
+    nav {
+      width: 100%;
+      background-color: rgb(0, 0, 0, 0.3);
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      margin: 0 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #68d2ff;
+    }
       .span {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         height: 60px;
-        gap: 10px;  
+        gap: 10px;
       }
       .span a {
         display: inline-block;
         text-align: center;
         color: #ffffff;
-        background-color: #0078d7;
+        background-color: rgb(0, 0, 0, 0);
         padding: 10px 20px;
         border-radius: 10px;
         text-decoration: none;
@@ -125,7 +149,6 @@
       }
       .span a:active {
         transform: scale(0.95); /* 点击时缩小 */
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       }
       footer {
         height: 50px;
@@ -215,7 +238,7 @@
       .deep {
         width: 30%;
         height: 300px;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.3);
         background-image: url();
         border-radius: 20px;
         padding: 20px;
@@ -240,6 +263,9 @@
     </div> 
     <div class="welcome-container">
       <div class="welcome-content">
+        <nav>
+          <a href="https://image.baidu.com/" target="_blank">图搜</a>
+        </nav>
         <h1 class="welcome-title"> Hello Everyone to Here🎉</h1>
         <div class="welcome-text">
           <img src="source/image/crydog.gif" style="width: 20%;">
@@ -254,10 +280,16 @@
     </video>
     <div style="display: flex;width: 100vw;;gap: 30px;justify-content: center;flex-wrap: wrap;margin-top: 40px;">
       <div class="deep">
+        <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic" target="_blank">W3school</a>
+      </div>
+      <div class="deep">
+        <a href="https://www.jyshare.com/front-end/61/" target="_blank">菜鸟在线Web</a>
+      </div>
+      <div class="deep">
         <a>CSS</a><br>
         <a href="source/markdown/audio">audio标签</a>
       </div>
-      <div class="deep" style="background-image: url(source/image/five/芳泽霞.png);width: 30%;height: 290px;background-size: cover;opacity: 0.7;">
+      <div class="deep" style="background-image: url(source/image/five/dwrg.jpg);width: 30%;height: 290px;background-size: cover;opacity: 0.9;">
         <a href="https://aozijx.github.io/source/HTML/fw" target="_blank">第五人格</a>
         <p>原本是在这个网页，但是图片太大，拖累了网页加载的速度，所以把相关的代码做了迁移，效果简单化了。</p>
       </div>
@@ -276,12 +308,6 @@
       <div class="deep"></div>
       <div class="deep"></div>
     </div>
-    <span class="span">
-        <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic" target="_blank">w3school</a>
-        <a href="https://www.jyshare.com/front-end/61/" target="_blank">菜鸟Web在线</a>
-        <a href="https://image.baidu.com/" target="_blank">图搜</a>
-        <a href="https://id5.163.com/nrzx/picture.html" target="_blank">网易图片</a>
-    </span>
     <div style="margin-top: 40px;">
       <section>
         <a href="https://aozijx.github.io/xuao/"><h2> blog </h2></a>
@@ -394,6 +420,20 @@
         </tr>
       </tbody>
     </table>
-    <footer>&copy; 2025 Hiner的博客 | All Rights Reserved</footer>
+    <footer>&copy; 2025 | All Rights Reserved</footer>
+    <script>
+      // 监听滚动事件
+      window.onscroll = function() {
+        var navbar = document.querySelector('nav');
+        var scrollY = window.scrollY;
+        var windowHeight = window.innerHeight;
+  
+        // 动态计算透明度
+        var opacity = Math.min(1, scrollY / windowHeight);
+  
+        // 设置背景颜色的透明度
+        navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+      };
+    </script>
     </body>
 </html>
