@@ -15,10 +15,10 @@
     /* 侧边栏样式 */
     .sidenav {
       height: 100%;
-      width: 150px; /* 调整为更窄的宽度 */
+      width: 200px;
       position: fixed;
       top: 0;
-      left: -150px; /* 初始时完全隐藏侧边栏 */
+      left: -200px; /* 初始时完全隐藏侧边栏 */
       background-color: #333;
       transition: left 0.3s ease; /* 更平滑的动画效果 */
       z-index: 1000; /* 确保侧边栏在顶部 */
@@ -26,6 +26,7 @@
     .sidenav a {
       display: block;
       padding: 14px;
+      padding-left: 30px;
       text-decoration: none;
       color: white;
       text-align: left;
@@ -53,9 +54,9 @@
     }
     /* 按钮和内容 */
     .content {
-      padding: 20px;
-      padding-left: 100px;  /* 左右边距增加到100px */
-      padding-right: 100px;  /* 左右边距增加到100px */
+      padding: 40px;
+      padding-left: 300px;  /* 左右边距增加到300px */
+      padding-right: 300px;  /* 左右边距增加到300px */
       transition: margin-left 0.3s ease; /* 更平滑的内容区域动画 */
       width: 100%;
       z-index: 1;
@@ -66,7 +67,7 @@
       cursor: pointer;
       position: fixed;
       top: 20px;
-      left: 20px;
+      left: 80px;
       z-index: 1100; /* 按钮在最上面 */
       transition: left 0.3s ease; /* 按钮随侧边栏移动 */
     }
@@ -137,11 +138,11 @@
 
       // 如果侧边栏已经打开，则关闭它，否则打开它
       if (sidenav.style.left === "0px") {
-        sidenav.style.left = "-150px";  // 收回侧边栏
+        sidenav.style.left = "-200px";  // 收回侧边栏
         toggleBtn.style.left = "20px"; // 恢复按钮位置
       } else {
         sidenav.style.left = "0";  // 展开侧边栏
-        toggleBtn.style.left = "150px"; // 移动按钮到侧边栏右侧
+        toggleBtn.style.left = "210px"; // 移动按钮到侧边栏右侧
       }
     }
 
