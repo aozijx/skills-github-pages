@@ -1,0 +1,191 @@
+<div class="splash-screen" id="splashScreen">
+    <h1 class="splash-title">Welcome to the Website!</h1>
+</div>
+
+<div class="page-container" id="mainContent">
+    <!-- Page 1 -->
+    <div class="page" id="background-gradient"></div>
+    <!-- Page 2 -->
+    <div class="page" style="background-color: #3efeeb;">
+        <div class="welcome-container">
+            <div class="background-gradient"></div>
+            <div class="welcome-content">
+                <h1 class="welcome-title">Welcome 🎉</h1>
+                <p class="welcome-text">欢迎访问本网站，探索更多精彩内容！</p>
+            </div>
+        </div>
+    </div>
+
+<style>
+    /* 开屏动画样式 */
+    .splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.7); /* 半透明黑色背景 */
+      z-index: 9999;
+      animation: fadeOut 1.5s ease-out 3s forwards; /* 渐隐动画，持续1.5秒，延迟3秒后开始 */
+    }
+    
+    .splash-title {
+      font-size: 3rem;
+      color: white;
+      opacity: 1;
+      animation: slideDown 1.5s ease-out;
+    }
+    
+    /* 开屏动画消失效果 */
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    
+    /* 开屏标题向下滑动 */
+    @keyframes slideDown {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    /* 页面容器样式 */
+    .page-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    /* 页面样式 */
+    .page {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.8s ease, opacity 0.8s ease;
+      opacity: 0; /* 初始状态透明 */
+      pointer-events: none; /* 禁止点击 */
+    }
+    
+    .page.active {
+      opacity: 1; /* 当前页显示 */
+      pointer-events: auto; /* 允许点击 */
+      transform: translateY(0);
+    }
+    
+    /* 图片渐显效果 */
+    figure img {
+      opacity: 0;
+      transform: translateY(20px); /* 初始偏移 */
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    figure img.show {
+      opacity: 1;
+      transform: translateY(0); /* 回到原位 */
+    }
+    #background-gradient {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #ff7e5f, #feb47b, #6a11cb, #2575fc);
+        background-size: 400% 400%;
+        animation: gradientAnimation 10s ease infinite;
+        z-index: -1;
+      }
+
+      /* 动态渐变动画 */
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+</style>
+
+<script>
+    // 开屏动画隐藏逻辑
+    setTimeout(() => {
+      document.getElementById('splashScreen').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+    }, 4500); // 等待3秒延迟+1.5秒动画时间
+    
+    // 翻页逻辑
+    let currentPage = 0;
+    const pages = document.querySelectorAll('.page');
+    
+    // 初始化第一个页面为可见状态
+    pages[currentPage].classList.add('active');
+    
+    function updatePageTransform() {
+      pages.forEach((page, index) => {
+        if (index === currentPage) {
+          page.classList.add('active');
+        } else {
+          page.classList.remove('active');
+        }
+      });
+    }
+    
+    // 处理滚轮和触摸事件
+    window.addEventListener('wheel', (e) => {
+      if (e.deltaY > 0 && currentPage < pages.length - 1) {
+        currentPage++;
+      } else if (e.deltaY < 0 && currentPage > 0) {
+        currentPage--;
+      }
+      updatePageTransform();
+    });
+    
+    let startY = 0;
+    window.addEventListener('touchstart', (e) => {
+      startY = e.touches[0].clientY;
+    });
+    
+    window.addEventListener('touchend', (e) => {
+      const endY = e.changedTouches[0].clientY;
+      if (startY - endY > 50 && currentPage < pages.length - 1) {
+        currentPage++;
+      } else if (endY - startY > 50 && currentPage > 0) {
+        currentPage--;
+      }
+      updatePageTransform();
+    });
+    
+    // 图片显示逻辑
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    });
+    
+    document.querySelectorAll('figure img').forEach((img) => {
+      observer.observe(img);
+    });
+    
+</script>
