@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的丰富页面</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    pre {
+      background-color: #f7f7f7;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #btnClick {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #changeColorBtn {
+      background-color: #008CBA;
+      color: white;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div style="max-width: 900px; margin: 0 auto; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+
+    <h1>欢迎来到我的丰富多彩的页面！</h1>
+    <p>这个页面结合了 Markdown 的简洁性和一些增强功能，包括代码高亮、图片、数学公式、动态按钮等。</p>
+
+    <hr>
+
+    <h2>1. 插入代码高亮</h2>
+    <p>以下是一个 Python 代码示例，使用了 <strong>highlight.js</strong> 进行高亮展示：</p>
+    <pre><code class="language-python">def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Hiner")</code></pre>
+
+    <hr>
+
+    <h2>2. 数学公式</h2>
+    <p>你可以插入漂亮的数学公式，使用 <strong>MathJax</strong> 渲染 LaTeX 语法：</p>
+    <p>$$E = mc^2$$</p>
+
+    <hr>
+
+    <h2>3. 插入图片和视频</h2>
+    <p>这是一个插入的图片示例：</p>
+    <img src="https://images.unsplash.com/photo-1516246122190-dfa1bc5d74a3" alt="Nature" style="max-width: 100%; height: auto; border-radius: 8px;">
+
+    <p>你也可以嵌入一个视频：</p>
+    <iframe src="https://player.bilibili.com/player.html?bvid=BV1hL4y1w72r" frameborder="0" allowfullscreen></iframe>
+
+    <hr>
+
+    <h2>4. 动态按钮</h2>
+    <p>点击下面的按钮，你会看到一个提示框：</p>
+    <button id="btnClick">点击我</button>
+
+    <script>
+      document.getElementById('btnClick').onclick = function() {
+        alert("你点击了按钮！");
+      };
+    </script>
+
+    <hr>
+
+    <h2>5. 流程图</h2>
+    <p>使用 <strong>Mermaid.js</strong> 插件，可以绘制流程图：</p>
+    <pre class="mermaid">
+graph TD;
+    A[开始] --> B{是否有兴趣};
+    B --|是|--> C[继续学习];
+    B --|否|--> D[放弃];
+    C --> E[取得进步];
+    D --> E[取得进步];
+    </pre>
+
+    <hr>
+
+    <h2>6. 动态效果：更改背景颜色</h2>
+    <p>你可以使用下面的按钮动态更改页面的背景颜色：</p>
+    <button id="changeColorBtn">更改背景颜色</button>
+
+    <script>
+      document.getElementById('changeColorBtn').onclick = function() {
+        document.body.style.backgroundColor = getRandomColor();
+      };
+
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    </script>
+
+    <hr>
+
+    <h2>7. 结束语</h2>
+    <p>这是一个简单但功能丰富的示例页面！你可以根据自己的需求，继续扩展和自定义这个页面，添加更多内容或交互效果。</p>
+    <p>感谢你访问这个页面，祝你有愉快的一天！</p>
+
+  </div>
+
+  <!-- Mermaid.js 和 MathJax -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+
+    // MathJax for LaTeX rendering
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
