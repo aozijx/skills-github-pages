@@ -69,43 +69,12 @@
           opacity: 1;
         }
       }
-      .figure-container {
-        display: flex;
-        max-width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        height: auto;
-        gap: 20px;  
-      }        
-      figure {
-        text-align: center;
-        margin: 0;
-        max-width: 200px;
-        width: auto;
-      }
-      figure img {
-        margin: 0 auto;
-        max-width: 100%;
-        border: 1px solid transparent;
-        border-radius: 10px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* 平滑过渡效果 */
-        transition: all 0.8s ease-in-out;  /* 全部属性变化时，过渡时间为0.8秒 */
-        object-fit: contain; /* 保证图片内容完全显示，保持比例 */
-      }
-      figure img:hover {
-        transform: scale(1.3);
-        filter: brightness(1.2); /* 提高亮度 */
-        cursor: pointer; /* 鼠标指针变为手型 */
-      }
-      figcaption {            
-        font-size: 16px;
-        color: #000000;
-      }
       table {
         border-collapse: collapse; /* 合并表格边框 */
-        width: 100%; /* 表格宽度100% */
+        width: 97%; /* 表格宽度100% */
         border-radius: 10px; /* 圆角设置 */
         overflow: hidden; /* 隐藏溢出的边角 */
+        margin-top: 20px;
       }
       th, td {
         padding: 8px 12px;
@@ -129,47 +98,6 @@
         height: 100%;
         object-fit: cover;
         z-index: -1;
-      }
-      .wid {
-        display: flex;
-        flex-wrap: wrap;
-        width: 90%;
-        margin-top: 20px;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-      }
-      .wid div {
-        position: relative;
-        width: 17%;
-        margin: 0 auto;
-      }
-      .wid img {
-        margin: 0 auto;
-        width: 100%;
-        opacity: 0;
-        border-radius: 10px;
-        transform: translateY(80px); /* 初始位置在视口下方 */
-        transition: all 1s ease-in-out;
-      }
-      .wid p {
-        position: absolute;
-        font-size: 16px;
-        bottom: 20px;
-        text-align: center;
-        color: rgb(255, 255, 255);
-        width: 100%;
-      }
-      .wid img.show {
-        opacity: 1;
-        transform: translateY(0); /* 图片进入视口时回到原位 */
-      }
-      .wid img:hover {
-        transform: scale(1.1);
-        rotate: 2deg;
-        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
-        filter: brightness(1.2); /* 提高亮度 */
-        cursor: pointer;
       }
       .span {
         display: flex;
@@ -208,30 +136,7 @@
         display: flex;
         justify-content: center; 
         align-items: center;
-      }
-      /* 动态背景 */
-      .background-gradient {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, #ff7e5f, #feb47b, #9839ff, #3f7de8);
-        background-size: 400% 400%;
-        animation: gradientAnimation 10s ease infinite;
-        z-index: -1;
-      }
-      /* 动态渐变动画 */
-      @keyframes gradientAnimation {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
+        margin-top: 40px;
       }
       /* 容器样式 */
       .welcome-container {
@@ -242,7 +147,7 @@
         height: 100vh;
         width: 100vw;
         padding: 20px;
-        background-image: url(https://aozijx.github.io/xuao/source/image/BG.gif);
+        background-image: url(source/image/BG.gif);
       }
       .welcome-cotent {
         display: flex;
@@ -315,9 +220,10 @@
         border-radius: 20px;
         padding: 20px;
       }
-      .deep t {
+      .deep a {
         color: #ffffff;
         font-size: 30px;
+        text-decoration: none;
       }
       .deep p {
         color: #ffffff;
@@ -343,150 +249,53 @@
         <img src="source/image/cat.gif" style="width: 20%; float: right;">
       </div>
     </div>
-    <div class="background-gradient"></div>
     <video autoplay muted loop style="margin-top: 20px;" class="background-video">
       <!-- <source src="https://dwxcx.fp.ps.netease.com/file/66d91cf8120d8a0358bc8cf0SFQzdATS05" type="video/mp4" width="50px"> -->
     </video>
-    <div id="text-container">
-        <p>律师是聪明而冷静的求生者，他手中的地图可以指引队伍找到关键线索。无论是解锁密码机还是协助队友，他始终是行动计划中的重要角色，善于利用资源保障团队的胜利。</p>
-        <p>魔术师是一位神秘而机智的求生者，善于利用幻象迷惑监管者。他的魔术棒让他在关键时刻能够迅速脱身，为队伍创造更多机会，是逃脱追捕的关键人物。</p>
-        <p>医生是一位温暖而坚韧的求生者，她的医疗包能迅速治愈队友，提升团队的生存能力。在危机中，她的技能总能为伙伴们带来一线生机，是不可或缺的救援专家。</p>
-        <p>园丁是勇敢而执着的求生者，她的工具箱能迅速拆除监管者的椅子。凭借其敏捷的动作，她能为队友争取更多救援时间，是团队不可替代的坚实后盾。</p>
-        <p>慈善家是一位富有爱心的冒险家，手持手电筒对抗监管者。他凭借灵活的行动与大胆的策略，为队伍争取更多时间，是保护队友的重要后盾，行动果断且充满活力。</p>
-        <p>幸运儿是一个充满潜力的求生者，尽管没有特殊技能，但他的随机应变能力使他能够适应各种状况。他是队伍中的多面手，用行动证明幸运往往青睐有准备的人。</p>
-    </div>
     <div style="display: flex;width: 100vw;;gap: 30px;justify-content: center;flex-wrap: wrap;margin-top: 40px;">
       <div class="deep">
-        <t>汉字</t>
-        <p>badxsm</p>
+        <a>CSS</a><br>
+        <a href="source/markdown/audio.md">audio标签</a>
+      </div>
+      <div class="deep" style="background-image: url(source/image/five/芳泽霞.png);width: 30%;height: 290px;background-size: cover;opacity: 0.7;">
+        <a href="https://aozijx.github.io/source/HTML/fw" target="_blank">第五人格</a>
+        <p>原本是在这个网页，但是图片太大，拖累了网页加载的速度，所以把相关的代码做了迁移，效果简单化了。</p>
+      </div>
+      <div class="deep">
+        <audio controls autoplay loop preload="auto">
+          <source src="https://aozijx.github.io/xuao/source/music/night crusing.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+        <audio controls loop preload="metadata">
+          <source src="https://aozijx.github.io/xuao/source/music/AwayFromTheRain.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+        <p>开盲盒！</p>
       </div>
       <div class="deep"></div>
       <div class="deep"></div>
       <div class="deep"></div>
-      <div class="deep"></div>
-      <div class="deep"></div>
     </div>
-    <h1>第五人格</h1>
-    <div class="figure-container">
-        <figure>
-          <img src="https://patchwiki.biligame.com/images/dwrg/2/20/6oeqlr1pchs6nv23h2tbmrdkgfewatn.png">
-          <figcaption>律师</figcaption>
-        </figure>
-        <figure>
-          <img src="https://patchwiki.biligame.com/images/dwrg/c/c7/68458ippn8ksgtuty9vum6z65fle5k7.png">
-          <figcaption>魔术师</figcaption>
-        </figure>
-        <figure>
-          <img src="https://patchwiki.biligame.com/images/dwrg/d/db/axt765jd7wtywdr316xc4ta3xfri3op.png">
-          <figcaption>医生</figcaption>
-        </figure>
-        <figure>
-          <img src="https://patchwiki.biligame.com/images/dwrg/2/2a/g9p48a92ukc57gp3fne3fvna22ibhdk.png">
-          <figcaption>园丁</figcaption>
-        </figure>
-        <figure>
-          <img src="https://patchwiki.biligame.com/images/dwrg/e/e3/bz9o1ba3uc9ndjj3hj9kx1634u25c5m.png">
-          <figcaption>慈善家</figcaption>
-        </figure>
-        <figure>
-          <img src="https://patchwiki.biligame.com/images/dwrg/f/f4/1gpos8s1uq6utxsnwi0zdtn7xizt7tj.png">
-          <figcaption>幸运儿</figcaption>
-        </figure>
-        <div>
-          <img src="source/image/five/下载.png" width="170px" height="auto" alt="失败圣诞树">
-          <p>☃第五人格☃</p>
-        </div>
-    </div>
-    <div class="wid">
-        <div>
-            <img src="source/image/five/记忆余烬·下篇2.jpg" alt="记忆余烬 下篇2">
-            <p>记忆余烬·下篇2</p>
-        </div>
-        <div>
-            <img src="source/image/five/2023愚人节.jpg" alt="2023愚人节">
-            <p>2023愚人节</p>
-        </div>
-        <div>
-            <img src="source/image/five/2023中秋节.jpg" alt="2023中秋节">
-            <p>2023中秋节</p>
-        </div>
-        <div>
-            <img src="source/image/five/【溯洄系列】红夫人-应许之日.jpg" alt="【溯洄系列】红夫人-应许之日">
-            <p>【溯洄系列】红夫人-应许之日</p>
-        </div>
-        <div>
-            <img src="source/image/five/小女孩.jpg" alt="小女孩">
-            <p>小女孩</p>
-        </div>
-    </div>    
     <span class="span">
-        <a href="https://baidu.com/" target="_blank">百度</a><!--_self-->
         <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic" target="_blank">w3school</a>
         <a href="https://www.jyshare.com/front-end/61/" target="_blank">菜鸟Web在线</a>
         <a href="https://image.baidu.com/" target="_blank">图搜</a>
         <a href="https://id5.163.com/nrzx/picture.html" target="_blank">网易图片</a>
-        <a href="https://id5.163.com/nrzx/role.html" target="_blank">网易角色</a>
-        <a href="https://id5.163.com/nrzx/video.html" target="_blank">网易视频</a>
-        <a href="https://id5.163.com/index.html" target="_blank">网易同人社区</a>
-        <a href="https://ugc.id5.163.com/" title="查看更多">查看更多</a>
     </span>
-    <div class="wid" id="1">
-        <div>
-            <img src="source/image/five/舞女-西尔菲德.jpg" alt="舞女-西尔菲德">
-            <p>舞女-西尔菲德</p>
-        </div>
-        <div>
-            <img src="source/image/five/【演绎之星系列】渔女-垂泪的神女.jpg" alt="【演绎之星系列】渔女-垂泪的神女">
-            <p>【演绎之星系列】渔女-垂泪的神女</p>
-        </div>
-        <div>
-            <img src="source/image/five/【演绎之星系列】“心理学家”朱丽叶.jpg" alt="【演绎之星系列】“心理学家”-朱丽叶">
-            <p>【演绎之星系列】“心理学家”-<br>朱丽叶</p>
-        </div>
-        <div>
-            <img src="source/image/five/【溯洄系列】红夫人-应许之日_.jpg" alt="【溯洄系列】红夫人-应许之日">
-            <p>【溯洄系列】红夫人-应许之日</p>
-        </div>
-        <div>
-            <img src="source/image/five/新枪弹辩驳V3联动 倒计时.jpg" alt="新枪弹辩驳V3联动 倒计时">
-            <p>新枪弹辩驳V3联动 倒计时</p>
-        </div>
-        <div>
-            <img src="source/image/five/2023视障儿童公益海报.jpg" alt="2023视障儿童公益海报">
-            <p>2023视障儿童公益海报</p>
-        </div>
-        <div>
-            <img src="source/image/five/记忆余烬精华海报.jpg" alt="记忆余烬精华海报">
-            <p>记忆余烬精华海报</p>
-        </div>
-        <div>
-            <img src="source/image/five/【演绎之星系列】调香师-花序.jpg" alt="【演绎之星系列】调香师-花序">
-            <p>【演绎之星系列】调香师-花序</p>
-        </div>
-        <div>
-            <img src="source/image/five/2023情人节.jpg" alt="2023情人节">
-            <p>2023情人节</p>
-        </div>
-        <div>
-            <img src="source/image/five/2018世界杯.jpg" alt="2018世界杯">
-            <p>2018世界杯</p>
-        </div>
-    </div>
     <div style="margin-top: 40px;">
       <section>
         <a href="https://aozijx.github.io/xuao/"><h2> blog </h2></a>
         <p>这是第一篇博客。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula orci nec mauris tristique, ac aliquam quam bibendum.</p>
       </section>
-      <section>
-        <a href="https://github.com/skills/github-pages"><h2>创建自己的blog</h2></a>
-        <p>这是第二篇博客。Sed at turpis a eros varius laoreet. Morbi lacinia justo ut diam facilisis malesuada.</p>
+      <section style="background-image: url(https://img.alicdn.com/imgextra/i2/2209748222339/O1CN010muxj21T9JF0IPCI2_!!2209748222339.jpg);width: 100%;height: 250px;background-size: cover;background-position: center;opacity: 0.8;">
+        <a href="https://github.com/skills/github-pages"><h2 style="color: #ffffff;">创建自己的blog</h2></a>
+        <p style="color: #ffffff;">这是第二篇博客。Sed at turpis a eros varius laoreet. Morbi lacinia justo ut diam facilisis malesuada.</p>
       </section>
       <section>
         <a href="https://git-scm.com/book/zh/v2/%e8%b5%b7%e6%ad%a5-%e5%85%b3%e4%ba%8e%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6"><h2>Git的使用</h2></a>
         <p>本章为 Git 入门。 我们从介绍版本控制工具的背景知识开始，然后讲解如何在你的系统上运行 Git，最后是关于如何设置 Git 以便开始工作。 通过本章的学习，你应该能了解为什么 Git 这么流行，为什么你应该使用 Git 以及你应该如何设置以便使用 Git。</p>
       </section>
-    </div>  
-    <div style="background-image: url(https://img.alicdn.com/imgextra/i2/2209748222339/O1CN010muxj21T9JF0IPCI2_!!2209748222339.jpg); width: 100%;height: 600px; background-size: cover; background-position: center;"></div>
+    </div>
     <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 20px; justify-content: center;" class="view">
       <div style="width: 40%;">
         <div style="display: flex; gap: 20px;">
@@ -529,109 +338,62 @@
       </div>
     </div>
     <table style="border:1;">
-        <table>
-            <thead>
-                <tr>
-                    <th>questions</th>
-                    <th>improvement ideas</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <td>welcome-page</td>
-                  <td>待改进</td>
-                </tr>
-                <tr>
-                  <td>pictures</td>
-                  <td>单一不好看</td>
-                </tr>
-                <tr>
-                  <td>卡顿，掉画面</td>
-                  <td>手机不适配</td>
-                </tr>
-                <tr>
-                  <td>单调</td>
-                  <td>添加歌曲</td>
-                </tr>
-            </tbody>
-        </table>
+      <thead>
+          <tr>
+              <th>questions</th>
+              <th>improvement ideas</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>welcome-page</td>
+            <td>待改进</td>
+          </tr>
+          <tr>
+            <td>pictures</td>
+            <td>单一不好看</td>
+          </tr>
+          <tr>
+            <td>卡顿，掉画面</td>
+            <td>手机不适配</td>
+          </tr>
+          <tr>
+            <td>单调</td>
+            <td>添加歌曲</td>
+          </tr>
+      </tbody>
     </table>
     <table>
-        <thead>
-          <tr>
-            <th>工具</th>
-            <th>优点</th>
-            <th>缺点</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>PyInstaller</td>
-            <td>跨平台支持、自动处理依赖、打包为单个文件、适合大多数程序</td>
-            <td>文件较大、启动较慢、兼容性问题、调试困难</td>
-          </tr>
-          <tr>
-            <td>cx_Freeze</td>
-            <td>跨平台支持、定制性强、打包文件体积较小</td>
-            <td>配置复杂、依赖处理不如 PyInstaller 自动</td>
-          </tr>
-          <tr>
-            <td>py2exe</td>
-            <td>打包文件小、Windows 优化、配置简单</td>
-            <td>仅支持 Windows、对新版本 Python 支持差</td>
-          </tr>
-          <tr>
-            <td>PyOxidizer</td>
-            <td>体积小、嵌入 Python 解释器、WebAssembly 支持</td>
-            <td>配置复杂、文档较少、更新较慢</td>
-          </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>工具</th>
+          <th>优点</th>
+          <th>缺点</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PyInstaller</td>
+          <td>跨平台支持、自动处理依赖、打包为单个文件、适合大多数程序</td>
+          <td>文件较大、启动较慢、兼容性问题、调试困难</td>
+        </tr>
+        <tr>
+          <td>cx_Freeze</td>
+          <td>跨平台支持、定制性强、打包文件体积较小</td>
+          <td>配置复杂、依赖处理不如 PyInstaller 自动</td>
+        </tr>
+        <tr>
+          <td>py2exe</td>
+          <td>打包文件小、Windows 优化、配置简单</td>
+          <td>仅支持 Windows、对新版本 Python 支持差</td>
+        </tr>
+        <tr>
+          <td>PyOxidizer</td>
+          <td>体积小、嵌入 Python 解释器、WebAssembly 支持</td>
+          <td>配置复杂、文档较少、更新较慢</td>
+        </tr>
+      </tbody>
     </table>
-    <footer>Happy Birthday Bro!<p>&copy; 2025 徐奥的博客 | All Rights Reserved</p></footer>   
-    <script>
-        // 获取所有的 <p> 标签和 <figure> 标签
-        const paragraphs = document.querySelectorAll('#text-container p');
-        const figures = document.querySelectorAll('.figure-container figure');
-
-        // 计算每个 figure 应分配的 <p> 标签数量
-        const perFigureCount = Math.ceil(paragraphs.length / figures.length);
-
-        // 遍历每个 figure，将 <p> 标签分配进去
-        paragraphs.forEach((p, index) => {
-            const targetFigure = figures[Math.floor(index / perFigureCount)];
-            const textContainer = document.createElement('div'); // 创建一个容器来保存文字
-            textContainer.appendChild(p); // 把 <p> 标签移入容器
-            targetFigure.appendChild(textContainer); // 将文字容器添加到目标 figure 中
-        });
-    </script>
-    <script>
-        // 使用 Intersection Observer API 检测图片是否进入视口
-        const images= document.querySelectorAll("img");
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            // 如果图片进入视口
-            if (entry.isIntersecting) {
-              entry.target.classList.add("show"); // 添加 .show 类触发动画
-            } else {
-              // 如果图片离开视口，则移除 .show 类
-              entry.target.classList.remove("show");
-            }
-          });
-        }, {
-          threshold: 0.3,  // 图片至少 50% 进入视口时触发
-        });
-        document.querySelectorAll('figure img').forEach((img) => {
-          observer.observe(img);
-        });
-        images.forEach((img) => observer.observe(img)); // 观察每张图片
-    </script>
-    <script>
-      window.onload = function() {
-          var links = document.querySelectorAll('a');
-          links.forEach(function(link) {
-              link.setAttribute('target', '_blank');
-          });
-      };
-    </script>  
+    <footer>&copy; 2025 Hiner的博客 | All Rights Reserved</footer>
     </body>
 </html>
