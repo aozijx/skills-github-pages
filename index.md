@@ -26,7 +26,7 @@
 [菜鸟工具](https://www.jyshare.com/front-end/61/) | [W3 school](https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic) | [codepen](https://codepen.io/pen/)
 
 ---
-ChatGPT帮写
+**ChatGPT帮写**
 * [welcome screen](https://aozijx.github.io/xuao/source/HTML/chatgpt)
 * [包含md的HTML](https://aozijx.github.io/xuao/source/HTML/test)
 ---
