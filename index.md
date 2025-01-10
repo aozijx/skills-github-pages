@@ -26,6 +26,9 @@
 [菜鸟工具](https://www.jyshare.com/front-end/61/) | [W3 school](https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic) | [codepen](https://codepen.io/pen/)
 
 ---
-[项目仓库](https://github.com/aozijx/xuao) | > [*](https://aozijx.github.io/xuao/source/idea) < | [友](https://aozijx.github.io/xuao/assistance/yang)
+ChatGPT帮写
+* [welcome screen](https://aozijx.github.io/xuao/source/HTML/chatgpt)
+---
+[项目仓库](https://github.com/aozijx/xuao) | > [*](https://aozijx.github.io/xuao/source/idea) < | [友](https://aozijx.github.io/xuao/assistance/yang) | [试验](https://aozijx.github.io/xuao/source/markdown/test)
 
 > 感谢访问我的博客，期待与你一起分享更多的知识与经验！
