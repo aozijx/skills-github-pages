@@ -11,6 +11,7 @@
 
 - **markdown**（学习中……***期待我能玩出花来！！***）
 由于我所使用的模板的原因，markdown的页面没有导航栏等等，只是一个简单的不能再简单的页面，换字体，样式等等需要细细摸索。
+**……虽然……但是吧，重心还在HTML上……**
 
 - <del> 一些图片的链接，网页中加载不出来是因为图片源是网易官网的，可能是防盗链的原因，显示不出来，后续可能会上传图床或者仓库来解决。</del>
 ---
@@ -28,10 +29,10 @@
 **ChatGPT帮写**
 * [welcome screen](https://aozijx.github.io/xuao/source/HTML/chatgpt)
 * [包含md的HTML](https://aozijx.github.io/xuao/source/HTML/test)
-* [覆盖](https://aozijx.github.io/xuao/source/HTML/bookf) | [推移](https://aozijx.github.io/xuao/source/HTML/bookt)
+* [覆盖](https://aozijx.github.io/xuao/source/HTML/bookf) | [推移](https://aozijx.github.io/xuao/source/HTML/bookt) 
 
 ---
-[项目仓库](https://github.com/aozijx/xuao) | > [*](https://aozijx.github.io/xuao/source/idea) < | [友](https://aozijx.github.io/xuao/assistance/yang) | [试验](https://aozijx.github.io/xuao/source/markdown/test)
+[项目仓库](https://github.com/aozijx/xuao) | > [*](https://aozijx.github.io/xuao/source/idea) < | [友](https://aozijx.github.io/xuao/assistance/yang) | [试验](https://aozijx.github.io/xuao/source/markdown/test) | [爱心](https://aozijx.github.io/xuao/source/python/ping)
 
 
 > 感谢访问我的博客，期待与你一起分享更多的知识与经验！
