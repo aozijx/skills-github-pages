@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的网页☃圣诞</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: '楷体',Georgia ;
+            margin: 0;
+            line-height: 1.6;
+            align-items: center;
+            /* background: linear-gradient(135deg, #ff8668, #feb47b,#81ecec); */
+            background: rgb(63,94,251);
+            background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(76,147,228,1) 9%, rgba(87,196,208,1) 21%, rgba(101,174,202,1) 34%, rgba(115,152,196,1) 47%, rgba(161,82,176,1) 68%, rgba(179,80,162,1) 76%, rgba(212,75,137,1) 82%, rgba(252,70,107,1) 92%);
+            transition: background-color 2s ease;
+        }
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+                line-height: 1.4;
+                padding: 0 10px;
+            }
+        }
+        .splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        color: white;
+        z-index: 9999;
+        animation: fadeIn 2s ease-out;
+        background: linear-gradient(45deg, #ff7e5f, #feb47b, #6a11cb, #2575fc); /* 彩色渐变背景 */
+        background-size: 400% 400%;
+        animation: gradientBackground 5s ease infinite, fadeIn 2s ease-out;
+        }   
+        .main-content {
+            display: none;
+        }
+        
+        .page-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: white;
+            transition: transform 1s ease-in-out;
+        }
+        p {
+            word-wrap: break-word;  /* 自动换行 */
+            white-space: normal;    /* 允许正常换行 */
+        }
+        img {
+            display: flex;
+            border: 1px solid transparent;
+            border-radius: 10px; /* 圆角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 平滑过渡效果 */
+            margin:20px;
+            transition: all 0.8s ease-in-out;  /* 全部属性变化时，过渡时间为0.8秒 */
+        } 
+        img:hover {
+            transform: scale(1.1); /* 放大 */
+            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3); /* 更明显的阴影 */
+            filter: brightness(1.2); /* 提高亮度 */
+            cursor: pointer; /* 鼠标指针变为手型 */
+        }
+        figure {
+            margin: 0;
+            text-align: center;
+        }
+        figcaption {
+            margin-top: -20px;
+            font-size: 16px;
+            color: #555;
+        }
+        div.figure-container {
+            margin-top: -500px;
+            display: flex;
+            flex-wrap: wrap;
+            height: auto;
+            gap: 20px;
+            justify-content: center;
+        }
+        .snowmen {
+            font-size: 50px;
+            color: #000000;
+            text-align: center;
+            background-color: lightblue;
+            width: 50px;
+            height: 70px;
+            border: 3px solid;
+            padding: 5px;
+            border-radius: 10px; /* 边框圆角 */
+        }
+        table {
+            border-collapse: collapse; /* 合并表格边框 */
+            width: 100%; /* 表格宽度100% */
+            border-radius: 10px; /* 圆角设置 */
+            overflow: hidden; /* 隐藏溢出的边角 */
+        }
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+            border: 1px solid #ddd; /* 边框颜色 */
+        }
+        th {
+            background-color: #f2f2f2; /* 表头背景色 */
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* 偶数行背景色 */
+        }
+        tr:hover {
+            background-color: #f1f1f1; /* 鼠标悬停时背景色 */
+        }
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .wid {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .wid div {
+            position: relative;
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        .wid img {
+            width: 100%;
+            display: block;
+            opacity: 0;
+            transform: translateY(100px); /* 初始位置在视口下方 */
+            transition: all 0.8s ease-in-out;
+        }
+
+        .wid p {
+            position: absolute;
+            font-size: 17px;
+            bottom: 20px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            width: 100%;
+        }
+
+        .wid img.show {
+            opacity: 1;
+            transform: translateY(0); /* 图片进入视口时回到原位 */
+        }
+
+        .wid img:hover {
+            transform: scale(1.1);
+            rotate: 2deg;
+            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .action {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* 或者 space-between 根据需要选择 */
+            gap: 10px; /* 设置图片之间的间距 */
+        }              
+        .action div {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .action img {
+            width: 200px;
+            height: auto;
+            justify-content: center;
+            opacity: 0; /* 初始隐藏图片 */
+            transform: translateX(100px);
+            transition: all 0.8s ease-in-out; /* 动画过渡 */
+        }
+        .action img.show {
+            opacity: 1; /* 逐渐显示图片 */
+            transform: translateX(0); /* 回到原位 */
+        }
+        button {
+            background: #64affa;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        button:hover {
+            background: #0984e3;
+            transform: translateY(-5px);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .span {
+            display: block;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .span a {
+            color: #ffffff;
+            background-color: #0078d7;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin: 10px 2px;
+            border: 4px solid transparent;
+        }
+        .span a:hover {
+            background-color: #68d2ff;
+            box-shadow: inset 0 0 10px rgba(98, 167, 60, 0.1);
+        }
+        .span a:active {
+            transform: scale(0.95); /* 点击时缩小 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            /* transform: translateY(5px); */
+        }
+        footer {
+            height: 60px;
+            width: 100%;
+            font-size: 30px;
+            background-color: #44fdf7;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/button.css">
+    </head>
+    <body>
+        <div class="page-container">
+            <div class="page" style="background-color: #3498db;">Page 1</div>
+            <div class="page" style="background-color: #3efeeb;">
+                <div class="splash-screen" id="splashScreen">
+                    Welcome to the Website!
+                </div>      
+            <h1 style="text-align: center;color:#4c00ff82" >Welcome🎉</h1>
+            <div>
+                <a href="chat.html" class="snowmen">☃</a>
+                <a href="chatg.html" class="snowmen">☃</a> 
+            </div> 
+            <p style="text-align: justify;">这是两端对齐的文本。文本的左右边缘会对齐，使其看起来更加整齐，常见于文章和段落排版。</p>
+            <h1 style="text-align: center;color:#4c00ff82">☃第五人格☃</h1>
+            <a class="button" href="#1" style="text-decoration: none">
+                <div class="bg"></div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 342 208"
+                  height="208"
+                  width="342"
+                  class="splash"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    d="M54.1054 99.7837C54.1054 99.7837 40.0984 90.7874 26.6893 97.6362C13.2802 104.485 1.5 97.6362 1.5 97.6362"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    d="M285.273 99.7841C285.273 99.7841 299.28 90.7879 312.689 97.6367C326.098 104.486 340.105 95.4893 340.105 95.4893"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    stroke-opacity="0.3"
+                    d="M281.133 64.9917C281.133 64.9917 287.96 49.8089 302.934 48.2295C317.908 46.6501 319.712 36.5272 319.712 36.5272"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    stroke-opacity="0.3"
+                    d="M281.133 138.984C281.133 138.984 287.96 154.167 302.934 155.746C317.908 157.326 319.712 167.449 319.712 167.449"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    d="M230.578 57.4476C230.578 57.4476 225.785 41.5051 236.061 30.4998C246.337 19.4945 244.686 12.9998 244.686 12.9998"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    d="M230.578 150.528C230.578 150.528 225.785 166.471 236.061 177.476C246.337 188.481 244.686 194.976 244.686 194.976"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    stroke-opacity="0.3"
+                    d="M170.392 57.0278C170.392 57.0278 173.89 42.1322 169.571 29.54C165.252 16.9478 168.751 2.05227 168.751 2.05227"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    stroke-opacity="0.3"
+                    d="M170.392 150.948C170.392 150.948 173.89 165.844 169.571 178.436C165.252 191.028 168.751 205.924 168.751 205.924"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    d="M112.609 57.4476C112.609 57.4476 117.401 41.5051 107.125 30.4998C96.8492 19.4945 98.5 12.9998 98.5 12.9998"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    d="M112.609 150.528C112.609 150.528 117.401 166.471 107.125 177.476C96.8492 188.481 98.5 194.976 98.5 194.976"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    stroke-opacity="0.3"
+                    d="M62.2941 64.9917C62.2941 64.9917 55.4671 49.8089 40.4932 48.2295C25.5194 46.6501 23.7159 36.5272 23.7159 36.5272"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="3"
+                    stroke-opacity="0.3"
+                    d="M62.2941 145.984C62.2941 145.984 55.4671 161.167 40.4932 162.746C25.5194 164.326 23.7159 174.449 23.7159 174.449"
+                  ></path>
+                </svg>
+              
+                <div class="wrap">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 221 42"
+                    height="42"
+                    width="221"
+                    class="path"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-width="3"
+                      d="M182.674 2H203C211.837 2 219 9.16344 219 18V24C219 32.8366 211.837 40 203 40H18C9.16345 40 2 32.8366 2 24V18C2 9.16344 9.16344 2 18 2H47.8855"
+                    ></path>
+                  </svg>
+              
+                  <div class="outline"></div>
+                  <div class="content">
+                    <span class="char state-1">
+                      <span data-label="J" style="--i: 1">J</span>
+                      <span data-label="o" style="--i: 2">o</span>
+                      <span data-label="i" style="--i: 3">i</span>
+                      <span data-label="n" style="--i: 4">n</span>
+                      <span data-label="T" style="--i: 5">T</span>
+                      <span data-label="o" style="--i: 6">o</span>
+                      <span data-label="d" style="--i: 7">d</span>
+                      <span data-label="a" style="--i: 8">a</span>
+                      <span data-label="y" style="--i: 9">y</span>
+                    </span>
+              
+                    <div class="icon">
+                      <div></div>
+                    </div>
+              
+                    <span class="char state-2">
+                      <span data-label="J" style="--i: 1">J</span>
+                      <span data-label="o" style="--i: 2">o</span>
+                      <span data-label="i" style="--i: 3">i</span>
+                      <span data-label="n" style="--i: 4">n</span>
+                      <span data-label="N" style="--i: 5">N</span>
+                      <span data-label="o" style="--i: 6">o</span>
+                      <span data-label="w" style="--i: 7">w</span>
+                    </span>
+                  </div>
+                </div>
+              </a>
+              
+            <button id="alertButton">Click Me!</button>
+            </div>
+        </div>
+    <div id="text-container">
+        <p>受困于过去的失败官司，他现在干着一份卑微的工作，<br>拿着微薄到可笑的薪水。与此同时，弗雷迪希望<br>可能找到一条摆脱过去的出路，并且最终过上那种<br>他从未拥有的生活，比如，拿到一笔不菲的奖金，<br>得到成为律所合伙人的契机。当然，首先他得<br>找到那个毁掉他美满生活的罪魁祸首。</p>
+        <p>瑟维·勒·罗伊在比利时开启了他的魔术生涯，并搬到伦敦<br>开设属于自己的魔术用品专营店。但这位喜爱人体消失魔术<br>的魔术师并没有获得大众认同，也许在曾经出现过无数知名<br>艺术家的欧利蒂斯庄园里，他能找到新的表演灵感？<br> <br></p>
+        <p>她有野心，极其聪明看起来又不失真诚，但在那双眼睛后面<br>还藏着更多东西，要在这个疯狂的世界里存活，有时候就得做些<br>惊人之举。已经对不停地搬迁感到疲倦，艾米丽希望能借此找到<br>一个可以被称为"家”的地方，并且最终得到她从未拥有的安全感<br>和稳定生活。在此之前，她得解决过去遗留的一些"问题"。</p>
+        <p>与感情不和的丈夫离婚后，没有稳定经济来源的玛格丽莎，<br>对"自由"的另一面有了新的认识。一个成为百万富翁的机会？<br>她当然不会错过。</p>
+        <p>当教会有意在白沙街开设孤儿院时，皮尔森先生慷慨地将经营权<br>和土地转赠给教会并离开了白沙街。虽然他获得了一笔可观<br>的赔偿金，但对于皮尔森先生来说，这笔钱还不足以建设一所<br>新的孤儿院，是时候从别人的口袋里捐出一点资助金了。不过，<br>也许他应该先找一个可信的合作伙伴。</p>
+        <p>世界就像摇晃不停的骰蛊，他一直在赢，而<br>谁也不知道，当它停下时会变成怎样</p>
+    </div>
+    <div class="figure-container">
+        <figure>
+            <img src="images/下载 (1).png" width="400" height="auto">
+            <figcaption>律师</figcaption>
+        </figure>
+        <figure>
+            <img src="images/下载 (2).png" width="400">
+            <figcaption>魔术师</figcaption>
+        </figure>
+        <figure>
+            <img src="images/下载 (3).png" width="400" height="auto">
+            <figcaption>医生</figcaption>
+        </figure>
+        <figure>
+            <img src="images/下载 (4).png" width="400" height="auto">
+            <figcaption>舞女</figcaption>
+        </figure>
+        <figure>
+            <img src="images/下载 (5).png" width="400" height="auto">
+            <figcaption>慈善家</figcaption>
+        </figure>
+        <figure>
+            <img src="https://patchwiki.biligame.com/images/dwrg/f/f4/1gpos8s1uq6utxsnwi0zdtn7xizt7tj.png" width="400" height="auto">
+            <figcaption>幸运儿</figcaption>
+        </figure>
+        <figure>
+            <img src="images/下载.png" width="400" height="auto" alt="本地图片第五人格">
+            <figcaption>☃第五人格☃</figcaption>
+        </figure>
+        <figure style=" rotate: 2deg;">
+            <img src="https://id5.res.netease.com/pc/fab/20241111122056/img/img3_76f984d2.png">
+            <figcaption>芳泽霞</figcaption>
+        </figure>
+    </div>
+    <div class="wid">
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20240130/d064ee12-0176-4499-89ec-990420dd3ee8.jpg" alt="记忆余烬5">
+            <p>记忆余烬·下篇2</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230414/c3d41073-2e94-4e3b-94b4-78c67822e4a1.jpg" alt="记忆余烬4">
+            <p>2023愚人节</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20231107/0dbb5d1f-043f-4b3c-85d2-19320283ee57.jpg">
+            <p>2023中秋节</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230731/d1591569-2874-47a2-94d8-ef147e1d9def.jpg">
+            <p>【溯洄系列】红夫人-应许之日</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20220614/2821bf06-ba35-451d-b2fe-3267a7de1bce.jpg">
+            <p>“小女孩”</p>
+        </div>
+    </div>    
+    <span class="span">
+        <a href="https://baidu.com/" target="_blank">百度</a><!--_self-->
+        <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic" target="_blank">w3school</a>
+        <a href="https://image.baidu.com/" target="_blank">图搜</a>
+        <a href="https://id5.163.com/nrzx/picture.html" target="_blank">网易图片</a>
+        <a href="https://id5.163.com/nrzx/role.html" target="_blank">网易角色</a>
+        <a href="https://id5.163.com/nrzx/video.html" target="_blank">网易视频</a>
+        <a href="https://id5.163.com/index.html" target="_blank">网易同人社区</a>
+    </span>
+    <video autoplay muted loop style="margin-top: 40px;" class="background-video">
+        <!-- <source src="https://nie.v.netease.com/nie/2024/0129/567b0e0b44c6d5b17ae5d9e3d6ce12ccqt.mp4" type="video/mp4" width="50px"> -->
+    </video>
+    <div class="wid" id="1">
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20240126/cb3733e2-f4d9-4a51-b51c-a8094ee17545.jpg">
+            <p>舞女-西尔菲德</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20240126/106bdac4-93ae-49d4-9f6f-bc4f721a0ade.jpg">
+            <p>【演绎之星系列】渔女-垂泪的神女</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20231107/6f726f05-83af-47a0-8907-3db0010c1cfe.jpg">
+            <p>【演绎之星系列】“心理学家”-朱丽叶</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230629/4d15a857-69ef-45b5-b35a-6e1feea7bc4d.jpg">
+            <p>【溯洄系列】红夫人-应许之日</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230928/bc993d85-adfd-4c79-b134-23b439886893.jpg">
+            <p>新枪弹辩驳V3联动 倒计时</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230531/ecfd36ac-ca2f-4d16-8204-b48d270edcf4.jpg">
+            <p>2023视障儿童公益海报</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230414/932c990b-01c5-4c33-9a17-ea2e4dc1ef31.jpg">
+            <p>记忆余烬精华海报</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230307/d6a4fc25-8f06-4019-b03f-4b35e470d6cf.jpg">
+            <p>【演绎之星系列】调香师-花序</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230307/8d5c77b8-e4d9-48da-af75-610c6ef640a5.jpg">
+            <p>2023情人节</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20220520/30d82cc1-a5e5-47f5-b71b-b32c565e2700.jpg">
+            <p>2018世界杯</p>
+        </div>
+
+    </div>
+    <a href="https://ugc.id5.163.com/" title="查看更多" style="margin-top: 40px;">查看更多</a>
+    <div class="action">      
+        <div>
+            <img src="https://id5.res.netease.com/pc/gw/20220408094220/img/trsq-img1_a60d81a.png" alt="img">
+        </div>
+        <div>
+            <img src="https://id5.res.netease.com/pc/gw/20220408094220/img/trsq-img2_7859768.png" alt="img">
+        </div>
+        <div>
+            <img src="https://id5.res.netease.com/pc/gw/20220408094220/img/trsq-img3_98d29c9.png" alt="img">
+        </div>
+        <div>
+            <img src="https://id5.res.netease.com/pc/gw/20220408094220/img/trsq-img4_a04bf96.png" alt="img">
+        </div>
+        <div>
+            <img src="https://id5.res.netease.com/pc/gw/20220408094220/img/trsq-img5_0a98d33.png" alt="img">
+        </div>
+        <div>
+            <img src="https://id5.res.netease.com/pc/gw/20220408094220/img/trsq-img6_463b2bc.png" alt="img">
+        </div>
+        <div>
+            <img src="https://id5.res.netease.com/pc/gw/20220408094220/img/trsq-img7_8a11269.png" alt="img">
+        </div>
+        <div>
+            <img src="https://id5.res.netease.com/pc/gw/20220408094220/img/trsq-img8_b28df78.png" alt="img">
+        </div>
+        <div>
+               <img src="https://id5.res.netease.com/pc/gw/20220408094220/img/trsq-img9_f7e6e65.png" alt="img">
+        </div>      
+    </div>
+    <ol><!--有序列表-->
+        <li>语文</li>
+        <li>英语</li>
+    </ol>
+    <ul><!--无序列表-->
+        <li>语文</li>
+        <li>数学</li>
+        <li>英语</li>
+    </ul>
+    <table style="border:1;">
+        <table>
+            <thead>
+                <tr>
+                    <th>表头1</th>
+                    <th>表头2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>111</td>
+                    <td>222</td>
+                </tr>
+                <tr>
+                    <td>333</td>
+                    <td>444</td>
+                </tr>
+            </tbody>
+        </table>
+    </table>
+    <table>
+        <thead>
+          <tr>
+            <th>工具</th>
+            <th>优点</th>
+            <th>缺点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PyInstaller</td>
+            <td>跨平台支持、自动处理依赖、打包为单个文件、适合大多数程序</td>
+            <td>文件较大、启动较慢、兼容性问题、调试困难</td>
+          </tr>
+          <tr>
+            <td>cx_Freeze</td>
+            <td>跨平台支持、定制性强、打包文件体积较小</td>
+            <td>配置复杂、依赖处理不如 PyInstaller 自动</td>
+          </tr>
+          <tr>
+            <td>py2exe</td>
+            <td>打包文件小、Windows 优化、配置简单</td>
+            <td>仅支持 Windows、对新版本 Python 支持差</td>
+          </tr>
+          <tr>
+            <td>PyOxidizer</td>
+            <td>体积小、嵌入 Python 解释器、WebAssembly 支持</td>
+            <td>配置复杂、文档较少、更新较慢</td>
+          </tr>
+        </tbody>
+    </table>
+    <footer>Happy Birthday Bro!</footer>
+    <script>
+        // 获取所有的 <p> 标签和 <figure> 标签
+        const paragraphs = document.querySelectorAll('#text-container p');
+        const figures = document.querySelectorAll('.figure-container figure');
+
+        // 计算每个 figure 应分配的 <p> 标签数量
+        const perFigureCount = Math.ceil(paragraphs.length / figures.length);
+
+        // 遍历每个 figure，将 <p> 标签分配进去
+        paragraphs.forEach((p, index) => {
+            const targetFigure = figures[Math.floor(index / perFigureCount)];
+            const textContainer = document.createElement('div'); // 创建一个容器来保存文字
+            textContainer.appendChild(p); // 把 <p> 标签移入容器
+            targetFigure.appendChild(textContainer); // 将文字容器添加到目标 figure 中
+        });
+    </script>
+    <script>
+        setTimeout(() => {
+            document.getElementById('splashScreen').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+        }, 1000);
+    </script>
+    <script>
+        // 使用 Intersection Observer API 检测图片是否进入视口
+        const images = document.querySelectorAll("img");
+      
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            // 如果图片进入视口
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show"); // 添加 .show 类触发动画
+            } else {
+              // 如果图片离开视口，则移除 .show 类
+              entry.target.classList.remove("show");
+            }
+          });
+        }, {
+          threshold: 0.4,  // 图片至少 50% 进入视口时触发
+        });
+      
+        images.forEach((img) => observer.observe(img)); // 观察每张图片
+      </script>      
+      <script>
+        const button = document.getElementById('alertButton');
+        button.addEventListener('click', () => {
+          alert('Hello! You clicked the button!');
+        });
+      </script>
+      <script>
+        let currentPage = 0;
+        const pages = document.querySelectorAll('.page');
+        const totalPages = pages.length;
+
+        // 初始化背景颜色
+        document.body.style.backgroundColor = pages[currentPage].style.backgroundColor;
+
+        // 添加滚动事件监听
+        window.addEventListener('wheel', (e) => {
+            if (e.deltaY > 0 && currentPage < totalPages - 1) {
+                currentPage++;
+            } else if (e.deltaY < 0 && currentPage > 0) {
+                currentPage--;
+            }
+
+            // 更新每个页面的位置
+            pages.forEach((page, index) => {
+                page.style.transform = `translateY(-${currentPage * 100}vh)`;
+            });
+
+            // 更新背景颜色
+            document.body.style.backgroundColor = pages[currentPage].style.backgroundColor;
+        });
+    </script>    
+    </body>
+</html>

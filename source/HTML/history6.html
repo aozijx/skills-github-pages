@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head >
+  <meta charset="UTF-8">
+  <meta >
+  <title>我的网页☃圣诞</title>
+    <style> 
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex; 
+        flex-direction: column;
+        font-family: '楷体',Georgia ;
+        margin: 0;
+        width: 90%;
+        margin: 0 auto;
+        line-height: 1.3;
+        align-items: center;
+        /* background: linear-gradient(135deg, #ff8668, #feb47b,#81ecec); */
+        transition: background-color 2s ease;
+      }
+      .splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        color: white;
+        z-index: 9999;
+        background: rgb(0,0,0,0.8);
+        background-size: 400% 400%;
+        animation: fadeOut 1.5s ease-out 3s forwards;
+      }
+      .splash-title {
+        font-size: 3rem;
+        color: white;
+        opacity: 1;
+        animation: slideDown 1.5s ease-out;
+      }
+      @keyframes gradientBackground {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      /* 开屏动画消失效果 */
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+      /* 开屏标题向下滑动 */
+      @keyframes slideDown {
+        0% {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .page {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        padding: 20px;
+        box-sizing: border-box;
+        transition: transform 0.8s ease-in-out;
+      }
+      .page-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+      img {
+        margin: 0 auto;
+        max-width: 100%;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* 平滑过渡效果 */
+        transition: all 0.8s ease-in-out;  /* 全部属性变化时，过渡时间为0.8秒 */
+        object-fit: contain; /* 保证图片内容完全显示，保持比例 */
+      } 
+      img:hover {
+        transform: scale(1.1); /* 放大 */
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3); /* 更明显的阴影 */
+        filter: brightness(1.2); /* 提高亮度 */
+        cursor: pointer; /* 鼠标指针变为手型 */
+      }
+      .figure-container {
+        display: flex;
+        max-width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: auto;
+        gap: 20px;  
+      }        
+      figure {
+        text-align: center;
+        margin: 0;
+        max-width: 200px;
+        width: auto;
+      }
+      figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      figcaption {            
+        margin-top: -20px;
+        font-size: 16px;
+        color: #555;
+      }
+      .snowmen {
+        font-size: 50px;
+        color: #000000;
+        text-align: center;
+        background-color: lightblue;
+        width: 50px;
+        height: 70px;
+        border: 3px solid;
+        padding: 5px;
+        border-radius: 10px; /* 边框圆角 */
+      }
+      table {
+        border-collapse: collapse; /* 合并表格边框 */
+        width: 100%; /* 表格宽度100% */
+        border-radius: 10px; /* 圆角设置 */
+        overflow: hidden; /* 隐藏溢出的边角 */
+      }
+      th, td {
+        padding: 8px 12px;
+        text-align: left;
+        border: 1px solid #ddd; /* 边框颜色 */
+      }
+      th {
+        background-color: #f2f2f2; /* 表头背景色 */
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9; /* 偶数行背景色 */
+      }
+      tr:hover {
+        background-color: #f1f1f1; /* 鼠标悬停时背景色 */
+      }
+      .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+      .wid {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .wid div {
+        position: relative;
+        width: 17%;
+        gap: 1px;
+        margin: 0 auto;
+      }
+
+      .wid img {
+        margin: 0 auto;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(80px); /* 初始位置在视口下方 */
+        transition: all 0.8s ease-in-out;
+      }
+
+      .wid p {
+        position: absolute;
+        font-size: 11px;
+        bottom: 20px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        width: 100%;
+      }
+      .wid img.show {
+        opacity: 1;
+        transform: translateY(0); /* 图片进入视口时回到原位 */
+      }
+
+      .wid img:hover {
+        transform: scale(1.1);
+        rotate: 2deg;
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+      }
+      button {
+        background: #64affa;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition:  0.3s ease, transform 0.3s ease;
+      }
+      button:hover {
+        background: #0984e3;
+        transform: translateY(-5px);
+      }
+      button:active {
+        transform: translateY(0);
+      }
+      .span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      height: 60px;
+      gap: 10px;  
+      }
+      .span a {
+        display: inline-block;
+        text-align: center;
+        color: #ffffff;
+        background-color: #0078d7;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 0 auto;
+        border: 4px solid transparent;
+        transition: all 0.3s ease;
+      }
+      .span a:hover {
+        background-color: #68d2ff;
+        box-shadow: inset 0 0 10px rgba(98, 167, 60, 0.1);
+      }
+      .span a:active {
+        transform: scale(0.95); /* 点击时缩小 */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      footer {
+        height: 50px;
+        width: 100%;
+        font-size: 20px;
+        background-color: #44fdf7;
+        color: white;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+      }
+      /* 动态背景 */
+      .background-gradient {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #ff7e5f, #feb47b, #6a11cb, #2575fc);
+        background-size: 400% 400%;
+        animation: gradientAnimation 10s ease infinite;
+        z-index: -1;
+      }
+
+      /* 动态渐变动画 */
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* 容器样式 */
+      .welcome-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        padding: 20px;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      /* 标题样式 */
+      .welcome-title {
+        z-index: 8888;
+        font-size: 3rem;
+        margin-bottom: 20px;
+        animation: fadeIn 2s ease-out;
+        animation: float 3s infinite ease-in-out;
+        text-shadow: 0 4px 15px rgba(0,0,0,0.7);
+      }
+
+      /* 文字样式 */
+      .welcome-text {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin-bottom: 30px;
+        line-height: 1.5;transition-delay: 4s;
+        animation: fadeIn 2.5s ease-out;
+        
+      }
+      /* 淡入动画 */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* 浮动动画 */
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    <div class="splash-screen" id="splash-screen">
+      <h1 class="splash-title">Welcome to the Website!</h1>
+    </div> 
+    <div class="page-container">
+      <div class="page" class="welcome-container">
+        <div class="background-gradient"></div>
+        <div class="welcome-content">
+          <h1 class="welcome-title">Welcome 🎉</h1>
+          <p class="welcome-text">欢迎访问本网站，探索更多精彩内容！</p>
+        </div>
+      </div>
+        <div>
+          <!-- <button id="alertButton">Click Me!</button> -->
+        </div>
+    </div>
+    <div id="text-container">
+        <p>受困于过去的失败官司，他现在干着一份卑微的工作，
+          <br>拿着微薄到可笑的薪水。与此同时，弗雷迪希望
+          <br>可能找到一条摆脱过去的出路，并且最终过上那种
+          <br>他从未拥有的生活，比如，拿到一笔不菲的奖金，
+          <br>得到成为律所合伙人的契机。当然，首先他得
+          <br>找到那个毁掉他美满生活的罪魁祸首。</p>
+        <p>瑟维·勒·罗伊在比利时开启了他的魔术生涯，并搬到伦敦
+          <br>开设属于自己的魔术用品专营店。但这位喜爱人体消失魔术
+          <br>的魔术师并没有获得大众认同，也许在曾经出现过无数知名
+          <br>艺术家的欧利蒂斯庄园里，他能找到新的表演灵感？</p>
+        <p>她有野心，极其聪明看起来又不失真诚，但在那双眼睛后面
+          <br>还藏着更多东西，要在这个疯狂的世界里存活，有时候就得做些
+          <br>惊人之举。已经对不停地搬迁感到疲倦，艾米丽希望能借此找到
+          <br>一个可以被称为"家”的地方，并且最终得到她从未拥有的安全感
+          <br>和稳定生活。在此之前，她得解决过去遗留的一些"问题"。</p>
+        <p>与感情不和的丈夫离婚后，没有稳定经济来源的玛格丽莎，
+          <br>对"自由"的另一面有了新的认识。一个成为百万富翁的机会？
+          <br>她当然不会错过。</p>
+        <p>当教会有意在白沙街开设孤儿院时，皮尔森先生慷慨地将经营权
+          <br>和土地转赠给教会并离开了白沙街。虽然他获得了一笔可观
+          <br>的赔偿金，但对于皮尔森先生来说，这笔钱还不足以建设一所
+          <br>新的孤儿院，是时候从别人的口袋里捐出一点资助金了。不过，
+          <br>也许他应该先找一个可信的合作伙伴。</p>
+        <p>世界就像摇晃不停的骰蛊，他一直在赢，而
+          <br>谁也不知道，当它停下时会变成怎样</p>
+    </div>
+    <div class="figure-container" class="page">
+        <figure>
+          <img src="https://patchwiki.biligame.com/images/dwrg/2/20/6oeqlr1pchs6nv23h2tbmrdkgfewatn.png">
+          <figcaption>律师</figcaption>
+        </figure>
+        <figure>
+          <img src="https://patchwiki.biligame.com/images/dwrg/c/c7/68458ippn8ksgtuty9vum6z65fle5k7.png">
+          <figcaption>魔术师</figcaption>
+        </figure>
+        <figure>
+          <img src="https://patchwiki.biligame.com/images/dwrg/d/db/axt765jd7wtywdr316xc4ta3xfri3op.png">
+          <figcaption>医生</figcaption>
+        </figure>
+        <figure>
+          <img src="https://patchwiki.biligame.com/images/dwrg/2/2a/g9p48a92ukc57gp3fne3fvna22ibhdk.png">
+          <figcaption>园丁</figcaption>
+        </figure>
+        <figure>
+          <img src="https://cdn.img2ipfs.com/ipfs/QmVC19t3qTczkowRX7Uw4GA6xaKWFm9BCpWZZy7CQUZN1A?filename=%E4%B8%8B%E8%BD%BD%20(5).png" width="400" height="auto" alt="本地图片，无法加载">
+          <figcaption>慈善家</figcaption>
+        </figure>
+        <figure>
+          <img src="https://patchwiki.biligame.com/images/dwrg/f/f4/1gpos8s1uq6utxsnwi0zdtn7xizt7tj.png">
+          <figcaption>幸运儿</figcaption>
+        </figure>
+        <figure>
+          <img src="https://cdn.img2ipfs.com/ipfs/QmeUBBvvY6xXSU763ruVGpFV8AZdSzYmm7GqHHqNKz5yMv?filename=%E4%B8%8B%E8%BD%BD.png" width="400" height="auto" alt="本地图片,无法加载">
+          <figcaption>☃第五人格☃</figcaption>
+        </figure>
+        <figure style=" rotate: 2deg;">
+          <img src="https://id5.res.netease.com/pc/fab/20241111122056/img/img3_76f984d2.png">
+          <figcaption>芳泽霞</figcaption>
+        </figure>
+        <figure>
+          <img src="https://qzs.qq.com/qzone/client/photo/qzone_shuoshuo_pic/1485435317.gif">
+        </figure>
+    </div>
+    <div class="wid">
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20240130/d064ee12-0176-4499-89ec-990420dd3ee8.jpg" alt="记忆余烬5">
+            <p>记忆余烬·下篇2</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230414/c3d41073-2e94-4e3b-94b4-78c67822e4a1.jpg" alt="记忆余烬4">
+            <p>2023愚人节</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20231107/0dbb5d1f-043f-4b3c-85d2-19320283ee57.jpg">
+            <p>2023中秋节</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230731/d1591569-2874-47a2-94d8-ef147e1d9def.jpg">
+            <p>【溯洄系列】红夫人-应许之日</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20220614/2821bf06-ba35-451d-b2fe-3267a7de1bce.jpg">
+            <p>“小女孩”</p>
+        </div>
+    </div>    
+    <span class="span">
+        <a href="https://baidu.com/" target="_blank">百度</a><!--_self-->
+        <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic" target="_blank">w3school</a>
+        <a href="https://image.baidu.com/" target="_blank">图搜</a>
+        <a href="https://id5.163.com/nrzx/picture.html" target="_blank">网易图片</a>
+        <a href="https://id5.163.com/nrzx/role.html" target="_blank">网易角色</a>
+        <a href="https://id5.163.com/nrzx/video.html" target="_blank">网易视频</a>
+        <a href="https://id5.163.com/index.html" target="_blank">网易同人社区</a>
+    </span>
+    <video autoplay muted loop style="margin-top: 40px;" class="background-video">
+        <!-- <source src="https://dwxcx.fp.ps.netease.com/file/66d91cf8120d8a0358bc8cf0SFQzdATS05" type="video/mp4" width="50px"> -->
+    </video>
+    <div class="wid" id="1">
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20240126/cb3733e2-f4d9-4a51-b51c-a8094ee17545.jpg">
+            <p>舞女-西尔菲德</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20240126/106bdac4-93ae-49d4-9f6f-bc4f721a0ade.jpg">
+            <p>【演绎之星系列】渔女-垂泪的神女</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20231107/6f726f05-83af-47a0-8907-3db0010c1cfe.jpg">
+            <p>【演绎之星系列】“心理学家”-<br>朱丽叶</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230629/4d15a857-69ef-45b5-b35a-6e1feea7bc4d.jpg">
+            <p>【溯洄系列】红夫人-应许之日</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230928/bc993d85-adfd-4c79-b134-23b439886893.jpg">
+            <p>新枪弹辩驳V3联动 倒计时</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230531/ecfd36ac-ca2f-4d16-8204-b48d270edcf4.jpg">
+            <p>2023视障儿童公益海报</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230414/932c990b-01c5-4c33-9a17-ea2e4dc1ef31.jpg">
+            <p>记忆余烬精华海报</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230307/d6a4fc25-8f06-4019-b03f-4b35e470d6cf.jpg">
+            <p>【演绎之星系列】调香师-花序</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20230307/8d5c77b8-e4d9-48da-af75-610c6ef640a5.jpg">
+            <p>2023情人节</p>
+        </div>
+        <div>
+            <img src="https://nie.res.netease.com/r/pic/20220520/30d82cc1-a5e5-47f5-b71b-b32c565e2700.jpg">
+            <p>2018世界杯</p>
+        </div>
+    </div>
+    <a href="https://ugc.id5.163.com/" title="查看更多" style="margin-top: 40px;">查看更多</a>
+    <div class="wid">
+      <div>
+        <img src="https://cdn.img2ipfs.com/ipfs/QmSkCCABSPE3a6AhTk6ZRta98k4Zis792aY3HNpdkM4LYg?filename=b9af179fly1hx4kio84pxj21471kw14g.jpg" alt="">
+      </div>
+      <div>
+        <img src="https://cdn.img2ipfs.com/ipfs/QmPkqdhQSe8GZAp3zishAAwLPrX6yhm8attABkeTqac6kw?filename=001YWTHdly1hx4y8992rxj618f0u0gwq02.jpg">
+      </div>
+      <div>
+        <img src="https://cdn.img2ipfs.com/ipfs/QmTyXCDeF8fppgmtkFMZ31mGzK8VEXCy3BpZpLPtJzkTdp?filename=001YWTHdly1hx4yzic3fzj60xc0p0n5502.jpg">
+      </div>
+      <div>
+        <img src="https://cdn.img2ipfs.com/ipfs/QmXS5LqcrvD6cNuNS9aKrZynQEJJkA8fYNk2kt8K6mLafm?filename=001YWTHdly1hx4y890itaj60sw0swwi202.jpg">
+      </div>
+      <div>
+        <img src="https://cdn.img2ipfs.com/ipfs/QmWd3moMPEHAdRdBcptBb5taEJUzCBBzPaVQnUTwWdakBo?filename=001YWTHdly1hx4y88dt3tj60p00xcad902.jpg"/>
+      </div>
+      <div>
+        <img src="https://cdn.img2ipfs.com/ipfs/Qmdke8fL1yupv519QnxNPqWiUPs5zkYb46BffBWxPH7jtZ?filename=001YWTHdly1hx4y87dpazj60u018g7ao02.jpg"/>
+      </div>
+      <div>
+        <img src="https://cdn.img2ipfs.com/ipfs/QmQNA6wfEFx3r6dnkd6T1hSbS4FsyWgcvuosNJcNDeUDZa?filename=b9af179fly1hx4kijrn0gj21kw16ok2h.jpg">
+      </div>
+    </div>
+    <table style="border:1;">
+        <table>
+            <thead>
+                <tr>
+                    <th>表头1</th>
+                    <th>表头2</th>
+                    <th>ci</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>111</td>
+                    <td>222</td>
+                    <td>xi</td>
+                </tr>
+                <tr>
+                    <td>333</td>
+                    <td>444</td>
+                    <td>ki</td>
+                </tr>
+            </tbody>
+        </table>
+    </table>
+    <table>
+        <thead>
+          <tr>
+            <th>工具</th>
+            <th>优点</th>
+            <th>缺点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PyInstaller</td>
+            <td>跨平台支持、自动处理依赖、打包为单个文件、适合大多数程序</td>
+            <td>文件较大、启动较慢、兼容性问题、调试困难</td>
+          </tr>
+          <tr>
+            <td>cx_Freeze</td>
+            <td>跨平台支持、定制性强、打包文件体积较小</td>
+            <td>配置复杂、依赖处理不如 PyInstaller 自动</td>
+          </tr>
+          <tr>
+            <td>py2exe</td>
+            <td>打包文件小、Windows 优化、配置简单</td>
+            <td>仅支持 Windows、对新版本 Python 支持差</td>
+          </tr>
+          <tr>
+            <td>PyOxidizer</td>
+            <td>体积小、嵌入 Python 解释器、WebAssembly 支持</td>
+            <td>配置复杂、文档较少、更新较慢</td>
+          </tr>
+        </tbody>
+    </table>
+    <footer>Happy Birthday Bro!</footer>
+    <script>
+        // 获取所有的 <p> 标签和 <figure> 标签
+        const paragraphs = document.querySelectorAll('#text-container p');
+        const figures = document.querySelectorAll('.figure-container figure');
+
+        // 计算每个 figure 应分配的 <p> 标签数量
+        const perFigureCount = Math.ceil(paragraphs.length / figures.length);
+
+        // 遍历每个 figure，将 <p> 标签分配进去
+        paragraphs.forEach((p, index) => {
+            const targetFigure = figures[Math.floor(index / perFigureCount)];
+            const textContainer = document.createElement('div'); // 创建一个容器来保存文字
+            textContainer.appendChild(p); // 把 <p> 标签移入容器
+            targetFigure.appendChild(textContainer); // 将文字容器添加到目标 figure 中
+        });
+    </script>
+    <script>
+        // 使用 Intersection Observer API 检测图片是否进入视口
+        const images= document.querySelectorAll("img");
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            // 如果图片进入视口
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show"); // 添加 .show 类触发动画
+            } else {
+              // 如果图片离开视口，则移除 .show 类
+              entry.target.classList.remove("show");
+            }
+          });
+        }, {
+          threshold: 0.3,  // 图片至少 50% 进入视口时触发
+        });
+        document.querySelectorAll('figure img').forEach((img) => {
+          observer.observe(img);
+        });
+        images.forEach((img) => observer.observe(img)); // 观察每张图片
+    </script>
+    <script>
+        const button = document.getElementById('alertButton');
+        button.addEventListener('click', () => {
+          alert('Hello! You clicked the button!');
+        });
+    </script>
+    <script>
+      let currentPage = 0; // 当前页面索引
+      const pages = document.querySelectorAll('.page'); // 获取所有页面
+      const totalPages = pages.length;
+
+      // 初始化页面背景颜色
+      document.body.style.backgroundColor = pages[currentPage]?.style.backgroundColor || '';
+
+      // 更新页面切换
+      function updatePageTransform() {
+        pages.forEach((page, index) => {
+          page.style.transform = `translateY(-${currentPage * 100}vh)`;
+        });
+        document.body.style.backgroundColor = pages[currentPage]?.style.backgroundColor || '';
+      }
+
+      // 处理滚动事件（桌面端）
+      window.addEventListener('wheel', (e) => {
+        if (e.deltaY > 0 && currentPage < totalPages - 1) {
+          currentPage++;
+        } else if (e.deltaY < 0 && currentPage > 0) {
+          currentPage--;
+        }
+        updatePageTransform();
+      });
+
+      // 处理触摸滑动事件（移动端）
+      let startY = 0; // 触摸开始位置
+      let endY = 0; // 触摸结束位置
+
+      window.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY; // 记录触摸开始位置
+      });
+
+      window.addEventListener('touchend', (e) => {
+        endY = e.changedTouches[0].clientY; // 记录触摸结束位置
+
+        // 判断滑动方向
+        if (startY - endY > 50 && currentPage < totalPages - 1) {
+          // 向上滑动，切换到下一页
+          currentPage++;
+        } else if (endY - startY > 50 && currentPage > 0) {
+          // 向下滑动，切换到上一页
+          currentPage--;
+        }
+        updatePageTransform();
+      });
+    </script>  
+    </body>
+</html>
