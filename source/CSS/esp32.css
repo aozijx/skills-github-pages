@@ -1,0 +1,79 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+  }
+
+  header {
+    height: 60px;
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    flex: 1;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer {
+    height: 40px;
+    background-color: #2ecc71;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  div img {
+    padding: 10px;
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    z-index: 1;
+  }
+  div p {
+    text-align: center;
+  }
+  .ani {
+    opacity: 0;
+    width: 70px;
+    height: 30px;
+    font-size: 7rem;
+    position: absolute;
+    align-items: center;
+    animation: slideDown 1.5s ease-in-out 1s forwards;
+  }
+  .ani div {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 1);
+    z-index: 999;
+  }
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .ani a {
+    font-size: 2rem;
+    margin-top: -300px;
+  }
