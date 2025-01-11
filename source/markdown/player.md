@@ -140,13 +140,108 @@
   - 适用于中国大陆的视频平台，支持高质量视频播放。
   - 支持直播、弹幕等互动功能。
 <hr>
+<hr>
+
+### 10. 腾讯视频播放器 (Tencent Video)
+- **描述**：腾讯视频是中国大陆最受欢迎的视频平台之一，提供了强大的视频播放功能。你可以通过嵌入其播放器在你的网站或应用中播放腾讯视频的内容。
+- **嵌入代码示例**：
+```html
+<iframe frameborder="0" width="100%" height="500" src="https://v.qq.com/iframe/player.html?vid={video-id}&autoplay=true" allowfullscreen="true"></iframe>
+```
+- **特点**：
+  - 支持高清视频播放。
+  - 提供视频资源库，可以嵌入腾讯视频的内容。
+  - 支持自动播放、全屏等控制。
+<hr>
+
+### 11. 爱奇艺视频播放器 (iQIYI Player)
+- **描述**：爱奇艺是中国领先的视频平台之一，提供各种娱乐内容，支持嵌入播放器。
+- **嵌入代码示例**：
+```html
+<iframe src="https://open.iqiyi.com/developer/player.html?vid={video-id}&tvId={tv-id}" width="100%" height="500" frameborder="0" allowfullscreen="true"></iframe>
+```
+- **特点**：
+  - 提供高清、超清视频播放。
+  - 支持各种广告、互动和视频特效。
+  - 专注于娱乐、电影、电视剧等内容。
+<hr>
+
+### 12. 优酷视频播放器 (Youku Player)
+- **描述**：优酷是中国老牌视频平台，提供影视剧、综艺、体育赛事等视频内容，支持在网页上嵌入播放器。
+- **嵌入代码示例**：
+```html
+<iframe frameborder="0" width="100%" height="500" src="https://player.youku.com/embed/{video-id}" allowfullscreen="true"></iframe>
+```
+- **特点**：
+  - 提供多种视频资源，包括电视剧、电影、综艺等。
+  - 播放器支持全屏、自动播放等功能。
+  - 支持 HTML5 和 Flash 播放，兼容性强。
+<hr>
+
+### 13.  芒果TV播放器 (Mango TV)
+- **描述**：芒果TV 是湖南广播电视台旗下的视频平台，提供丰富的综艺节目和电视剧。
+- **嵌入代码示例**：
+```html
+<iframe frameborder="0" width="100%" height="500" src="https://www.mgtv.com/v/{video-id}" allowfullscreen="true"></iframe>
+```
+- **特点**：
+  - 专注于国内综艺节目、电视剧等内容。
+  - 提供高质量的直播和点播内容。
+  - 支持多种视频格式。
+<hr>
+
+### 14.  搜狐视频播放器 (Sohu Video)
+- **描述**：搜狐视频是中国的一大视频平台，提供电影、电视剧、综艺等视频内容，也支持嵌入式播放器。
+- **嵌入代码示例**：
+```html
+<iframe src="https://tv.sohu.com/v/{video-id}" width="100%" height="500" frameborder="0" allowfullscreen="true"></iframe>
+```
+- **特点**：
+  - 提供丰富的视频库，包括电影、电视剧、综艺等。
+  - 播放器支持多种功能，如自动播放、全屏、控制条等。
+<hr>
+
+### 15.  抖音短视频播放器 (Douyin Player)
+- **描述**：抖音是中国的短视频平台，类似于 TikTok，提供了嵌入其短视频内容的功能。
+- **嵌入代码示例**：
+```html
+<iframe src="https://www.douyin.com/embed/{video-id}" width="100%" height="500" frameborder="0" allowfullscreen="true"></iframe>
+```
+- **特点**：
+  - 专注于短视频，适合展示创意和用户生成内容（UGC）。
+  - 提供高质量的视频播放和用户互动。
+  - 支持分享到社交媒体等平台。
+<hr>
+
+### 16.  哔哩哔哩直播播放器 (Bilibili Live)
+- **描述**：除了常规的 Bilibili 视频，Bilibili 也提供了直播内容的播放器，可以嵌入到你的网站或应用中。
+- **嵌入代码示例**：
+```html
+<iframe src="https://live.bilibili.com/{live-room-id}" width="100%" height="500" frameborder="0" allowfullscreen="true"></iframe>
+```
+- **特点**：
+  - 支持直播内容，包括游戏直播、二次元、娱乐节目等。
+  - 提供实时弹幕互动功能。
+  - 可以通过 Bilibili 账户进行互动。
+<hr>
+
+### 17.  快手视频播放器 (Kuaishou Player)
+- **描述**：快手是中国的另一大短视频平台，类似于抖音，专注于短视频和直播内容。
+- **嵌入代码示例**：
+```html
+<iframe src="https://www.kuaishou.com/embed/{video-id}" width="100%" height="500" frameborder="0" allowfullscreen="true"></iframe>
+```
+- **特点**：
+  - 提供短视频、直播和互动功能。
+  - 面向年轻用户，内容偏向社交和娱乐。
+<hr>
+<hr>
 
 ## 总结
-这些播放器都提供了易于嵌入的视频播放功能，适用于不同需求的场景。你可以选择：
-
 - YouTube 和 Vimeo 适合常见的共享视频平台。
 - HTML5` <video> `标签适合自托管视频。
 - JW Player、Flowplayer 和 Video.js 适合需要高度定制和功能丰富的应用。
 - Bilibili Player 和 Kaltura 等适合特定平台的视频播放需求。
+- 涵盖了各大视频平台，如 腾讯视频、爱奇艺、优酷、芒果TV 等，提供了丰富的视频内容和嵌入功能。
 
-根据你的需求（如是否需要自定义功能、广告支持、互动性等），选择合适的播放器。
+这些播放器通常都提供 HTML 嵌入代码，方便你将其嵌入到网站中。需要注意的是，不同平台的嵌入代码和播放器功能可能有所不同，你可以根据实际需求（如是否需要自定义功能、广告支持、互动性等）调整播放器的显示效果、大小、控制项等,选择合适的播放器。
