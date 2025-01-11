@@ -121,7 +121,7 @@
       transition: background-color 0.3s ease;
     }
     nav a:hover {
-      background-color: #68d2ff;
+      background-color: rgb(0, 0, 0, 0,1);
     }
       .span {
         display: flex;
@@ -244,8 +244,9 @@
         padding: 20px;
       }
       .deep a {
+        display: flex;
         color: #ffffff;
-        font-size: 30px;
+        font-size: 25px;
         text-decoration: none;
       }
       .deep p {
@@ -261,16 +262,16 @@
     <div class="splash-screen" id="splash-screen">
       <h1 class="splash-title">Welcome to the Website!</h1>
     </div> 
-    <div class="welcome-container">
+    <div class="welcome-container" id="s">
       <div class="welcome-content">
         <nav>
-          <a href="https://image.baidu.com/" target="_blank">图搜</a>
+          <a href="#s">首页</a>
         </nav>
         <h1 class="welcome-title"> Hello Everyone to Here🎉</h1>
         <div class="welcome-text">
           <img src="source/image/crydog.gif" style="width: 20%;">
           <b>This is a simple HTML page.</b>
-          <p>你好，欢迎来到我的网页，我不知道做些什么，所以观赏性不是很好，但还是可以看看的，不要嫌弃（由于不知道在这一页加什么，所以有了一些表情）</p>
+          <p>你好，欢迎来到我的网页，我不知道做些什么，所以网页很简陋，不要嫌弃（由于不知道在这一页加什么，所以有了一些表情）</p>
         </div>
         <img src="source/image/cat.gif" style="width: 20%; float: right;">
       </div>
@@ -285,9 +286,12 @@
       <div class="deep">
         <a href="https://www.jyshare.com/front-end/61/" target="_blank">菜鸟在线Web</a>
       </div>
-      <div class="deep">
-        <a>CSS</a><br>
+      <div class="deep" style="background-image: url();">
+        <a>CSS</a>
         <a href="source/markdown/audio">audio标签</a>
+        <a href="source/markdown/player">网页Player</a>
+        <a href="https://www.w3school.com.cn/cssref/index.asp">W3school</a>
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS">MDN</a>
       </div>
       <div class="deep" style="background-image: url(source/image/five/dwrg.jpg);width: 30%;height: 290px;background-size: cover;opacity: 0.9;">
         <a href="https://aozijx.github.io/source/HTML/fw" target="_blank">第五人格</a>
