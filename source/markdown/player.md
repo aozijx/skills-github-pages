@@ -5,9 +5,11 @@
 ### 1. YouTube Player
 - **描述**：YouTube 提供了一个嵌入式播放器，可以通过` <iframe> `方式将 YouTube 视频嵌入到其他网页中。
 - **嵌入代码示例**：
+
 ```html
 <iframe width="560" height="315" src="https://www.youtube.com/embed/{video-id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
+
 - **特点**：
   - 支持各种视频格式。
   - 提供自定义播放器样式和功能（如自动播放、控制条隐藏等）。
@@ -205,7 +207,7 @@
 - **描述**：抖音是中国的短视频平台，类似于 TikTok，提供了嵌入其短视频内容的功能。
 - **嵌入代码示例**：
 ```html
-<iframe src="https://www.douyin.com/embed/{video-id}" width="100%" height="500" frameborder="0" allowfullscreen="true"></iframe>
+<iframe src="https://open.douyin.com/player/video?vid=7429954886776753408&autoplau=0" width="100%" height="500" frameborder="0" referrerpolicy="unsafe-url" allowfullscreen="true"></iframe>
 ```
 - **特点**：
   - 专注于短视频，适合展示创意和用户生成内容（UGC）。
