@@ -22,7 +22,7 @@
       body {
         display: flex; 
         flex-direction: column;
-        font-family: '楷体',Georgia ;
+        font-family: 'LXGW WenKai',Georgia ;
         margin: 0;
         width: 100%;
         margin: 0 auto;
@@ -271,6 +271,8 @@
       <!--背景连线-->
 		<script type="text/javascript" src="source/JavaScript/bgline.js"></script>
 		<canvas height="926" width="1920" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;" id="c_n1"></canvas>
+    <!--字体-->
+    <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css' /> 
     <div class="splash-screen" id="splash-screen">
       <h1 class="splash-title">Welcome to the Website!</h1>
     </div> 
@@ -278,7 +280,7 @@
       <div class="welcome-content">
         <nav>
           <a href="#s">首页</a>
-          <a href="index.md">关于我</a>
+          <a href="index">关于我</a>
         </nav>
         <h1 class="welcome-title"> Hello Everyone to Here🎉</h1>
         <div class="welcome-text">
@@ -308,10 +310,10 @@
       </div>
       <div class="deep" style="background-image: url(source/image/five/dwrg.jpg);width: 30%;height: 290px;background-size: cover;opacity: 0.9;">
         <a href="source/HTML/fw" target="_blank">第五人格</a>
-        <p>原本是在这个网页，但是图片太大，拖累了网页加载的速度，所以把相关的代码做了迁移，效果简单化了。</p>
+        <p>图片太大，拖累了网页加载的速度，所以把相关的代码做了迁移，效果简单化了。</p>
       </div>
       <div class="deep">
-        <audio controls autoplay loop preload="auto">
+        <audio controls  loop preload="auto"><!--autoplay-->
           <source src="https://aozijx.github.io/xuao/source/music/night crusing.mp3" type="audio/mp3">
           您的浏览器不支持音频播放。
         </audio>
@@ -321,7 +323,11 @@
         </audio>
         <p>开盲盒！</p>
       </div>
-      <div class="deep"></div>
+      <div class="deep">
+        <a href="https://chinese-font.netlify.app/zh-cn/">中文网字计划</a>
+        <p>网站字体为霞鹜文楷(LXGWWenKai)<br>https://chinese-font.netlify.app/zh-cn/fonts/lxgwwenkai/LXGWWenKai-Bold</p>
+      </div>
+      <div class="deep" style="background-image: url(source/image/cup.png);background-size: cover;"></div>
       <div class="deep"></div>
       <div class="deep"></div>
     </div>
@@ -436,8 +442,7 @@
           <td>配置复杂、文档较少、更新较慢</td>
         </tr>
       </tbody>
-    </table>
-    <footer>&copy; 2025 | All Rights Reserved</footer>
+    </table>rved</footer>
     <script>
       // 监听滚动事件
       window.onscroll = function() {
