@@ -1,18 +1,9 @@
 
 ***欢迎来到我的个人博客！这是我记录学习、成长与生活点滴的地方。***
 
-使用了 ChatGPT 的帮助，JavaScript都不是我写的，所以一些逻辑很让我头疼，我也没有很好的创意，随便写的属于是……
-
-- **HTML练习**[网页](https://aozijx.github.io/xuao/re0)
-我正在学习前端等的知识，写了一个不成熟的网页，目前还在磕磕绊绊的写。一直在想能不能通过链接直达我的网页，一开始是只能局域网内访问，因为我使用 Live Server 插件，随后了解到了 GitHub 上的 page ，所以也来写了一个简单的 markdown 文件，通过点击导向我一开始写的 
-
-- **markdown**（学习中……***期待我能玩出花来！！***）
-由于我所使用的模板的原因，markdown的页面没有导航栏等等，只是一个简单的不能再简单的页面，换字体，样式等等需要细细摸索。
-**……虽然……但是吧，重心还在HTML上……**
 ---
-
 - **runoob上的网页**
-[烟花](https://aozijx.github.io/xuao/source/HTML/fireworks) | [万花筒](https://aozijx.github.io/xuao/source/HTML/canvas) | [五子棋](https://aozijx.github.io/xuao/source/HTML/gobang) | [菜鸟手机](https://aozijx.github.io/xuao/source/HTML/phone) | [百度热力图](https://aozijx.github.io/xuao/source/HTML/map) | [菜单](https://aozijx.github.io/xuao/source/HTML/menu) | [更多](https://www.jyshare.com/examples/)
+[烟花](source/HTML/fireworks) | [万花筒](source/HTML/canvas) | [五子棋](source/HTML/gobang) | [菜鸟手机](xuao/source/HTML/phone) | [百度热力图](source/HTML/map) | [菜单](source/HTML/menu) | [更多](https://www.jyshare.com/examples/)
 
 - **CSS创意辅助网站**
 [CSS Gradient](https://cssgradient.io/) | [Fancy-Border-Radius](https://9elements.github.io/fancy-border-radius/) | [Uiverse](https://uiverse.io/) | [CSS Loaders](https://css-loaders.com/)
@@ -27,10 +18,18 @@
 * [覆盖](source/HTML/bookf) | [推移](source/HTML/bookt) 
 
 ---
-- []()
+看到的文章
+[个站千日总结报告](https://blog.konpaku.cn/Something-Else/%E7%AB%99%E7%82%B9%E5%8D%83%E6%97%A5%E6%8A%A5%E5%91%8A/)说起来好笑，从[Cute-Dress](https://github.com/Cute-Dress/Dress)仓库B->big_cake的[about.md](https://github.com/Cute-Dress/Dress/blob/master/B/Big_Cake/about.md)到[blog](https://www.lihaoyu.cn/)，通过友链到[杰帕斯](https://japerz.com/),再通过友链到[KawaiiYoumu](https://blog.konpaku.cn/)
+顺便看到了[萌国ICP](https://icp.gov.moe/aboutus.php)
 
 ---
-[项目仓库](https://github.com/aozijx/xuao) | > [*](https://aozijx.github.io/xuao/source/idea) < | [友](https://aozijx.github.io/xuao/assistance/yang) | [试验](https://aozijx.github.io/xuao/source/markdown/test) | [history](https://aozijx.github.io/xuao/source/markdown/history)
+- [编码：隐匿在计算机软硬件背后的语言](https://weread.qq.com/web/bookDetail/64e32bf071fd5a9164ece6b)
 
+---
+[项目仓库](https://github.com/aozijx/xuao) | > [*](source/idea) < | [友](assistance/yang) | [试验](source/markdown/test) | [history](source/markdown/history)
+
+---
+感谢啊，拿到代码了
+[屏幕背景连线](https://soyo.moe/)还有注释小表情
 
 > 感谢访问我的博客，期待与你一起分享更多的知识与经验！(留言功能待做)
