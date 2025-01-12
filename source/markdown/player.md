@@ -4,12 +4,10 @@
 
 ### 1. YouTube Player
 - **描述**：YouTube 提供了一个嵌入式播放器，可以通过` <iframe> `方式将 YouTube 视频嵌入到其他网页中。
-- **嵌入代码示例**：
-
+- **嵌入代码示例**：  
 ```html
 <iframe width="560" height="315" src="https://www.youtube.com/embed/{video-id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
-
 - **特点**：
   - 支持各种视频格式。
   - 提供自定义播放器样式和功能（如自动播放、控制条隐藏等）。
@@ -18,7 +16,7 @@
 
 ### 2. Vimeo Player
 - **描述**：Vimeo 也提供了一个嵌入式播放器，通常用于高质量、专业内容的播放。
-- **嵌入代码示例**：
+- **嵌入代码示例**：  
 ```html
 <iframe src="https://player.vimeo.com/video/{video-id}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 ```
