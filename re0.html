@@ -31,6 +31,9 @@
         line-height: 1.3;
         align-items: center;
         transition: background-color 2s ease;
+        background-image: url(source/image/liu.webp);
+        background-attachment: fixed;
+        background-size: cover;
       }
       .splash-screen {
         position: fixed;
@@ -180,6 +183,9 @@
         width: 100vw;
         padding: 20px;
         background-image: url(source/image/BG.gif);
+        background-size: cover;
+        background-attachment: fixed;
+        z-index: -1;
       }
       .welcome-cotent {
         display: flex;
@@ -280,6 +286,7 @@
       <div class="welcome-content">
         <nav>
           <a href="#s">首页</a>
+          <a href="#c">正文</a>
           <a href="index">关于我</a>
         </nav>
         <h1 class="welcome-title"> Hello Everyone to Here🎉</h1>
@@ -295,7 +302,7 @@
       <!-- <source src="https://dwxcx.fp.ps.netease.com/file/66d91cf8120d8a0358bc8cf0SFQzdATS05" type="video/mp4" width="50px"> -->
     </video>
     <div style="display: flex;width: 100vw;;gap: 30px;justify-content: center;flex-wrap: wrap;margin-top: 40px;">
-      <div class="deep">
+      <div class="deep" id="c">
         <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic" target="_blank">W3school</a>
       </div>
       <div class="deep">
@@ -442,7 +449,8 @@
           <td>配置复杂、文档较少、更新较慢</td>
         </tr>
       </tbody>
-    </table>rved</footer>
+    </table>
+    <footer>Copyright &copy 2025 </footer>
     <script>
       // 监听滚动事件
       window.onscroll = function() {
