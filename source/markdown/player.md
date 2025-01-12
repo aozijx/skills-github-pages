@@ -4,7 +4,8 @@
 
 ### 1. YouTube Player
 - **描述**：YouTube 提供了一个嵌入式播放器，可以通过` <iframe> `方式将 YouTube 视频嵌入到其他网页中。
-- **嵌入代码示例**：  
+- **嵌入代码示例**：
+
 ```html
 <iframe width="560" height="315" src="https://www.youtube.com/embed/{video-id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
@@ -16,7 +17,8 @@
 
 ### 2. Vimeo Player
 - **描述**：Vimeo 也提供了一个嵌入式播放器，通常用于高质量、专业内容的播放。
-- **嵌入代码示例**：  
+- **嵌入代码示例**：
+
 ```html
 <iframe src="https://player.vimeo.com/video/{video-id}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 ```
@@ -29,6 +31,7 @@
 ### 3. HTML5` <video> `标签
 - **描述**：HTML5 原生的` <video> `标签支持多种视频格式，可以直接嵌入并播放视频，适合没有依赖于第三方平台的视频托管。
 - **示例代码**：
+
 ```html
 <video width="320" height="240" controls>
     <source src="movie.mp4" type="video/mp4">
@@ -45,6 +48,7 @@
 ### 4. JW Player
 - **描述**：JW Player 是一个专业的视频播放器，常用于自定义网站的视频播放功能，支持视频广告、分析、字幕等功能。
 - **嵌入代码示例**：
+
 ```html
 <div id="my-player"></div>
 <script src="https://cdn.jwplayer.com/libraries/xxxxxxx.js"></script>
@@ -63,6 +67,7 @@
 ### 5. Flowplayer
 - **描述**：Flowplayer 是一个开源的 HTML5 视频播放器，支持自定义外观和行为，广泛用于嵌入式视频播放。
 - **嵌入代码示例**：
+
 ```html
 <div id="player"></div>
 <script src="https://releases.flowplayer.org/7.2.7/flowplayer.min.js"></script>
@@ -84,6 +89,7 @@
 ### 6. Plyr
 - **描述**：Plyr 是一个简洁、易于使用的 HTML5 视频和音频播放器，支持自定义外观和功能，适用于嵌入式视频播放。
 - **嵌入代码示例**：
+
 ```html
 <video controls>
     <source src="movie.mp4" type="video/mp4">
@@ -104,6 +110,7 @@
 ### 7. Video.js
 - **描述**：Video.js 是一个开源的 HTML5 视频播放器，具有丰富的插件和功能，支持跨平台播放。
 - **嵌入代码示例**：
+
 ```html
 <video id="my-video" class="video-js vjs-default-skin" controls>
     <source src="video.mp4" type="video/mp4">
@@ -122,6 +129,7 @@
 ### 8. Kaltura Player
 - **描述**：Kaltura 提供一个企业级的在线视频平台，它的播放器支持多种功能，包括内容保护、广告、直播等。
 - **嵌入代码示例**：
+
 ```html
 <iframe src="https://cdnapisec.kaltura.com/p/XXXXXX/sp/XXXXXX00/embedIframeJs/uiconf_id/XXXXXX/partner_id/XXXXXX?iframeembed=true&playerId=kaltura_player&entry_id={video-id}" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 ```
@@ -133,6 +141,7 @@
 ### 9. Bilibili Player
 - **描述**：Bilibili 提供了一个嵌入式播放器，适用于嵌入 Bilibili 视频。你可以通过指定` bvid `来嵌入 Bilibili 的视频。
 - **嵌入代码示例**：
+
 ```html
 <iframe src="https://player.bilibili.com/player.html?bvid=BV1hL4y1w72r" frameborder="0" scrolling="no" width="100%" height="500" allowfullscreen="true"></iframe>
 ```
@@ -145,6 +154,7 @@
 ### 10. 腾讯视频播放器 (Tencent Video)
 - **描述**：腾讯视频是中国大陆最受欢迎的视频平台之一，提供了强大的视频播放功能。你可以通过嵌入其播放器在你的网站或应用中播放腾讯视频的内容。
 - **嵌入代码示例**：
+
 ```html
 <iframe frameborder="0" width="100%" height="500" src="https://v.qq.com/iframe/player.html?vid={video-id}&autoplay=true" allowfullscreen="true"></iframe>
 ```
@@ -157,6 +167,7 @@
 ### 11. 爱奇艺视频播放器 (iQIYI Player)
 - **描述**：爱奇艺是中国领先的视频平台之一，提供各种娱乐内容，支持嵌入播放器。
 - **嵌入代码示例**：
+
 ```html
 <iframe src="https://open.iqiyi.com/developer/player.html?vid={video-id}&tvId={tv-id}" width="100%" height="500" frameborder="0" allowfullscreen="true"></iframe>
 ```
@@ -169,6 +180,7 @@
 ### 12. 优酷视频播放器 (Youku Player)
 - **描述**：优酷是中国老牌视频平台，提供影视剧、综艺、体育赛事等视频内容，支持在网页上嵌入播放器。
 - **嵌入代码示例**：
+
 ```html
 <iframe frameborder="0" width="100%" height="500" src="https://player.youku.com/embed/{video-id}" allowfullscreen="true"></iframe>
 ```
@@ -181,6 +193,7 @@
 ### 13.  芒果TV播放器 (Mango TV)
 - **描述**：芒果TV 是湖南广播电视台旗下的视频平台，提供丰富的综艺节目和电视剧。
 - **嵌入代码示例**：
+
 ```html
 <iframe frameborder="0" width="100%" height="500" src="https://www.mgtv.com/v/{video-id}" allowfullscreen="true"></iframe>
 ```
@@ -193,6 +206,7 @@
 ### 14.  搜狐视频播放器 (Sohu Video)
 - **描述**：搜狐视频是中国的一大视频平台，提供电影、电视剧、综艺等视频内容，也支持嵌入式播放器。
 - **嵌入代码示例**：
+
 ```html
 <iframe src="https://tv.sohu.com/v/{video-id}" width="100%" height="500" frameborder="0" allowfullscreen="true"></iframe>
 ```
@@ -204,6 +218,7 @@
 ### 15.  抖音短视频播放器 (Douyin Player)
 - **描述**：抖音是中国的短视频平台，类似于 TikTok，提供了嵌入其短视频内容的功能。
 - **嵌入代码示例**：
+
 ```html
 <iframe src="https://open.douyin.com/player/video?vid=7429954886776753408&autoplau=0" width="100%" height="500" frameborder="0" referrerpolicy="unsafe-url" allowfullscreen="true"></iframe>
 ```
@@ -216,6 +231,7 @@
 ### 16.  哔哩哔哩直播播放器 (Bilibili Live)
 - **描述**：除了常规的 Bilibili 视频，Bilibili 也提供了直播内容的播放器，可以嵌入到你的网站或应用中。
 - **嵌入代码示例**：
+
 ```html
 <iframe src="https://live.bilibili.com/{live-room-id}" width="100%" height="500" frameborder="0" allowfullscreen="true"></iframe>
 ```
@@ -228,6 +244,7 @@
 ### 17.  快手视频播放器 (Kuaishou Player)
 - **描述**：快手是中国的另一大短视频平台，类似于抖音，专注于短视频和直播内容。
 - **嵌入代码示例**：
+
 ```html
 <iframe src="https://www.kuaishou.com/embed/{video-id}" width="100%" height="500" frameborder="0" allowfullscreen="true"></iframe>
 ```
