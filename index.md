@@ -1,6 +1,8 @@
 
 ***欢迎来到我的个人博客！这是我记录学习、成长与生活点滴的地方。***
 
+### 我的[网页](re0)，看了很多后，我觉得我的好简陋啊，都不知道怎么称呼了，
+
 ---
 - **runoob上的网页**
 [烟花](source/HTML/fireworks) | [万花筒](source/HTML/canvas) | [五子棋](source/HTML/gobang) | [菜鸟手机](xuao/source/HTML/phone) | [百度热力图](source/HTML/map) | [菜单](source/HTML/menu) | [更多](https://www.jyshare.com/examples/)
@@ -18,11 +20,12 @@
 * [覆盖](source/HTML/bookf) | [推移](source/HTML/bookt) 
 
 ---
-看到的文章
+### 看到的文章
 [个站千日总结报告](https://blog.konpaku.cn/Something-Else/%E7%AB%99%E7%82%B9%E5%8D%83%E6%97%A5%E6%8A%A5%E5%91%8A/)说起来好笑，从[Cute-Dress](https://github.com/Cute-Dress/Dress)仓库B->big_cake的[about.md](https://github.com/Cute-Dress/Dress/blob/master/B/Big_Cake/about.md)到[blog](https://www.lihaoyu.cn/)，通过友链到[杰帕斯](https://japerz.com/),再通过友链到[KawaiiYoumu](https://blog.konpaku.cn/)
-顺便看到了[萌国ICP](https://icp.gov.moe/aboutus.php)
+还看到了[萌国ICP](https://icp.gov.moe/aboutus.php)
 
 ---
+## 书
 - [编码：隐匿在计算机软硬件背后的语言](https://weread.qq.com/web/bookDetail/64e32bf071fd5a9164ece6b)
 
 ---
