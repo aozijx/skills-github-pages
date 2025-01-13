@@ -13,43 +13,30 @@
 <head >
   <meta charset="UTF-8">
   <meta >
-  <title>Hiner网页☃</title>
+  <title>Hiner</title>
   <link rel="icon" href="source/image/logo.png">
     <style> 
       * {
         box-sizing: border-box;
       }
       body {
-        display: flex; 
-        flex-direction: column;
-        font-family: 'LXGW WenKai',Georgia ;
-        margin: 0;
+        font-family: 'LXGW WenKai', Georgia, sans-serif;
         width: 100%;
         margin: 0 auto;
-        overflow-y: scroll; /* 启用垂直滚动 */
-        scroll-snap-type: y mandatory; /* 启用滚动捕捉效果 */
         line-height: 1.3;
-        align-items: center;
-        transition: background-color 2s ease;
         background-image: url(source/image/liu.webp);
         background-attachment: fixed;
         background-size: cover;
       }
       .splash-screen {
         position: fixed;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
-        padding: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 2em;
-        color: white;
         z-index: 9999;
         background: rgb(0,0,0,1);
-        background-size: 400% 400%;
         animation: fadeOut 1.5s ease-out 1s forwards;
       }
       .splash-title {
@@ -87,6 +74,8 @@
         border-radius: 10px; /* 圆角设置 */
         overflow: hidden; /* 隐藏溢出的边角 */
         margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
       }
       th, td {
         padding: 8px 12px;
@@ -121,7 +110,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 99999;
+      z-index: 6666;
     }
     nav a {
       color: white;
@@ -196,7 +185,7 @@
       .welcome-title {
         z-index: 8888;
         font-size: 3rem;
-        font-family: Cambria;
+        /* font-family: Cambria; */
         margin-bottom: 20px;
         animation: fadeIn 2s ease-out;
         animation: float 3s infinite ease-in-out;
@@ -204,7 +193,6 @@
       }
       /* 文字样式 */
       .welcome-text {
-        font-family: 楷体;
         font-size: 1.2rem;
         max-width: 600px;
         margin-bottom: 30px;
@@ -269,6 +257,7 @@
         font-size: 18px;
       }
     </style>
+    <link href="source/image/BG.gif" rel="preload" type="image">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!--左下角支持-->
     <script src="https://fastly.jsdelivr.net/npm/live2d-widgets@0/autoload.js"></script>
@@ -293,7 +282,7 @@
         <div class="welcome-text">
           <img src="source/image/crydog.gif" style="width: 20%;">
           <b>This is a simple HTML page.</b>
-          <p>你好，欢迎来到我的网页，我不知道做些什么，所以网页很简陋，不要嫌弃（由于不知道在这一页加什么，所以有了一些表情）</p>
+          <p>你好，欢迎来到我的网页（由于不知道在这一页添加什么，所以有了一些表情）</p>
         </div>
         <img src="source/image/cat.gif" style="width: 20%; float: right;">
       </div>
@@ -320,12 +309,20 @@
         <p>图片太大，拖累了网页加载的速度，所以把相关的代码做了迁移，效果简单化了。</p>
       </div>
       <div class="deep">
-        <audio controls  loop preload="auto"><!--autoplay-->
-          <source src="https://aozijx.github.io/xuao/source/music/night crusing.mp3" type="audio/mp3">
+        <audio controls autoplay loop preload="auto">
+          <source src="source/music/青石巷.mp3" type="audio/mp3">
           您的浏览器不支持音频播放。
         </audio>
         <audio controls loop preload="metadata">
-          <source src="https://aozijx.github.io/xuao/source/music/AwayFromTheRain.mp3" type="audio/mp3">
+          <source src="source/music/青石巷.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+        <audio controls  loop preload="metadata">
+          <source src="source/music/night crusing.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+        <audio controls loop preload="metadata">
+          <source src="source/music/AwayFromTheRain.mp3" type="audio/mp3">
           您的浏览器不支持音频播放。
         </audio>
         <p>开盲盒！</p>
@@ -340,7 +337,7 @@
     </div>
     <div style="margin-top: 40px;">
       <section>
-        <a href="https://aozijx.github.io/xuao/"><h2> blog </h2></a>
+        <a href=""><h2> blog </h2></a>
         <p>这是第一篇博客。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula orci nec mauris tristique, ac aliquam quam bibendum.</p>
       </section>
       <section style="background-image: url(https://img.alicdn.com/imgextra/i2/2209748222339/O1CN010muxj21T9JF0IPCI2_!!2209748222339.jpg);width: 100%;height: 250px;background-size: cover;background-position: center;opacity: 0.8;">
