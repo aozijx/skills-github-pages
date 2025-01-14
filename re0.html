@@ -20,10 +20,9 @@
         box-sizing: border-box;
       }
       body {
+        height: auto;
+        margin: 0;
         font-family: 'LXGW WenKai', Georgia, sans-serif;
-        width: 100%;
-        margin: 0 auto;
-        line-height: 1.3;
         background-image: url(source/image/liu.webp);
         background-attachment: fixed;
         background-size: cover;
@@ -70,26 +69,27 @@
       }
       table {
         border-collapse: collapse; /* 合并表格边框 */
-        width: 97%; /* 表格宽度100% */
-        border-radius: 10px; /* 圆角设置 */
+        width: 97%;
+        border-radius: 10px;
         overflow: hidden; /* 隐藏溢出的边角 */
         margin-top: 20px;
         margin-left: auto;
         margin-right: auto;
+        color: aqua;
       }
       th, td {
         padding: 8px 12px;
         text-align: left;
-        border: 1px solid #ddd; /* 边框颜色 */
+        border: 1.7px solid #ddd; /* 边框颜色 */
       }
       th {
-        background-color: #f2f2f2; /* 表头背景色 */
+        background-color: #6e6e6e;
       }
       tr:nth-child(even) {
-        background-color: #f9f9f9; /* 偶数行背景色 */
+        background-color: #000000; /* 偶数行背景色 */
       }
       tr:hover {
-        background-color: #f1f1f1; /* 鼠标悬停时背景色 */
+        background-color: #000000; /* 鼠标悬停时背景色 */
       }
       .background-video {
         position: fixed;
@@ -100,30 +100,30 @@
         object-fit: cover;
         z-index: -1;
       }
-    nav {
-      width: 100%;
-      background-color: rgb(0, 0, 0, 0.3);
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 6666;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      font-size: 1.2rem;
-      margin: 0 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    nav a:hover {
-      background-color: rgb(0, 0, 0, 0,1);
-    }
+      nav {
+        width: 100%;
+        background-color: rgb(0, 0, 0, 0.3);
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 6666;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        margin: 0 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      nav a:hover {
+        background-color: rgb(0, 0, 0, 0,1);
+      }
       .span {
         display: flex;
         justify-content: center;
@@ -170,8 +170,7 @@
         align-items: center;
         color: #ffffff;
         height: 100vh;
-        width: 100vw;
-        padding: 20px;
+        width: auto;
         background-image: url(source/image/BG.gif);
         background-size: cover;
         background-attachment: fixed;
@@ -290,7 +289,7 @@
     <video autoplay muted loop style="margin-top: 20px;" class="background-video">
       <!-- <source src="https://dwxcx.fp.ps.netease.com/file/66d91cf8120d8a0358bc8cf0SFQzdATS05" type="video/mp4" width="50px"> -->
     </video>
-    <div style="display: flex;width: 100vw;;gap: 30px;justify-content: center;flex-wrap: wrap;margin-top: 40px;" id="c">
+    <div style="display: flex;width: 100%;;gap: 30px;justify-content: center;flex-wrap: wrap;margin-top: 40px;" id="c">
       <div class="deep">
         <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic" target="_blank">W3school</a>
       </div>
@@ -309,20 +308,20 @@
         <p>图片太大，拖累了网页加载的速度，所以把相关的代码做了迁移，效果简单化了。</p>
       </div>
       <div class="deep">
-        <audio controls autoplay loop preload="auto">
-          <source src="source/music/青石巷.mp3" type="audio/mp3">
-          您的浏览器不支持音频播放。
-        </audio>
-        <audio controls loop preload="metadata">
+        <audio controls autoplay preload="auto">
           <source src="source/music/千与千寻轻音乐.mp3" type="audio/mp3">
           您的浏览器不支持音频播放。
         </audio>
-        <audio controls  loop preload="metadata">
-          <source src="source/music/night crusing.mp3" type="audio/mp3">
+        <audio controls preload="metadata">
+          <source src="source/music/AwayFromTheRain.mp3" type="audio/mp3">
           您的浏览器不支持音频播放。
         </audio>
-        <audio controls loop preload="metadata">
-          <source src="source/music/AwayFromTheRain.mp3" type="audio/mp3">
+        <audio controls preload="metadata">
+          <source src="source/music/青石巷.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+        <audio controls preload="metadata">
+          <source src="source/music/night crusing.mp3" type="audio/mp3">
           您的浏览器不支持音频播放。
         </audio>
         <p>开盲盒！</p>
@@ -332,8 +331,15 @@
         <p>网站字体为霞鹜文楷(LXGWWenKai)<br>https://chinese-font.netlify.app/zh-cn/fonts/lxgwwenkai/LXGWWenKai-Bold</p>
       </div>
       <div class="deep" style="background-image: url(source/image/cup.png);background-size: cover;"></div>
-      <div class="deep"></div>
-      <div class="deep"></div>
+      <div class="deep" id="ip-container">
+        <a href="source/image/lova/不知火.png" target="page">iframe刷新局部小试</a>
+        <p>点击下方按钮获取您的 IP 地址：</p>
+        <button id="query-ip">查询 IP 地址</button>
+        <p id="ip-box">等待查询...</p>
+      </div>
+      <div class="deep">
+        <iframe name="page" src="source/image/sponge.jpg" style="width: 100%;height: 100%;border: none;"></iframe>
+      </div>
     </div>
     <div style="margin-top: 40px;">
       <section>
@@ -393,8 +399,8 @@
     <table style="border:1;">
       <thead>
           <tr>
-              <th>questions</th>
-              <th>improvement ideas</th>
+            <th>questions</th>
+            <th>improvement ideas</th>
           </tr>
       </thead>
       <tbody>
@@ -447,6 +453,66 @@
         </tr>
       </tbody>
     </table>
+    <table>
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>压缩</th>
+          <th>介绍</th>
+          <th>配置</th>
+          <th>安装</th>
+          <th>命令</th>
+          <th>解释</th>
+          <th>在线工具</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Terser</td>
+          <td>JavaScript</td>
+          <td>Terser 是一个现代的 JavaScript 压缩工具，性能和功能上都非常好，可以通过 NPM 安装并使用</td>
+          <td>无</td>
+          <td>npm install terser --save-dev</td>
+          <td>npx terser src/main.js --compress --mangle --output dist/main.min.js</td>
+          <td>src/main.js 原始文件。
+            dist/main.min.js 压缩文件。
+            --compress 开启压缩。
+            --mangle 混淆变量名。
+          <td><a href="https://www.uglifyjs.net">UglifyJS Online</a><br><a href="https://www.uglifyjs.net/">JSCompress</a></td>
+        </tr>
+        <tr>
+          <td>CSSNano</td>
+          <td>CSS</td>
+          <td>CSSNano 是一个非常流行的 CSS 压缩工具，能够优化和压缩 CSS 文件。</td>
+          <td>无</td>
+          <td>npm install cssnano --save-dev</td>
+          <td>npx cssnano src/styles.css dist/styles.min.css</td>
+          <td>src/styles.css 是源文件。
+            dist/styles.min.css 是压缩文件。</td>
+          <td><a href="https://www.toptal.com/developers/cssminifier">CSSMinifier</a><br><a href="https://www.minifier.org/">Minify CSS Online</a></td>
+        </tr>
+        <tr>
+          <td>使用构建工具:Webpack</td>
+          <td>JavaScript和CSS</td>
+          <td>Webpack 是一种强大的模块打包工具，它不仅可以打包代码，还能通过 webpack.config.js 配置自动化地压缩 JavaScript 和 CSS 文件。</td>
+          <td>在项目根目录下创建 webpack.config.js 配置文件，配置压缩插件</td>
+          <td>npm install --save-dev webpack webpack-cli terser-webpack-plugin css-minimizer-webpack-plugin</td>
+          <td>npx webpack --config webpack.config.js</td>
+          <td>这将自动压缩 JavaScript 和 CSS 文件，并将结果输出到指定目录。</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Gulp</td>
+          <td>JavaScript和CSS</td>
+          <td>非常流行的 JavaScript 自动化任务运行器，可以用来自动化压缩、合并、编译等任务。</td>
+          <td>创建一个 gulpfile.js 文件，配置任务来压缩文件</td>
+          <td>npm install gulp gulp-uglify gulp-cssnano --save-dev</td>
+          <td>npx gulp</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
     <footer>Copyright &copy 2025 </footer>
     <script>
       // 监听滚动事件
@@ -461,6 +527,38 @@
         // 设置背景颜色的透明度
         navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
       };
+    </script>
+    <script>
+      // 监听键盘事件
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "F12") {
+          // 弹出提示框
+          alert("您按下了 F12 键，开发者工具已被触发！");
+        }
+      });
+    </script>
+    <script>
+      // 获取页面元素
+      const button = document.getElementById('query-ip');
+      const ipBox = document.getElementById('ip-box');
+  
+      // 添加点击事件
+      button.addEventListener('click', function () {
+        ipBox.textContent = '查询中...'; // 显示加载提示
+  
+        // 发起 IP 查询请求
+        fetch('https://api64.ipify.org?format=json') // 这里可以更换其他 API
+          .then(response => response.json())
+          .then(data => {
+            // 显示 IP 地址
+            ipBox.textContent = `您的 IP 地址是: ${data.ip}`;
+          })
+          .catch(error => {
+            // 处理错误
+            ipBox.textContent = '查询失败，请稍后再试。';
+            console.error('查询失败:', error);
+          });
+      });
     </script>
     </body>
 </html>
