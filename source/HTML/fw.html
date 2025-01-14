@@ -7,17 +7,9 @@
     <title>第五人格</title>
     <style>
         body {
-        display: flex; 
-        flex-direction: column;
-        font-family: '楷体',Georgia ;
-        margin: 0;
-        width: 100%;
-        margin: 0 auto;
-        overflow-y: scroll; /* 启用垂直滚动 */
-        scroll-snap-type: y mandatory; /* 启用滚动捕捉效果 */
+            height: 100%;
+        font-family: 'LXGW WenKai', Georgia;
         line-height: 1.3;
-        align-items: center;
-        /* background: linear-gradient(135deg, #ff8668, #feb47b,#81ecec); */
         transition: background-color 2s ease;
       }
     .figure-container {
@@ -49,7 +41,7 @@
         cursor: pointer; /* 鼠标指针变为手型 */
     }
     figcaption {            
-        font-size: 16px;
+        font-size: 20px;
         color: #000000;
     }
     .wid {
@@ -57,6 +49,8 @@
         flex-wrap: wrap;
         width: 90%;
         margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
         justify-content: center;
         align-items: center;
         gap: 20px;
@@ -77,9 +71,9 @@
     .wid p {
         position: absolute;
         font-size: 16px;
-        bottom: 20px;
+        bottom: 5px;
         text-align: center;
-        color: rgb(255, 255, 255);
+        color: #ffffff;
         width: 100%;
     }
     .wid img.show {
@@ -119,20 +113,20 @@
     }
     footer {
         height: 50px;
-        width: 100%;
         font-size: 20px;
         margin-top: 40px;
-        background-color: #000000;
         color: white;
         display: flex;
         justify-content: center; 
         align-items: center;
     }
     </style>
-    
+    <link href="../JavaScript/lazyload/lazyload.js">
+    <!--字体-->
+    <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css' /> 
 </head>
 <body>
-    <h1>欢迎来到我的网站</h1>
+    <p style="font-size: 3rem;display: flex;justify-content: center;">第五人格</p>
     <div id="text-container">
         <p>律师是聪明而冷静的求生者，他手中的地图可以指引队伍找到关键线索。无论是解锁密码机还是协助队友，他始终是行动计划中的重要角色，善于利用资源保障团队的胜利。</p>
         <p>魔术师是一位神秘而机智的求生者，善于利用幻象迷惑监管者。他的魔术棒让他在关键时刻能够迅速脱身，为队伍创造更多机会，是逃脱追捕的关键人物。</p>
@@ -142,7 +136,6 @@
         <p>幸运儿是一个充满潜力的求生者，尽管没有特殊技能，但他的随机应变能力使他能够适应各种状况。他是队伍中的多面手，用行动证明幸运往往青睐有准备的人。</p>
     </div>
     <div class="background-gradient"></div>
-    <h1>第五人格</h1>
     <div class="figure-container">
         <figure>
             <img src="https://patchwiki.biligame.com/images/dwrg/2/20/6oeqlr1pchs6nv23h2tbmrdkgfewatn.png">
@@ -169,8 +162,8 @@
             <figcaption>幸运儿</figcaption>
         </figure>
         <div>
-            <img src="../image/five/下载.png" width="170px" height="auto" alt="失败圣诞树">
-            <p>☃第五人格☃</p>
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/下载.png" width="170px" height="auto" alt="失败圣诞树">
+            <p style="display: flex;justify-content: center;">☃第五人格☃</p>
             <a href="https://id5.163.com/nrzx/picture.html" target="_blank" style="
             color: #ffffff;
             padding: 10px 20px;
@@ -182,70 +175,70 @@
     </div>
     <div class="wid">
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/记忆余烬·下篇2.jpg" alt="记忆余烬 下篇2">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/记忆余烬·下篇2.jpg" alt="记忆余烬 下篇2">
             <p>记忆余烬·下篇2</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/2023愚人节.jpg" alt="2023愚人节">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/2023愚人节.jpg" alt="2023愚人节">
             <p>2023愚人节</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/2023中秋节.jpg" alt="2023中秋节">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/2023中秋节.jpg" alt="2023中秋节">
             <p>2023中秋节</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/【溯洄系列】红夫人-应许之日.jpg" alt="【溯洄系列】红夫人-应许之日">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/【溯洄系列】红夫人-应许之日.jpg" alt="【溯洄系列】红夫人-应许之日">
             <p>【溯洄系列】红夫人-应许之日</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/小女孩.jpg" alt="小女孩">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/小女孩.jpg" alt="小女孩">
             <p>小女孩</p>
         </div>
     </div>
     <div class="wid">
         <div>
-            <img src="" data-src="../image/five/舞女-西尔菲德.jpg" alt="舞女-西尔菲德">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/舞女-西尔菲德.jpg" alt="舞女-西尔菲德">
             <p>舞女-西尔菲德</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/【演绎之星系列】渔女-垂泪的神女.jpg" alt="【演绎之星系列】渔女-垂泪的神女">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/【演绎之星系列】渔女-垂泪的神女.jpg" alt="【演绎之星系列】渔女-垂泪的神女">
             <p>【演绎之星系列】渔女-垂泪的神女</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/【演绎之星系列】“心理学家”朱丽叶.jpg" alt="【演绎之星系列】“心理学家”-朱丽叶">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/【演绎之星系列】“心理学家”朱丽叶.jpg" alt="【演绎之星系列】“心理学家”-朱丽叶">
             <p>【演绎之星系列】“心理学家”-<br>朱丽叶</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/【溯洄系列】红夫人-应许之日_.jpg" alt="【溯洄系列】红夫人-应许之日">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/【溯洄系列】红夫人-应许之日_.jpg" alt="【溯洄系列】红夫人-应许之日">
             <p>【溯洄系列】红夫人-应许之日</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/新枪弹辩驳V3联动 倒计时.jpg" alt="新枪弹辩驳V3联动 倒计时">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/新枪弹辩驳V3联动 倒计时.jpg" alt="新枪弹辩驳V3联动 倒计时">
             <p>新枪弹辩驳V3联动 倒计时</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/2023视障儿童公益海报.jpg" alt="2023视障儿童公益海报">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/2023视障儿童公益海报.jpg" alt="2023视障儿童公益海报">
             <p>2023视障儿童公益海报</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/记忆余烬精华海报.jpg" alt="记忆余烬精华海报">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/记忆余烬精华海报.jpg" alt="记忆余烬精华海报">
             <p>记忆余烬精华海报</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/【演绎之星系列】调香师-花序.jpg" alt="【演绎之星系列】调香师-花序">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/【演绎之星系列】调香师-花序.jpg" alt="【演绎之星系列】调香师-花序">
             <p>【演绎之星系列】调香师-花序</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg" data-src="../image/five/2023情人节.jpg" alt="2023情人节">
+            <img class="lazyload" src="../image/loading/loading.gif" data-src="../image/five/2023情人节.jpg" alt="2023情人节">
             <p>2023情人节</p>
         </div>
         <div>
-            <img src="../image/loading/loading.jpg"  data-src="../image/five/2018世界杯.jpg"alt="2018世界杯">
+            <img class="lazyload" src="../image/loading/loading.gif"  data-src="../image/five/2018世界杯.jpg"alt="2018世界杯">
             <p>2018世界杯</p>
         </div>
     </div>
-    <footer>&copy; 第五人格 | All Rights Reserved<br><a href="https://www.zcool.com.cn/work/ZMjc2NDA1MDg=.html" style="color: #ffffff;">方块加载</a></footer>
-    <script src="../JavaScript/lazyload/lazyload.min.js" preload="true"></script>
+    <footer>&copy; All Rights Reserved |<a href="https://www.zcool.com.cn/work/ZMjc2NDA1MDg=.html" style="color: #ffffff;">易妹妹</a></footer>
+    <script src="../JavaScript/lazyload.min.js" preload="true"></script>
     <script>
         // 获取所有的 <p> 标签和 <figure> 标签
         const paragraphs = document.querySelectorAll('#text-container p');
@@ -291,5 +284,10 @@
           });
       };
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          new LazyLoad();  // 初始化懒加载
+        });
+      </script>      
 </body>
 </html>
