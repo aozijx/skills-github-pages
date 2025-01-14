@@ -13,43 +13,30 @@
 <head >
   <meta charset="UTF-8">
   <meta >
-  <title>Hiner网页☃</title>
+  <title>Hiner</title>
   <link rel="icon" href="source/image/logo.png">
     <style> 
-      * {
+      * audio {
         box-sizing: border-box;
       }
       body {
-        display: flex; 
-        flex-direction: column;
-        font-family: 'LXGW WenKai',Georgia ;
-        margin: 0;
+        font-family: 'LXGW WenKai', Georgia, sans-serif;
         width: 100%;
         margin: 0 auto;
-        overflow-y: scroll; /* 启用垂直滚动 */
-        scroll-snap-type: y mandatory; /* 启用滚动捕捉效果 */
         line-height: 1.3;
-        align-items: center;
-        transition: background-color 2s ease;
         background-image: url(source/image/liu.webp);
         background-attachment: fixed;
         background-size: cover;
       }
       .splash-screen {
         position: fixed;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
-        padding: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 2em;
-        color: white;
         z-index: 9999;
         background: rgb(0,0,0,1);
-        background-size: 400% 400%;
         animation: fadeOut 1.5s ease-out 1s forwards;
       }
       .splash-title {
@@ -87,6 +74,8 @@
         border-radius: 10px; /* 圆角设置 */
         overflow: hidden; /* 隐藏溢出的边角 */
         margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
       }
       th, td {
         padding: 8px 12px;
@@ -121,7 +110,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 99999;
+      z-index: 6666;
     }
     nav a {
       color: white;
@@ -179,6 +168,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        color: #ffffff;
         height: 100vh;
         width: 100vw;
         padding: 20px;
@@ -196,7 +186,6 @@
       .welcome-title {
         z-index: 8888;
         font-size: 3rem;
-        font-family: Cambria;
         margin-bottom: 20px;
         animation: fadeIn 2s ease-out;
         animation: float 3s infinite ease-in-out;
@@ -204,7 +193,6 @@
       }
       /* 文字样式 */
       .welcome-text {
-        font-family: 楷体;
         font-size: 1.2rem;
         max-width: 600px;
         margin-bottom: 30px;
@@ -238,22 +226,23 @@
       section {
         max-width: 800px;
         margin: 20px auto;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.4);
+        color: #ffffff;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       }
       section a {
         text-decoration: none;
-        color: #000000;
+        color: #ffffff;
       }
       section p {
         font-size: 1em;
       }
       .deep {
-        width: 30%;
+        width: 28%;
         height: 300px;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.4);
         background-image: url();
         border-radius: 20px;
         padding: 20px;
@@ -269,31 +258,31 @@
         font-size: 18px;
       }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="source/image/BG.gif" rel="preload" type="image">
     <!--左下角支持-->
-    <script src="https://fastly.jsdelivr.net/npm/live2d-widgets@0/autoload.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/live2d-widgets@0/autoload.js" preload="true" media="min-width: 1920;"></script>
     </head>
     <body>
       <!--背景连线-->
-		<script type="text/javascript" src="source/JavaScript/bgline.js"></script>
-		<canvas height="926" width="1920" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;" id="c_n1"></canvas>
+		<script type="javascript" src="source/JavaScript/bgline.js" media="min-width: 1920;"></script>
+		<canvas height="926" width="1920" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.6;" id="c_n1"></canvas>
     <!--字体-->
     <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css' /> 
     <div class="splash-screen" id="splash-screen">
       <h1 class="splash-title">Welcome to the Website!</h1>
     </div> 
-    <div class="welcome-container" id="s">
+    <div class="welcome-container" id="home">
       <div class="welcome-content">
-        <nav>
-          <a href="#s">首页</a>
+        <nav style="background-color: rgb(0, 0, 0, 0);">
+          <a href="#home">首页</a>
           <a href="#c">正文</a>
-          <a href="index">关于我</a>
+          <a href="#about">关于</a>
         </nav>
         <h1 class="welcome-title"> Hello Everyone to Here🎉</h1>
         <div class="welcome-text">
           <img src="source/image/crydog.gif" style="width: 20%;">
           <b>This is a simple HTML page.</b>
-          <p>你好，欢迎来到我的网页，我不知道做些什么，所以网页很简陋，不要嫌弃（由于不知道在这一页加什么，所以有了一些表情）</p>
+          <p>你好，欢迎来到我的网页（由于不知道在这一页添加什么，所以有了一些表情）</p>
         </div>
         <img src="source/image/cat.gif" style="width: 20%; float: right;">
       </div>
@@ -301,8 +290,8 @@
     <video autoplay muted loop style="margin-top: 20px;" class="background-video">
       <!-- <source src="https://dwxcx.fp.ps.netease.com/file/66d91cf8120d8a0358bc8cf0SFQzdATS05" type="video/mp4" width="50px"> -->
     </video>
-    <div style="display: flex;width: 100vw;;gap: 30px;justify-content: center;flex-wrap: wrap;margin-top: 40px;">
-      <div class="deep" id="c">
+    <div style="display: flex;width: 100vw;;gap: 30px;justify-content: center;flex-wrap: wrap;margin-top: 40px;" id="c">
+      <div class="deep">
         <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic" target="_blank">W3school</a>
       </div>
       <div class="deep">
@@ -320,12 +309,20 @@
         <p>图片太大，拖累了网页加载的速度，所以把相关的代码做了迁移，效果简单化了。</p>
       </div>
       <div class="deep">
-        <audio controls  loop preload="auto"><!--autoplay-->
-          <source src="https://aozijx.github.io/xuao/source/music/night crusing.mp3" type="audio/mp3">
+        <audio controls autoplay loop preload="auto">
+          <source src="source/music/青石巷.mp3" type="audio/mp3">
           您的浏览器不支持音频播放。
         </audio>
         <audio controls loop preload="metadata">
-          <source src="https://aozijx.github.io/xuao/source/music/AwayFromTheRain.mp3" type="audio/mp3">
+          <source src="source/music/千与千寻轻音乐.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+        <audio controls  loop preload="metadata">
+          <source src="source/music/night crusing.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+        <audio controls loop preload="metadata">
+          <source src="source/music/AwayFromTheRain.mp3" type="audio/mp3">
           您的浏览器不支持音频播放。
         </audio>
         <p>开盲盒！</p>
@@ -340,19 +337,19 @@
     </div>
     <div style="margin-top: 40px;">
       <section>
-        <a href="https://aozijx.github.io/xuao/"><h2> blog </h2></a>
+        <a href="" id="about"><h2> blog </h2></a>
         <p>这是第一篇博客。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula orci nec mauris tristique, ac aliquam quam bibendum.</p>
       </section>
-      <section style="background-image: url(https://img.alicdn.com/imgextra/i2/2209748222339/O1CN010muxj21T9JF0IPCI2_!!2209748222339.jpg);width: 100%;height: 250px;background-size: cover;background-position: center;opacity: 0.8;">
-        <a href="https://github.com/skills/github-pages"><h2 style="color: #ffffff;">创建自己的blog</h2></a>
-        <p style="color: #ffffff;">这是第二篇博客。Sed at turpis a eros varius laoreet. Morbi lacinia justo ut diam facilisis malesuada.</p>
+      <section style="background-image: url(https://img.alicdn.com/imgextra/i2/2209748222339/O1CN010muxj21T9JF0IPCI2_!!2209748222339.jpg);width: 100%;height: 250px;background-size: cover;background-position: center;opacity: 0.8;color: #ffffff;">
+        <a href="https://github.com/skills/github-pages"><h2>创建自己的blog</h2></a>
+        <p>这是第二篇博客。Sed at turpis a eros varius laoreet. Morbi lacinia justo ut diam facilisis malesuada.</p>
       </section>
       <section>
         <a href="https://git-scm.com/book/zh/v2/%e8%b5%b7%e6%ad%a5-%e5%85%b3%e4%ba%8e%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6"><h2>Git的使用</h2></a>
         <p>本章为 Git 入门。 我们从介绍版本控制工具的背景知识开始，然后讲解如何在你的系统上运行 Git，最后是关于如何设置 Git 以便开始工作。 通过本章的学习，你应该能了解为什么 Git 这么流行，为什么你应该使用 Git 以及你应该如何设置以便使用 Git。</p>
       </section>
     </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 20px; justify-content: center;" class="view">
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 20px; justify-content: center;color: #ffffff;" class="view">
       <div style="width: 40%;">
         <div style="display: flex; gap: 20px;">
           <img src="https://p0.pipi.cn/basicdata/54ecde717a3c7eb86051ba69302a462ab0f66.jpg?imageView2/1/w/464/h/644" alt="埃德·斯塔福特">
@@ -459,7 +456,7 @@
         var windowHeight = window.innerHeight;
   
         // 动态计算透明度
-        var opacity = Math.min(1, scrollY / windowHeight);
+        var opacity = Math.min(0.5, scrollY / windowHeight);
   
         // 设置背景颜色的透明度
         navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
