@@ -22,8 +22,12 @@
 - [cursor](https://developer.mozilla.org/zh-CN/docs/Web/CSS/cursor)
 - [text-decoration](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration)
 - [text-shadow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-shadow)
+- **优化**
+- [懒加载](source/markdown/lazyload)
+
 ---
 ## [原文](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Text_styling/Fundamentals#%E7%BD%91%E9%A1%B5%E5%AE%89%E5%85%A8%E5%AD%97%E4%BD%93)
+
 **Font 样式**：
 -  [font-variant](https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-variant): 在小型大写字母和普通文本选项之间切换。
 -  [font-kerning](https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-kerning): 开启或关闭字体间距选项。
@@ -54,9 +58,9 @@
 
 ---
 **ChatGPT帮写**
-* [welcome screen](source/HTML/chatgpt)
-* [包含md的HTML](source/HTML/test)
-* [覆盖](source/HTML/bookf) | [推移](source/HTML/bookt) 
+- [welcome screen](source/HTML/chatgpt)
+- [包含md的HTML](source/HTML/test)
+- [覆盖](source/HTML/bookf) | [推移](source/HTML/bookt) 
 
 ---
 ### 看到的文章
@@ -74,10 +78,11 @@
 - [编码：隐匿在计算机软硬件背后的语言](https://weread.qq.com/web/bookDetail/64e32bf071fd5a9164ece6b)
 
 ---
-[项目仓库](https://github.com/aozijx/xuao) | > [*](source/idea) < | [友](assistance/yang) | [试验](source/markdown/test) | [history](source/markdown/history)
-
----
 感谢啊，拿到代码了
 [屏幕背景连线](https://soyo.moe/)还有注释小表情
 
+questions:body不添加margin: 0;画面边缘会覆盖不全
+
+---
+[项目仓库](https://github.com/aozijx/xuao) | > [*](source/idea) < | [友](assistance/yang) | [试验](source/markdown/test) | [history](source/markdown/history)
 > 感谢访问我的博客，期待与你一起分享更多的知识与经验！(留言功能待做)
