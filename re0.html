@@ -256,6 +256,10 @@
         color: #ffffff;
         font-size: 18px;
       }
+      iframe img {
+        max-width: 100%;
+        height: auto;
+      }
     </style>
     <link href="source/image/BG.gif" rel="preload" type="image">
     <!--左下角支持-->
@@ -333,12 +337,16 @@
       <div class="deep" style="background-image: url(source/image/cup.png);background-size: cover;"></div>
       <div class="deep" id="ip-container">
         <a href="source/image/lova/不知火.png" target="page">iframe刷新局部小试</a>
-        <p>点击下方按钮获取您的 IP 地址：</p>
+        <div class="controls">
+          <!-- 使用按钮更换 iframe 的内容 -->
+          <button onclick="changeImage('source/image/lova/不知火.png')">加载 不知火</button>
+          <button onclick="changeImage('source/image/sponge.jpg')">加载 Sponge</button>
+        </div>
         <button id="query-ip">查询 IP 地址</button>
         <p id="ip-box">等待查询...</p>
       </div>
       <div class="deep">
-        <iframe name="page" src="source/image/sponge.jpg" style="width: 100%;height: 100%;border: none;"></iframe>
+        <iframe name="page" src="source/image/sponge.jpg" style="width: 100%;height: 100%;border: none;object-fit: cover;overflow: hidden;"></iframe>
       </div>
     </div>
     <div style="margin-top: 40px;">
@@ -559,6 +567,13 @@
             console.error('查询失败:', error);
           });
       });
+    </script>
+    <script>
+      // JavaScript 函数用于更换 iframe 中的图片
+      function changeImage(imagePath) {
+        const iframe = document.querySelector('iframe[name="page"]');
+        iframe.src = imagePath;
+      }
     </script>
     </body>
 </html>
