@@ -16,8 +16,7 @@ body {
 
   main {
     flex: 1;
-    background: linear-gradient(45deg, #ff7e5f, #feb47b, #6a11cb, #2575fc);
-    background-size: 400% 400%;
+    background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +24,7 @@ body {
 
   footer {
     height: 40px;
-    background-color: #2ecc71;
+    background-color: #27def2;
     color: white;
     display: flex;
     justify-content: center;
@@ -76,4 +75,21 @@ body {
   .ani a {
     font-size: 2rem;
     margin-top: -300px;
+  }
+  canvas {
+    height: 926;
+    width: 1920;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    opacity: 0.6;
+  }
+  a {
+    border: 2px;
+    border-radius: 10px;
+    text-transform: none;
+  }
+  a:hover {
+    background: #27def2;
   }
