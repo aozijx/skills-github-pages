@@ -5,7 +5,7 @@ body {
     height: auto;
     margin: 0;
     font-family: 'LXGW WenKai', Georgia, sans-serif;
-    background-image: url(source/image/liu.webp);
+    background-image: url(../../image/liu.webp);
     background-attachment: fixed;
     background-size: cover;
 }
@@ -132,7 +132,7 @@ nav a:hover {
     color: #ffffff;
     height: 100vh;
     width: 100%;
-    background-image: url(source/image/BG.gif);
+    background-image: url(../../image/BG.gif);
     background-size: cover;
     background-attachment: fixed;
     z-index: -1;
@@ -198,6 +198,15 @@ section a {
 section p {
     font-size: 1em;
 }
+.deep-container {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    justify-content: center;
+    margin: 0, auto;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
 .deep {
     position: relative;
     width: 380px;
@@ -227,8 +236,25 @@ footer {
     background: transparent;
     color: white;
     display: flex;
-    justify-content: center; 
+    justify-content: center;  
     align-items: center;
     margin-top: 40px;
     margin-bottom: 40px;
+}
+@media (min-width: 768px) and (max-width: 1080px) {
+    nav {
+        height: 100px;
+    }
+    nav a {
+        font-size: 60px;
+    }
+    footer {
+        font-size: 30px;
+    }
+  
+    
+}
+#waifu {
+    left: auto !important; /* 禁用 left */
+    right: 20px !important; /* 强制应用 right */
 }
