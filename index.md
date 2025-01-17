@@ -22,8 +22,9 @@
 - [cursor](https://developer.mozilla.org/zh-CN/docs/Web/CSS/cursor)
 - [text-decoration](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration)
 - [text-shadow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-shadow)
-- **优化**
+- **优化&更新**
 - [懒加载](source/markdown/lazyload)
+- [APlayer](source/markdown/aplayer)
 
 ---
 ## [原文](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Text_styling/Fundamentals#%E7%BD%91%E9%A1%B5%E5%AE%89%E5%85%A8%E5%AD%97%E4%BD%93)
@@ -84,5 +85,5 @@
 questions:body不添加margin: 0;画面边缘会覆盖不全
 
 ---
-[项目仓库](https://github.com/aozijx/xuao) | > [*](source/idea) < | [友](assistance/yang) | [试验](source/markdown/test) | [history](source/markdown/history)
+[项目仓库](https://github.com/aozijx/xuao) | > [*](source/idea) < | [友](assistance/yang) | [试验](source/markdown/test) | [history](source/markdown/history) | [diary](source/markdown/diary)
 > 感谢访问我的博客，期待与你一起分享更多的知识与经验！(留言功能待做)
