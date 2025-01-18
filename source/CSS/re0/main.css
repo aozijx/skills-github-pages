@@ -7,6 +7,7 @@ body {
     font-family: 'LXGW WenKai', Georgia, sans-serif;
     background-image: url(../../image/liu.webp);
     background-attachment: fixed;
+    z-index: -10;
     background-size: cover;
 }
 .splash-screen {
@@ -201,19 +202,19 @@ section p {
 .deep-container {
     display: flex;
     width: 100%;
-    gap: 30px;
+    gap: 15px;
+    /* margin-left: auto; */
     justify-content: center;
-    margin: 0, auto;
     flex-wrap: wrap;
     margin-top: 100px;
 }
 .deep {
     position: relative;
-    width: 380px;
+    width: 350px;
     height: 300px;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px;
 }
 .deep a {
     display: flex;
@@ -230,7 +231,6 @@ iframe img {
     height: auto;
 }
 footer {
-    height: 50px;
     width: 100%;
     font-size: 20px;
     background: transparent;
@@ -238,8 +238,8 @@ footer {
     display: flex;
     justify-content: center;  
     align-items: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    /* margin-top: 10px; */
+    margin-bottom: 50px;
 }
 @media (min-width: 768px) and (max-width: 1080px) {
     nav {
@@ -251,10 +251,23 @@ footer {
     footer {
         font-size: 30px;
     }
-  
-    
 }
 #waifu {
-    left: auto !important; /* 禁用 left */
-    right: 20px !important; /* 强制应用 right */
+    left: auto !important;
+    right: 20px !important;
+}
+#workboard {
+    display: flex;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    justify-content: center;
+    /* margin-bottom: 30px; */
+    color: #c8c7c7;
+}
+#workboard img {
+    width: 150px;
+    margin-bottom: 10px;
 }
