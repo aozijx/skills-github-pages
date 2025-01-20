@@ -7,121 +7,120 @@
     <title>第五人格</title>
     <style>
         body {
+            height: auto;
+            font-family: 'LXGW WenKai', Georgia;
+            line-height: 1.3;
+            transition: background-color 2s ease;
+        }
+        .figure-container {
+            display: flex;
+            max-width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+            height: auto;
+            gap: 20px;  
+        }        
+        figure {
+            text-align: center;
+            margin: 0;
+            max-width: 200px;
+            width: auto;
+        }
+        figure img {
+            margin: 0 auto;
+            max-width: 100%;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 平滑过渡效果 */
+            transition: all 0.8s ease-in-out;  /* 全部属性变化时，过渡时间为0.8秒 */
+            object-fit: contain; /* 保证图片内容完全显示，保持比例 */
+        }
+        figure img:hover {
+            transform: scale(1.3);
+            filter: brightness(1.2); /* 提高亮度 */
+            cursor: pointer; /* 鼠标指针变为手型 */
+        }
+        figcaption {            
+            font-size: 20px;
+            color: #000000;
+        }
+        .wid {
+            display: flex;
+            flex-wrap: wrap;
+            width: 90%;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .wid div {
+            position: relative;
+            width: 17%;
+            margin: 0 auto;
+        }
+        .wid img {
+            margin: 0 auto;
+            width: 100%;
+            opacity: 0;
+            border-radius: 10px;
+            transform: translateY(80px); /* 初始位置在视口下方 */
+            transition: all 1s ease-in-out;
+        }
+        .wid p {
+            position: absolute;
+            font-size: 16px;
+            bottom: 5px;
+            text-align: center;
+            color: #ffffff;
+            width: 100%;
+        }
+        .wid img.show {
+            opacity: 1;
+            transform: translateY(0); /* 图片进入视口时回到原位 */
+        }
+        .wid img:hover {
+            transform: scale(1.1);
+            rotate: 2deg;
+            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+            filter: brightness(1.2); /* 提高亮度 */
+            cursor: pointer;
+        }
+        /* 动态背景 */
+        .background-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
-        font-family: 'LXGW WenKai', Georgia;
-        line-height: 1.3;
-        transition: background-color 2s ease;
-      }
-    .figure-container {
-        display: flex;
-        max-width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        height: auto;
-        gap: 20px;  
-    }        
-    figure {
-        text-align: center;
-        margin: 0;
-        max-width: 200px;
-        width: auto;
-    }
-    figure img {
-        margin: 0 auto;
-        max-width: 100%;
-        border: 1px solid transparent;
-        border-radius: 10px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* 平滑过渡效果 */
-        transition: all 0.8s ease-in-out;  /* 全部属性变化时，过渡时间为0.8秒 */
-        object-fit: contain; /* 保证图片内容完全显示，保持比例 */
-    }
-    figure img:hover {
-        transform: scale(1.3);
-        filter: brightness(1.2); /* 提高亮度 */
-        cursor: pointer; /* 鼠标指针变为手型 */
-    }
-    figcaption {            
-        font-size: 20px;
-        color: #000000;
-    }
-    .wid {
-        display: flex;
-        flex-wrap: wrap;
-        width: 90%;
-        margin-top: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-    }
-    .wid div {
-        position: relative;
-        width: 17%;
-        margin: 0 auto;
-    }
-    .wid img {
-        margin: 0 auto;
-        width: 100%;
-        opacity: 0;
-        border-radius: 10px;
-        transform: translateY(80px); /* 初始位置在视口下方 */
-        transition: all 1s ease-in-out;
-    }
-    .wid p {
-        position: absolute;
-        font-size: 16px;
-        bottom: 5px;
-        text-align: center;
-        color: #ffffff;
-        width: 100%;
-    }
-    .wid img.show {
-        opacity: 1;
-        transform: translateY(0); /* 图片进入视口时回到原位 */
-    }
-    .wid img:hover {
-        transform: scale(1.1);
-        rotate: 2deg;
-        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
-        filter: brightness(1.2); /* 提高亮度 */
-        cursor: pointer;
-    }
-    /* 动态背景 */
-    .background-gradient {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, #ff7e5f, #feb47b, #9839ff, #3f7de8);
-        background-size: 400% 400%;
-        animation: gradientAnimation 10s ease infinite;
-        z-index: -1;
-    }
-    /* 动态渐变动画 */
-    @keyframes gradientAnimation {
-        0% {
-            background-position: 0% 50%;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b, #9839ff, #03cfdd);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            z-index: -1;
         }
-        50% {
-            background-position: 100% 50%;
+        /* 动态渐变动画 */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
-        100% {
-            background-position: 0% 50%;
+        footer {
+            height: 50px;
+            font-size: 20px;
+            margin-top: 40px;
+            color: white;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
         }
-    }
-    footer {
-        height: 50px;
-        font-size: 20px;
-        margin-top: 40px;
-        color: white;
-        display: flex;
-        justify-content: center; 
-        align-items: center;
-    }
     </style>
-    <link href="../JavaScript/lazyload/lazyload.js">
     <!--字体-->
     <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css' /> 
 </head>
@@ -238,7 +237,7 @@
         </div>
     </div>
     <footer>&copy; All Rights Reserved |<a href="https://www.zcool.com.cn/work/ZMjc2NDA1MDg=.html" style="color: #ffffff;">易妹妹</a></footer>
-    <script src="../JavaScript/lazyload.min.js" preload="true"></script>
+    <script src="../JavaScript/lazyload.min.js"></script>
     <script>
         // 获取所有的 <p> 标签和 <figure> 标签
         const paragraphs = document.querySelectorAll('#text-container p');

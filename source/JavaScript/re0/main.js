@@ -68,3 +68,64 @@
         }
       }
     });
+
+
+
+// 使用 ip-api.com 的免费 API 获取地理位置
+fetch('http://ip-api.com/json/?lang=zh-CN')
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            // 提取城市、省份、国家信息
+            const location = `${data.country} ${data.regionName} ${data.city}`;
+            // 在网页上显示地理位置信息
+            document.getElementById("location").innerText = `您所在的位置：${location}`;
+        } else {
+            document.getElementById("location").innerText = "无法获取地理位置信息。";
+        }
+    })
+    .catch(error => {
+        console.error("Error fetching IP location:", error);
+        document.getElementById("location").innerText = "获取地理位置信息时出错。";
+    });
+
+
+var now = new Date();
+  function createtime() {
+    now.setTime(now.getTime() + 1000);// 每秒更新
+    var start = new Date("2025-01-07 00:00:00");// 设置开始时间,使用 ISO 格式
+    var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17);// 计算距离，速度为17千米/秒
+    var unit = (dis / 149600000).toFixed(6);// 计算天文单位
+    var grt = new Date("2025-01-07 00:00:00");// 网站诞生的时间
+    let currentTimeHtml = "";
+    var days = Math.floor((now - grt) / (1000 * 60 * 60 * 24));// 计算天数
+    var hours = Math.floor(((now - grt) / (1000 * 60 * 60)) % 24);// 计算小时数
+    var minutes = Math.floor(((now - grt) / (1000 * 60)) % 60);// 计算分钟数
+    var seconds = Math.floor((now - grt) / 1000 % 60);// 计算秒数
+    (currentTimeHtml =
+      hours < 18 && hours >= 9
+        ? `<img class='boardsign' src='source/image/crydog.gif' title='什么时候能够实现财富自由呀~'><br> <div style="font-size:13px;font-weight:bold">本站居然苟活了 ${days} 天 ${hours} 小时 ${minutes} 分 ${seconds} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`
+        : `<img class='boardsign' src='' title='下班了就该开开心心地玩耍~'><br> <div style="font-size:13px;font-weight:bold">本站居然苟活了 ${days} 天 ${hours} 小时 ${minutes} 分 ${seconds} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`),
+      document.getElementById("workboard") &&
+      (document.getElementById("workboard").innerHTML = currentTimeHtml);
+  }
+  setInterval(createtime, 1000);// 每秒更新一次
+
+
+window.onscroll = function() {
+  var navbar = document.querySelector('nav');
+  var scrollY = window.scrollY;
+  var windowHeight = window.innerHeight;
+  var documentHeight = document.documentElement.scrollHeight;
+
+  // 动态计算透明度，确保透明度在 0 和 0.5 之间
+  var opacity = Math.min(0.5, Math.max(0, scrollY / windowHeight));
+
+  // 防止在滚动到顶部时背景色依然是黑色
+  if (scrollY === 0) {
+    opacity = 0;  // 当滚动到顶部时透明度为 0
+  }
+
+  // 设置背景颜色的透明度
+  navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+};
