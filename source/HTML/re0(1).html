@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<!-- 
+		◢＼　 ☆　　 ／◣
+	　  　∕　　﹨　╰╮∕　　﹨
+	　  　▏　　～～′′～～ 　｜
+	　　  ﹨／　　　　　　 　＼∕
+	　 　 ∕ 　　●　　　 ●　＼
+	  ＝＝　○　∴·╰╯　∴　○　＝＝
+	　    ╭──╮　　　　　╭──╮
+  ╔═ ∪∪∪═Mashiro&Hitomi═∪∪∪═╗
+-->
+<html lang="zh-CN">
+<head >
+  <meta charset="UTF-8">
+  <meta >
+  <title>Hiner</title>
+  <link rel="icon" href="source/image/logo.png" preload="true">
+    <style> 
+      * audio {
+        box-sizing: border-box;
+      }
+      body {
+        height: auto;
+        margin: 0;
+        font-family: 'LXGW WenKai', Georgia, sans-serif;
+        background-image: url(source/image/liu.webp);
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      .splash-screen {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        background: rgb(0,0,0,1);
+        animation: fadeOut 1.5s ease-out 1s forwards;
+      }
+      .splash-title {
+        font-size: 3rem;
+        color: white;
+        opacity: 1;
+        animation: slideDown 1.5s ease-out;
+      }
+      @keyframes gradientBackground {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      /* 开屏动画消失效果 */
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+      /* 开屏标题向下滑动 */
+      @keyframes slideDown {
+        0% {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      table {
+        border-collapse: collapse; /* 合并表格边框 */
+        width: 97%;
+        border-radius: 10px;
+        overflow: hidden; /* 隐藏溢出的边角 */
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        color: aqua;
+      }
+      th, td {
+        padding: 8px 12px;
+        text-align: left;
+        border: 1.7px solid #ddd; /* 边框颜色 */
+      }
+      th {
+        background-color: #6e6e6e;
+      }
+      tr:nth-child(even) {
+        background-color: #000000; /* 偶数行背景色 */
+      }
+      tr:hover {
+        background-color: #000000; /* 鼠标悬停时背景色 */
+      }
+      .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+      nav {
+        width: 100%;
+        background-color: rgb(0, 0, 0, 0.3);
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 6666;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        margin: 0 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      nav a:hover {
+        background-color: rgb(0, 0, 0, 0,1);
+      }
+      .span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 60px;
+        gap: 10px;
+      }
+      .span a {
+        display: inline-block;
+        text-align: center;
+        color: #ffffff;
+        background-color: rgb(0, 0, 0, 0);
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 0 auto;
+        border: 4px solid transparent;
+        transition: all 0.3s ease;
+      }
+      .span a:hover {
+        background-color: #68d2ff;
+        box-shadow: inset 0 0 10px rgba(98, 167, 60, 0.1);
+      }
+      .span a:active {
+        transform: scale(0.95); /* 点击时缩小 */
+      }
+      /* 容器样式 */
+      .welcome-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        height: 100vh;
+        width: 100%;
+        background-image: url(source/image/BG.gif);
+        background-size: cover;
+        background-attachment: fixed;
+        z-index: -1;
+      }
+      .welcome-cotent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .welcome-title {
+        z-index: 8888;
+        font-size: 3rem;
+        margin-bottom: 20px;
+        animation: fadeIn 2s ease-out;
+        animation: float 3s infinite ease-in-out;
+        text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      }
+      .welcome-text {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin-bottom: 30px;
+        line-height: 1.5;transition-delay: 4s;
+        animation: fadeIn 2.5s ease-out;
+        background: transparent;
+      }
+      /* 淡入动画 */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* 浮动动画 */
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .view img {
+        width: 150px;
+        height: auto;
+      }
+      section {
+        max-width: 800px;
+        margin: 20px auto;
+        background: rgba(0, 0, 0, 0.4);
+        color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      section a {
+        text-decoration: none;
+        color: #ffffff;
+      }
+      section p {
+        font-size: 1em;
+      }
+      .deep {
+        width: 380px;
+        height: 300px;
+        background: rgba(0, 0, 0, 0.4);
+        background-image: url();
+        border-radius: 20px;
+        padding: 20px;
+      }
+      .deep a {
+        display: flex;
+        color: #ffffff;
+        font-size: 25px;
+        text-decoration: none;
+      }
+      .deep p {
+        color: #ffffff;
+        font-size: 18px;
+      }
+      iframe img {
+        max-width: 100%;
+        height: auto;
+      }
+      footer {
+        height: 50px;
+        width: 100%;
+        font-size: 20px;
+        background: transparent;
+        color: white;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+    </style>
+    <link href="source/image/BG.gif" rel="preload" type="image">
+    <!--APlayer-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    </head>
+    <body>
+      <!--背景连线-->
+		<script type="javascript" src="source/JavaScript/bgline.js" media="min-width: 1920;"></script>
+		<canvas height="926" width="1920" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.6;" id="c_n1"></canvas>
+    <!--字体-->
+    <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css' /> 
+    <div class="splash-screen" id="splash-screen">
+      <h1 class="splash-title">Welcome to the Website!</h1>
+    </div> 
+    <div class="welcome-container" id="home">
+      <div class="welcome-content">
+        <nav style="background-color: rgb(0, 0, 0, 0);">
+          <a href="#home">首页</a>
+          <a href="#c">正文</a>
+          <a href="#about">关于</a>
+        </nav>
+        <h1 class="welcome-title"> Hello Everyone to Here🎉</h1>
+        <div class="welcome-text">
+          <img src="source/image/crydog.gif" style="width: 20%;">
+          <b>This is a simple HTML page.</b>
+          <p>你好，欢迎来到我的网页（由于不知道在这一页添加什么，所以有了一些表情）</p>
+        </div>
+        <img src="source/image/cat.gif" style="width: 20%; float: right;">
+      </div>
+    </div>
+    <div id="c"></div>
+    <video autoplay muted loop style="margin-top: 20px;" class="background-video">
+      <!-- <source src="https://dwxcx.fp.ps.netease.com/file/66d91cf8120d8a0358bc8cf0SFQzdATS05" type="video/mp4" width="50px"> -->
+    </video>
+    <div style="display: flex;width: 100%;;gap: 30px;justify-content: center;flex-wrap: wrap;margin-top: 100px;">
+      <div class="deep">
+        <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_html_basic" target="_blank">W3school</a>
+      </div>
+      <div class="deep">
+        <a href="https://www.jyshare.com/front-end/61/" target="_blank">菜鸟在线Web</a>
+      </div>
+      <div class="deep" style="background-image: url();">
+        <a>CSS</a>
+        <a href="source/markdown/audio">audio标签</a>
+        <a href="source/markdown/player">网页Player</a>
+        <a href="https://www.w3school.com.cn/cssref/index.asp">W3school</a>
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS">MDN</a>
+      </div>
+      <div class="deep" style="background-image: url(source/image/five/dwrg.jpg);background-size: cover;opacity: 0.9;">
+        <a href="source/HTML/fw" target="_blank">第五人格</a>
+        <p>图片太大，拖累了网页加载的速度，所以把相关的代码做了迁移，效果简单化了。</p>
+      </div>
+      <div class="deep">
+        <audio controls preload="none">
+          <source src="source/music/願い〜あの頃のキミへ〜.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+        <audio controls preload="none">
+          <source src="source/music/千与千寻轻音乐.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+        <audio controls preload="none">
+          <source src="source/music/AwayFromTheRain.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+        <audio controls preload="none">
+          <source src="source/music/青石巷.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+        <audio controls preload="none">
+          <source src="source/music/night crusing.mp3" type="audio/mp3">
+          您的浏览器不支持音频播放。
+        </audio>
+      </div>
+      <div class="deep">
+        <a href="https://chinese-font.netlify.app/zh-cn/">中文网字计划</a>
+        <p>网站字体为霞鹜文楷(LXGWWenKai)<br>https://chinese-font.netlify.app/zh-cn/fonts/lxgwwenkai/LXGWWenKai-Bold</p>
+      </div>
+      <div class="deep" style="background-image: url(source/image/cup.png);background-size: cover;"></div>
+      <div class="deep" id="ip-container">
+        <a href="source/image/lova/不知火.png" target="page">iframe刷新局部小试</a>
+        <div class="controls">
+          <!-- 使用按钮更换 iframe 的内容 -->
+          <button onclick="changeImage('source/image/love/不知火.png')">加载 不知火</button>
+          <button onclick="changeImage('source/image/sponge.jpg')">加载 Sponge</button>
+          <a href="source/HTML/fireworks.html" target="op">网页更换</a>
+        </div>
+        
+        <button id="query-ip">查询 IP 地址</button>
+        <p id="ip-box">等待查询...</p>
+      </div>
+      <div class="deep">
+        <iframe name="page" src="source/image/sponge.jpg" style="width: 100%;height: 100%;border: none;"></iframe>
+      </div>
+      <div class="deep" style="width: 860px;height: 600px;border-radius: 0%;padding: 0%;">
+        <iframe name="op" src="source/HTML/killloading.html" style="width: 100%;height:600px;border: none;border-radius: 10px;object-fit: cover;"></iframe>
+      </div>
+      <div class="deep">
+        <p>使用lazyload，APlayer和MetingJS</p>
+      </div>
+    </div>
+    <div style="margin-top: 40px;">
+      <section>
+        <a href="" id="about"><h2> blog </h2></a>
+        <p>这是第一篇博客。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula orci nec mauris tristique, ac aliquam quam bibendum.</p>
+      </section>
+      <section style="background-image: url(https://img.alicdn.com/imgextra/i2/2209748222339/O1CN010muxj21T9JF0IPCI2_!!2209748222339.jpg);width: 100%;height: 250px;background-size: cover;background-position: center;opacity: 0.8;color: #ffffff;">
+        <a href="https://github.com/skills/github-pages"><h2>创建自己的blog</h2></a>
+        <p>这是第二篇博客。Sed at turpis a eros varius laoreet. Morbi lacinia justo ut diam facilisis malesuada.</p>
+      </section>
+      <section>
+        <a href="https://git-scm.com/book/zh/v2/%e8%b5%b7%e6%ad%a5-%e5%85%b3%e4%ba%8e%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6"><h2>Git的使用</h2></a>
+        <p>本章为 Git 入门。 我们从介绍版本控制工具的背景知识开始，然后讲解如何在你的系统上运行 Git，最后是关于如何设置 Git 以便开始工作。 通过本章的学习，你应该能了解为什么 Git 这么流行，为什么你应该使用 Git 以及你应该如何设置以便使用 Git。</p>
+      </section>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 20px; justify-content: center;color: #ffffff;" class="view">
+      <div style="width: 40%;">
+        <div style="display: flex; gap: 20px;">
+          <img src="https://p0.pipi.cn/basicdata/54ecde717a3c7eb86051ba69302a462ab0f66.jpg?imageView2/1/w/464/h/644" alt="埃德·斯塔福特">
+          <div>
+            <h2>埃德·斯塔福德</h2>
+            <p>Ed Stafford</p>
+            <p>导演 | 演员 | 编剧</p>
+            <p>1975-12-26</p>
+          </div>
+        </div>
+        <div>埃德·斯塔福德（Ed Stafford，1976年-），出生于英国彼得伯勒，前驻阿富汗英国陆军上尉，被誉为“现代鲁宾逊”。2010年4月，斯塔福德独自穿越亚马逊河，耗时860天，创下吉尼斯世界纪录：第一个走完亚马逊全程的人。这段经历被写成《徒步亚马孙》一书，并被“探索”频道拍成纪录片。2011年，皇家苏格兰地理学会授予斯塔福德蒙戈·帕克奖。2013年，斯塔福德在南太平洋一个荒无人烟的小岛，独自生活60天。2014年-2019年，参加的节目《单挑荒野第三季》《求生之路》《街道流浪60天》等相继播出。2020年4月24日，参加的野外生存类节目《决胜荒野之华夏秘境》在哔哩哔哩播出。</div>
+      </div>
+      <div style="width: 40%;">
+        <div style="display: flex; gap: 20px;">
+          <img src="https://pic.baike.soso.com/ugc/baikepic2/0/20210810125402-1592366609_jpeg_1955_2444_1840509.jpg/800" alt="杰瑞米·维德">
+          <div>
+            <h2>杰瑞米·维德</h2>
+            <p>Jeremy Wade</p>
+            <p>演员</p>
+            <p>1956-03-23</p>
+          </div>
+        </div>
+        <div>杰瑞米·瓦德（Jeremy Wade，1956年3月23日-），出生于英国萨福德郡，毕业于布里斯托尔大学，英国男生物学家、主持人、极限钓鱼者、作家。2009年-2017年，主持电视系列节目《河中巨怪》第一季至第九季。2018年，主演的纪录片《狂野之河》播出。2022年8月，主演的纪录片《深海之谜第二季》播出</div>
+      </div>
+      <div style="width: 40%;">
+        <div style="display: flex; gap: 20px;">
+          <img src="https://pic.baike.soso.com/ugc/baikepic2/0/20220319103622-64309780_jpeg_353_456_41939.jpg/800" alt="贝尔·格里尔斯">
+          <div>
+            <h2>贝尔·格里尔斯</h2>
+            <p>Bear Grylls</p>
+            <p>英国探险家、主持人、作家、演讲家</p>
+            <p>1974-6-7</p>
+          </div>
+        </div>
+        <div>贝尔·格里尔斯（Bear Grylls，1974年6月7日-），出生于英国怀特岛本布里奇城，毕业于伦敦大学，英国男主持人、探险家、英国童子军总会的主席]。2006年-2011年，凭借真人秀《荒野求生》第一季至第七季走红。在主持节目中所食用的东西太过惊人，而被冠以“站在食物链顶端的男人”的称号。2016年-2017年，主持的真人秀《贝爷的求生学校》播出。2023年3月3日，主演的纪录片《圣母峰消失之谜》上映。</div>
+      </div>
+      <div style="width: 40%;">
+
+      </div>
+    </div>
+    <table style="border:1;">
+      <thead>
+          <tr>
+            <th>questions</th>
+            <th>improvement ideas</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>welcome-page</td>
+            <td>待改进</td>
+          </tr>
+          <tr>
+            <td>pictures</td>
+            <td>单一不好看</td>
+          </tr>
+          <tr>
+            <td>卡顿，掉画面</td>
+            <td>手机不适配</td>
+          </tr>
+          <tr>
+            <td>单调</td>
+            <td>添加歌曲</td>
+          </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+          <th>工具</th>
+          <th>优点</th>
+          <th>缺点</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PyInstaller</td>
+          <td>跨平台支持、自动处理依赖、打包为单个文件、适合大多数程序</td>
+          <td>文件较大、启动较慢、兼容性问题、调试困难</td>
+        </tr>
+        <tr>
+          <td>cx_Freeze</td>
+          <td>跨平台支持、定制性强、打包文件体积较小</td>
+          <td>配置复杂、依赖处理不如 PyInstaller 自动</td>
+        </tr>
+        <tr>
+          <td>py2exe</td>
+          <td>打包文件小、Windows 优化、配置简单</td>
+          <td>仅支持 Windows、对新版本 Python 支持差</td>
+        </tr>
+        <tr>
+          <td>PyOxidizer</td>
+          <td>体积小、嵌入 Python 解释器、WebAssembly 支持</td>
+          <td>配置复杂、文档较少、更新较慢</td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>介绍</th>
+          <th>配置</th>
+          <th>安装</th>
+          <th>命令</th>
+          <th>解释</th>
+          <th>在线工具</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Terser</td>
+          <td>Terser 是一个现代的 JavaScript 压缩工具，性能和功能上都非常好。</td>
+          <td>无</td>
+          <td>npm install terser --save-dev</td>
+          <td>npx terser src/main.js --compress --mangle --output dist/main.min.js</td>
+          <td>src/main.js 原始文件。
+            dist/main.min.js 压缩文件。
+            --compress 开启压缩。
+            --mangle 混淆变量名。
+          <td><a href="https://www.uglifyjs.net">UglifyJS Online</a><br><a href="https://www.uglifyjs.net/">JSCompress</a></td>
+        </tr>
+        <tr>
+          <td>CSSNano</td>
+          <td>CSSNano 是一个非常流行的CSS压缩工具，能够优化和压缩 CSS 文件。</td>
+          <td>无</td>
+          <td>npm install cssnano --save-dev</td>
+          <td>npx cssnano src/styles.css dist/styles.min.css</td>
+          <td>src/styles.css是源文件。
+            dist/styles.min.css是压缩文件。</td>
+          <td><a href="https://www.toptal.com/developers/cssminifier">CSSMinifier</a><br><a href="https://www.minifier.org/">Minify CSS Online</a></td>
+        </tr>
+        <tr>
+          <td>构建工具:Webpack</td>
+          <td>Webpack是一种强大的模块打包工具，它不仅可以打包代码，还能通过 webpack.config.js配置自动化地压缩 JavaScript 和 CSS 文件。</td>
+          <td>在根目录下创建webpack.config.js配置文件，配置压缩插件</td>
+          <td>npm install --save-dev webpack webpack-cli terser-webpack-plugin css-minimizer-webpack-plugin</td>
+          <td>npx webpack --config webpack.config.js</td>
+          <td>这将自动压缩JavaScript和CSS文件，并将结果输出到指定目录。</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Gulp</td>
+          <td>非常流行的JavaScript自动化任务运行器，可以用来自动化压缩、合并、编译等任务。(JavaScript和CSS)</td>
+          <td>创建gulpfile.js文件，配置任务来压缩文件</td>
+          <td>npm install gulp gulp-uglify gulp-cssnano --save-dev</td>
+          <td>npx gulp</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="aplayer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.min.js@3.5.1/jquery.min.js"></script>
+    <!-- <script type="text/javascript">
+      window.onload = function() {
+        const ap = new APlayer({
+            container: document.getElementById('aplayer'),
+            fixed: true,
+            autoplay: true,
+            volume: 0.6,
+            mutex: true,
+            audio: [{
+                name: 'AwayFromTheRain',
+                artist: 'Chamber Chu',
+                url: 'https://aozijx.github.io/xuao/source/music/AwayFromTheRain.mp3',
+                cover: 'http://p1.music.126.net/9K-N70x_RByoJLYZXPDvpg==/109951167006905173.jpg',
+            }]
+        });
+      };
+  </script> -->
+    <meting-js
+      server="netease"
+      type="playlist"
+      id="626864109"
+      fixed="true"
+      mini="true"
+      autoplay="true"
+      loop="all"
+      order="list"
+      mutex="true">
+    </meting-js>
+    <footer>Hiner Copyright &copy 2025 </footer>
+    <!--左下角支持-->
+    <script src="https://fastly.jsdelivr.net/npm/live2d-widgets@0/autoload.js" preload="true" media="min-width: 1920;"></script>
+    <!--APlayer-->
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <!-- MetingJS -->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <!-- 刷新不中断播放https://yeelz.com/post/564.html -->
+    <script>
+      ap = null
+      Object.defineProperty(document.querySelector('meting-js'),"aplayer",{
+          set: function(aplayer) {
+              ap=aplayer
+              ready();
+          }
+      });
+      isRecover = false;
+      function ready(){
+          ap.on('canplay', function () {
+              if(!isRecover){
+                  if(localStorage.getItem("musicIndex") != null){
+                      musicIndex = localStorage.getItem("musicIndex");
+                      musicTime = localStorage.getItem("musicTime");
+                      if(ap.list.index != musicIndex){
+                          ap.list.switch(musicIndex);
+                      }else{
+                          ap.seek(musicTime);
+                          ap.play();
+                          localStorage.clear();
+                          isRecover = true;
+                      }
+                  }else{
+                      isRecover = true;
+                  }
+              }
+          });
+      }
+      window.onbeforeunload = function(event) {
+          if(!ap.audio.paused){
+              musicIndex = ap.list.index;
+              musicTime = ap.audio.currentTime;
+              localStorage.setItem("musicIndex",musicIndex);
+              localStorage.setItem("musicTime",musicTime);
+          }
+      };
+    </script>
+    <script>
+      window.onscroll = function() {
+        var navbar = document.querySelector('nav');
+        var scrollY = window.scrollY;
+        var windowHeight = window.innerHeight;
+        // 动态计算透明度
+        var opacity = Math.min(0.5, scrollY / windowHeight);
+        // 设置背景颜色的透明度
+        navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+      };
+    </script>
+    <script>
+      // 监听键盘事件
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "F12") {
+          alert("扒源码，被我逮到了吧!👻");
+        }
+      });
+    </script>
+    <script>
+      const button = document.getElementById('query-ip');
+      const ipBox = document.getElementById('ip-box');
+      // 添加点击事件
+      button.addEventListener('click', function () {
+        ipBox.textContent = '查询中...'; // 显示加载提示
+        // 发起 IP 查询请求
+        fetch('https://api64.ipify.org?format=json') // 这里可以更换其他 API
+          .then(response => response.json())
+          .then(data => {
+            // 显示 IP 地址
+            ipBox.textContent = `您的 IP 地址是: ${data.ip}`;
+          })
+          .catch(error => {
+            // 处理错误
+            ipBox.textContent = '查询失败，请稍后再试。';
+            console.error('查询失败:', error);
+          });
+      });
+    </script>
+    <script>
+      function changeImage(imagePath) {
+        const iframe = document.querySelector('iframe[name="page"]');
+        iframe.src = imagePath;
+      }
+    </script>
+    </body>
+</html>
