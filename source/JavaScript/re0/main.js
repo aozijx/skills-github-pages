@@ -69,25 +69,61 @@
       }
     });
 
-
-
-// 使用 ip-api.com 的免费 API 获取地理位置
-fetch('http://ip-api.com/json/?lang=zh-CN')
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            // 提取城市、省份、国家信息
-            const location = `${data.country} ${data.regionName} ${data.city}`;
-            // 在网页上显示地理位置信息
-            document.getElementById("location").innerText = `您所在的位置：${location}`;
-        } else {
-            document.getElementById("location").innerText = "无法获取地理位置信息。";
-        }
-    })
-    .catch(error => {
-        console.error("Error fetching IP location:", error);
-        document.getElementById("location").innerText = "获取地理位置信息时出错。";
+//APlayer
+window.onload = function() {
+    const ap = new APlayer({
+        container: document.getElementById('aplayer01'),
+        autoplay: true,
+        // mini: true,
+        volume: 0.6,
+        mutex: true,
+        audio: [{
+            name: '願い〜あの頃のキミへ〜',
+            artist: '當山みれい (当山真玲)',
+            url: 'https://aozijx.github.io/xuao/source/music/願い〜あの頃のキミへ〜/願い〜あの頃のキミへ〜.mp3',
+            cover: 'https://y.qq.com/music/photo_new/T002R300x300M000002TOVre3tDgBD_2.jpg?max_age=2592000',
+            lrc: 'source/music/願い〜あの頃のキミへ〜/當山みれい---願い〜あの頃のキミへ〜.lrc'
+        }]
     });
+  };
+
+//刷新不中断播放https://yeelz.com/post/564.html
+ap = null
+    Object.defineProperty(document.querySelector('meting-js'),"aplayer",{
+        set: function(aplayer) {
+            ap=aplayer
+            ready();
+        }
+    });
+    isRecover = false;
+    function ready(){
+        ap.on('canplay', function () {
+            if(!isRecover){
+                if(localStorage.getItem("musicIndex") != null){
+                    musicIndex = localStorage.getItem("musicIndex");
+                    musicTime = localStorage.getItem("musicTime");
+                    if(ap.list.index != musicIndex){
+                        ap.list.switch(musicIndex);
+                    }else{
+                        ap.seek(musicTime);
+                        ap.play();
+                        localStorage.clear();
+                        isRecover = true;
+                    }
+                }else{
+                    isRecover = true;
+                }
+            }
+        });
+    }
+    window.onbeforeunload = function(event) {
+        if(!ap.audio.paused){
+            musicIndex = ap.list.index;
+            musicTime = ap.audio.currentTime;
+            localStorage.setItem("musicIndex",musicIndex);
+            localStorage.setItem("musicTime",musicTime);
+        }
+    };
 
 
 var now = new Date();
