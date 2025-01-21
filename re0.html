@@ -265,24 +265,6 @@
     <div id="workboard"></div>
     <footer>Hiner Copyright &copy 2025 | <a href="https://chinese-font.netlify.app/zh-cn/fonts/lxgwwenkai/LXGWWenKai-Bold" style="text-decoration: none;color: #ffffff;">霞鹜文楷</a></footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery.min.js@3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      window.onload = function() {
-        const ap = new APlayer({
-            container: document.getElementById('aplayer01'),
-            autoplay: true,
-            // mini: true,
-            volume: 0.6,
-            mutex: true,
-            audio: [{
-                name: '願い〜あの頃のキミへ〜',
-                artist: '當山みれい (当山真玲)',
-                url: 'https://aozijx.github.io/xuao/source/music/願い〜あの頃のキミへ〜/願い〜あの頃のキミへ〜.mp3',
-                cover: 'https://y.qq.com/music/photo_new/T002R300x300M000002TOVre3tDgBD_2.jpg?max_age=2592000',
-                lrc: 'source/music/願い〜あの頃のキミへ〜/當山みれい---願い〜あの頃のキミへ〜.lrc'
-            }]
-        });
-      };
-    </script>
     <meting-js
       server="tencent"
       type="playlist"
@@ -295,51 +277,12 @@
     </meting-js>
     
     <script src="source/JavaScript/re0/main.js"></script>
-    <!--左下角支持-->
+    <!--live2d支持-->
     <script src="https://fastly.jsdelivr.net/npm/live2d-widgets@0/autoload.js" defer></script>
     <!--APlayer-->
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     <!-- MetingJS -->
     <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" defer></script>
-    <!-- 刷新不中断播放https://yeelz.com/post/564.html -->
-    <script>
-      ap = null
-      Object.defineProperty(document.querySelector('meting-js'),"aplayer",{
-          set: function(aplayer) {
-              ap=aplayer
-              ready();
-          }
-      });
-      isRecover = false;
-      function ready(){
-          ap.on('canplay', function () {
-              if(!isRecover){
-                  if(localStorage.getItem("musicIndex") != null){
-                      musicIndex = localStorage.getItem("musicIndex");
-                      musicTime = localStorage.getItem("musicTime");
-                      if(ap.list.index != musicIndex){
-                          ap.list.switch(musicIndex);
-                      }else{
-                          ap.seek(musicTime);
-                          ap.play();
-                          localStorage.clear();
-                          isRecover = true;
-                      }
-                  }else{
-                      isRecover = true;
-                  }
-              }
-          });
-      }
-      window.onbeforeunload = function(event) {
-          if(!ap.audio.paused){
-              musicIndex = ap.list.index;
-              musicTime = ap.audio.currentTime;
-              localStorage.setItem("musicIndex",musicIndex);
-              localStorage.setItem("musicTime",musicTime);
-          }
-      };
-    </script>
     <script defer>
       const button = document.getElementById('query-ip');
       const ipBox = document.getElementById('ip-box');
