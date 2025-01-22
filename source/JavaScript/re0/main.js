@@ -69,23 +69,6 @@
       }
     });
 
-//APlayer
-window.onload = function() {
-    const ap = new APlayer({
-        container: document.getElementById('aplayer01'),
-        autoplay: true,
-        // mini: true,
-        volume: 0.6,
-        mutex: true,
-        audio: [{
-            name: '願い〜あの頃のキミへ〜',
-            artist: '當山みれい (当山真玲)',
-            url: 'https://aozijx.github.io/xuao/source/music/願い〜あの頃のキミへ〜/願い〜あの頃のキミへ〜.mp3',
-            cover: 'https://y.qq.com/music/photo_new/T002R300x300M000002TOVre3tDgBD_2.jpg?max_age=2592000',
-            lrc: 'source/music/願い〜あの頃のキミへ〜/當山みれい---願い〜あの頃のキミへ〜.lrc'
-        }]
-    });
-  };
 
 //刷新不中断播放https://yeelz.com/post/564.html
 ap = null
@@ -155,7 +138,7 @@ window.onscroll = function() {
   var documentHeight = document.documentElement.scrollHeight;
 
   // 动态计算透明度，确保透明度在 0 和 0.5 之间
-  var opacity = Math.min(0.5, Math.max(0, scrollY / windowHeight));
+  var opacity = Math.min(0.8, Math.max(0, scrollY / windowHeight));
 
   // 防止在滚动到顶部时背景色依然是黑色
   if (scrollY === 0) {
@@ -165,3 +148,4 @@ window.onscroll = function() {
   // 设置背景颜色的透明度
   navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
 };
+
