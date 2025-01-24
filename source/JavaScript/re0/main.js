@@ -70,24 +70,43 @@
     });
 
 
-
-// 使用 ip-api.com 的免费 API 获取地理位置
-fetch('http://ip-api.com/json/?lang=zh-CN')
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            // 提取城市、省份、国家信息
-            const location = `${data.country} ${data.regionName} ${data.city}`;
-            // 在网页上显示地理位置信息
-            document.getElementById("location").innerText = `您所在的位置：${location}`;
-        } else {
-            document.getElementById("location").innerText = "无法获取地理位置信息。";
+//刷新不中断播放https://yeelz.com/post/564.html
+ap = null
+    Object.defineProperty(document.querySelector('meting-js'),"aplayer",{
+        set: function(aplayer) {
+            ap=aplayer
+            ready();
         }
-    })
-    .catch(error => {
-        console.error("Error fetching IP location:", error);
-        document.getElementById("location").innerText = "获取地理位置信息时出错。";
     });
+    isRecover = false;
+    function ready(){
+        ap.on('canplay', function () {
+            if(!isRecover){
+                if(localStorage.getItem("musicIndex") != null){
+                    musicIndex = localStorage.getItem("musicIndex");
+                    musicTime = localStorage.getItem("musicTime");
+                    if(ap.list.index != musicIndex){
+                        ap.list.switch(musicIndex);
+                    }else{
+                        ap.seek(musicTime);
+                        ap.play();
+                        localStorage.clear();
+                        isRecover = true;
+                    }
+                }else{
+                    isRecover = true;
+                }
+            }
+        });
+    }
+    window.onbeforeunload = function(event) {
+        if(!ap.audio.paused){
+            musicIndex = ap.list.index;
+            musicTime = ap.audio.currentTime;
+            localStorage.setItem("musicIndex",musicIndex);
+            localStorage.setItem("musicTime",musicTime);
+        }
+    };
 
 
 var now = new Date();
@@ -119,7 +138,7 @@ window.onscroll = function() {
   var documentHeight = document.documentElement.scrollHeight;
 
   // 动态计算透明度，确保透明度在 0 和 0.5 之间
-  var opacity = Math.min(0.5, Math.max(0, scrollY / windowHeight));
+  var opacity = Math.min(0.8, Math.max(0, scrollY / windowHeight));
 
   // 防止在滚动到顶部时背景色依然是黑色
   if (scrollY === 0) {
@@ -129,3 +148,4 @@ window.onscroll = function() {
   // 设置背景颜色的透明度
   navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
 };
+

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="max-age=259200, must-revalidate">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>第五人格</title>
     <style>
@@ -75,6 +76,7 @@
             text-align: center;
             color: #ffffff;
             width: 100%;
+            cursor: pointer;
         }
         .wid img.show {
             opacity: 1;
@@ -119,6 +121,25 @@
             display: flex;
             justify-content: center; 
             align-items: center;
+        }
+        .douyin {
+            width: auto;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0, auto;
+            margin-top: 60px;
+        }
+        .douyin iframe {
+             width: 1000px;
+             height: 560px;
+        }
+        @media (max-width: 1080px) {
+            .douyin iframe {
+                width: 100%;
+                height: 500px;
+            }
         }
     </style>
     <!--字体-->
@@ -237,7 +258,7 @@
         </div>
     </div>
     <footer>&copy; All Rights Reserved |<a href="https://www.zcool.com.cn/work/ZMjc2NDA1MDg=.html" style="color: #ffffff;">易妹妹</a></footer>
-    <script src="../JavaScript/lazyload.min.js"></script>
+    <script src="../JavaScript/lazyload/lazyload.min.js"></script>
     <script>
         // 获取所有的 <p> 标签和 <figure> 标签
         const paragraphs = document.querySelectorAll('#text-container p');
@@ -287,6 +308,6 @@
         document.addEventListener("DOMContentLoaded", function() {
           new LazyLoad();  // 初始化懒加载
         });
-      </script>      
+    </script>
 </body>
 </html>
