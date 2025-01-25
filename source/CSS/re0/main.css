@@ -1,56 +1,6 @@
 * audio {
     box-sizing: border-box;
 }
-body {
-    height: auto;
-    margin: 0;
-    font-family: 'LXGW WenKai', Georgia, sans-serif;
-    /* background-image: url(../../image/liu.webp); */
-    background-image: url(https://t.alcy.cc/bd);
-    background-attachment: fixed;
-    z-index: -10;
-    background-size: cover;
-}
-.splash-screen {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    background: rgb(0,0,0,1);
-    animation: fadeOut 1.5s ease-out 1s forwards;
-}
-.splash-title {
-    font-size: 3rem;
-    color: white;
-    opacity: 1;
-    animation: slideDown 1.5s ease-out;
-}
- @keyframes gradientBackground {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-/* 开屏动画消失效果 */
-@keyframes fadeOut {
-    to {
-      opacity: 0;
-      visibility: hidden;
-    }
-}
-/* 开屏标题向下滑动 */
-@keyframes slideDown {
-    0% {
-      transform: translateY(-50px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-}
 table {
     border-collapse: collapse; /* 合并表格边框 */
     width: 97%;
@@ -127,42 +77,6 @@ nav a:hover {
 .span a:active {
     transform: scale(0.95); /* 点击时缩小 */
 }
-/* 容器样式 */
-.welcome-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    height: 100vh;
-    width: 100%;
-    background-image: url(https://t.alcy.cc/pc);
-    background-size: cover;
-    background-attachment: fixed;
-    box-shadow: inset 0px -20px 40px 5px rgb(0, 0, 0);
-    z-index: -1;
-}
-.welcome-cotent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.welcome-title {
-    z-index: 8888;
-    font-size: 3rem;
-    margin-bottom: 20px;
-    animation: fadeIn 2s ease-out;
-    animation: float 3s infinite ease-in-out;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-.welcome-text {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin-bottom: 30px;
-    line-height: 1.5;
-    animation: fadeIn 2.5s ease-out;
-    background: transparent;
-}
 .float {
     position: absolute;
     bottom: 70px;
@@ -183,15 +97,6 @@ nav a:hover {
     100% {
       opacity: 1;
       transform: translateY(0);
-    }
-}
-/* 浮动动画 */
-@keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
     }
 }
 .scroll-down {
@@ -284,7 +189,6 @@ footer {
         text-align: center;
     }
     .welcome-container {
-        /* background-image: url(https://bing.img.run/rand_m.php); */
         background-image: url(https://t.alcy.cc/moemp);
         background-size: cover;
     }
@@ -302,7 +206,8 @@ footer {
         font-size: 30px;
     }
     .deep {
-        width: 80%;
+        width: 70%;
+        height: 500px;
         display: inline;
         object-fit: fill;
     }
@@ -319,7 +224,6 @@ footer {
     bottom: 0;
     text-align: center;
     justify-content: center;
-    /* margin-bottom: 30px; */
     color: #c8c7c7;
 }
 #workboard img {
