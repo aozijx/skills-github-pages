@@ -59,11 +59,10 @@ nav li:hover > a {
 .dropdown-menu {
     position: absolute;
     left: 0;
-    width: 150px;
+    width: 100px;
     z-index: 9999;
     display: none;
     background: rgba(255, 255, 255, 0.4);
-    border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.7);
     opacity: 0;
@@ -76,12 +75,39 @@ nav li:hover > a {
     color: rgb(0, 0, 0, 0.7);
     font-size: 18px;
     text-decoration: none;
+    opacity: 0;
+    animation: slideIn 0.8s ease-in-out forwards;
 }
 nav li:hover .dropdown-menu {
     display: block;
     opacity: 1;
     pointer-events: auto;
-    animation: fadeIn 0.8s ease-in-out;
+}
+/* 为每个子项添加不同的延迟 */
+nav .dropdown-menu a:nth-child(1) {
+    animation-delay: 0.1s;
+}
+nav .dropdown-menu a:nth-child(2) {
+    animation-delay: 0.2s;
+}
+nav .dropdown-menu a:nth-child(3) {
+    animation-delay: 0.3s;
+}
+nav .dropdown-menu a:nth-child(4) {
+    animation-delay: 0.3s;
+}
+nav .dropdown-menu a:nth-child(5) {
+    animation-delay: 0.3s;
+}
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .span {
     display: flex;
@@ -198,14 +224,13 @@ iframe img {
     height: auto;
 }
 footer {
+    display: flex;
     width: 100%;
     font-size: 20px;
     background: transparent;
     color: white;
-    display: flex;
     justify-content: center;  
     align-items: center;
-    /* margin-top: 10px; */
     margin-bottom: 50px;
 }
 @media (min-width: 768px) and (max-width: 1080px) {
