@@ -21,7 +21,95 @@
   <meta http-equiv="Cache-Control" content="max-age=259200, must-revalidate">
   <title>Hiner</title>
   <style>
-    
+    body {
+      height: auto;
+      margin: 0;
+      font-family: 'LXGW WenKai', Georgia, sans-serif;
+      /* background-image: url(../../image/liu.webp); */
+      background-image: url(https://t.alcy.cc/bd);
+      background-attachment: fixed;
+      z-index: -10;
+      background-size: cover;
+    }
+    .splash-screen {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      background: rgb(0,0,0,1);
+      animation: fadeOut 1.5s ease-out 1s forwards;
+    }
+    .splash-title {
+      font-size: 3rem;
+      color: white;
+      opacity: 1;
+      animation: slideDown 1.5s ease-out;
+    }
+    /* 开屏动画消失效果 */
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    /* 开屏标题向下滑动 */
+    @keyframes slideDown {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .welcome-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      height: 100vh;
+      width: 100%;
+      background-image: url(https://t.alcy.cc/pc);
+      background-size: cover;
+      background-attachment: fixed;
+      box-shadow: inset 0px -20px 40px 5px rgb(0, 0, 0);
+      z-index: -1;
+    }
+    .welcome-cotent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .welcome-title {
+      z-index: 8888;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-out;
+      animation: float 3s infinite ease-in-out;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .welcome-text {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 30px;
+      line-height: 1.5;
+      animation: fadeIn 2.5s ease-out;
+      background: transparent;
+    }
+    /* 浮动动画 */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
   </style>
   <link rel="preload" href="source/image/logo.png" as="icon" onload="this.rel='stylesheet'">
   <link rel="preload" href="source/CSS/re0/main.css" as="style" onload="this.rel='stylesheet'">
@@ -34,32 +122,54 @@
   <link rel='preload' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css' as="style" onload="this.rel='stylesheet'" />
 </head>
 <body>
+  <div id="content">
     <div class="splash-screen" id="splash-screen">
       <h1 class="splash-title">Welcome to the Website!</h1>
     </div> 
     <div class="welcome-container" id="home">
       <div class="welcome-content">
         <nav style="background-color: rgb(0, 0, 0, 0);">
-          <a href="#home">首页</a>
-          <a href="#c">正文</a>
-          <a href="#b">页脚</a>
-          <a href="source/HTML/me">关于</a>
+          <ul>
+            <li>
+              <a href="#home">首页</a>
+            </li>
+            <li>
+              <a href="#b">页脚</a>
+            </li>    
+            <li>
+              <a>更多</a>
+              <div class="dropdown-menu" id="two-nav">
+                <a href="source/HTML/fw.html" data-page="source/HTML/fireworks.html">烟花</a>
+                <a href="source/HTML/fw.html" data-page="source/HTML/canvas">万花筒</a>
+                <a href="source/HTML/fw.html" data-page="source/HTML/gobang">五子棋</a>
+                <a href="https://www.jyshare.com/examples">菜鸟教程</a>
+              </div>
+            </li>
+            <li>
+              <a href="source/HTML/me.html" data-page="httpa://aozijx.github.io/xuao/source/HTML/me.html">关于</a>
+              <div class="dropdown-menu" id="two-nav">
+                <a href="source/HTML/fw.html" data-page="source/HTML/me.html">ME</a>
+                <a href="source/HTML/fw.html" data-page="assistance/re1">smile</a>
+                <a href="source/HTML/fw.html">text</a>
+              </div>
+            </li>
+          </ul>  
         </nav>
         <h1 class="welcome-title"> Hello Everyone to Here🎉</h1>
         <div class="welcome-text">
-          <b>This is a simple HTML page.</b>
-          <p>（由于不知道在这一页添加什么，所以有了一些表情）</p>
+          <p>This is a simple HTML page.</p>
+          <p>（不知道在这一页添加什么，所以有了一些表情）</p>
         </div>
       </div>
       <div class="float">
         <a href="#c">正文</a>
         <div class="scroll-down">
-          <a href="#c">&#x25BC;</a> <!-- Unicode 向下箭头 -->
+          <a href="#c">&#x25BC;</a>
         </div>
       </div>
     </div>
     <div id="c"></div>
-    <div style="margin-top: 60px;text-align: center;"><h1>整活乱搞</h1></div>
+    <div style="margin-top: 60px;text-align: center;"><h1>乱搞</h1></div>
     <div class="deep-container">
       <div class="deep">
         <p>外部壁纸API，看到什么别怨我😫</p>
@@ -67,7 +177,6 @@
       <div class="deep">
       </div>
       <div class="deep" style="background-image: url();">
-        <a>CSS</a>
         <a href="source/markdown/audio">audio标签</a>
         <a href="source/markdown/player">网页Player</a>
         <a href="https://www.w3school.com.cn/cssref/index.asp">W3school</a>
@@ -95,10 +204,8 @@
       <div class="deep">
       </div>
       <div class="deep" style="background-image: url(source/image/cup.png);background-size: cover;"></div>
-      <div class="deep" id="ip-container">
-        <p style="font-size: 30px;margin: 0;">iframe刷新小试</和>
-        <button id="query-ip">查询 IP 地址</button>
-        <p id="ip-box">等待查询...</p>
+      <div class="deep">
+
       </div>
       <div class="deep">
         <iframe name="page" src="source/image/love/芙莉莲.jpg" style="width: 100%;height: 100%;border: none;"></iframe>
@@ -114,13 +221,13 @@
       <div class="deep"></div>
     </div>
     <div style="margin-top: 40px;">
-      <section style="background-image: url(https://t.alcy.cc/ycy);background-size: cover;height: 600px;">
+      <section>
         <a href="" id="about"><h2> blog </h2></a>
-        <p>这是第一篇博客。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula orci nec mauris tristique, ac aliquam quam bibendum.</p>
+        <p></p>
       </section>
       <section style="background-image: url(https://img.alicdn.com/imgextra/i2/2209748222339/O1CN010muxj21T9JF0IPCI2_!!2209748222339.jpg);width: 100%;height: 250px;background-size: cover;background-position: center;color: #ffffff;">
         <a href="https://github.com/skills/github-pages"><h2>创建自己的blog</h2></a>
-        <p>这是第二篇博客。Sed at turpis a eros varius laoreet. Morbi lacinia justo ut diam facilisis malesuada.</p>
+        <p></p>
       </section>
       <section>
         <a href="https://git-scm.com/book/zh/v2"><h2>Git的使用</h2></a>
@@ -338,6 +445,7 @@
     <div id="workboard"></div>
     <footer id="b" style="color: black;">Copyright &copy 2025 Hiner | <a href="https://chinese-font.netlify.app/zh-cn/fonts/lxgwwenkai/LXGWWenKai-Bold" style="text-decoration: none;">霞鹜文楷</a></footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery.min.js@3.5.1/jquery.min.js"></script>
+  </div>
     <meting-js
       server="tencent"
       type="playlist"
@@ -374,27 +482,6 @@
           }]
         });
       };
-
-    </script>
-    <script defer>
-      const button = document.getElementById('query-ip');
-      const ipBox = document.getElementById('ip-box');
-      // 添加点击事件
-      button.addEventListener('click', function () {
-        ipBox.textContent = '查询中...'; // 显示加载提示
-        // 发起 IP 查询请求
-        fetch('https://api64.ipify.org?format=json') // 这里可以更换其他 API
-          .then(response => response.json())
-          .then(data => {
-            // 显示 IP 地址
-            ipBox.textContent = `您的 IP 地址是: ${data.ip}`;
-          })
-          .catch(error => {
-            // 处理错误
-            ipBox.textContent = '查询失败，请稍后再试。';
-            console.error('查询失败:', error);
-          });
-      });
     </script>
 </body>
 </html>
