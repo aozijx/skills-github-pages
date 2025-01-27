@@ -122,6 +122,7 @@
   <link rel='preload' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css' as="style" onload="this.rel='stylesheet'" />
 </head>
 <body>
+  <div id="content">
     <div class="splash-screen" id="splash-screen">
       <h1 class="splash-title">Welcome to the Website!</h1>
     </div> 
@@ -133,24 +134,30 @@
               <a href="#home">首页</a>
             </li>
             <li>
-              <a href="#c">正文</a>
-            </li>
+              <a href="#b">页脚</a>
+            </li>    
             <li>
-              <a href="#">更多</a>
-              <div class="dropdown-menu">
-                <a href="assistance/re1">smile</a>
-                <a href="#b">页脚</a>
-                <a href="#item3">选项 3</a>
+              <a>更多</a>
+              <div class="dropdown-menu" id="two-nav">
+                <a href="source/HTML/fw.html" data-page="source/HTML/fireworks.html">烟花</a>
+                <a href="source/HTML/fw.html" data-page="source/HTML/canvas">万花筒</a>
+                <a href="source/HTML/fw.html" data-page="source/HTML/gobang">五子棋</a>
+                <a href="https://www.jyshare.com/examples">菜鸟教程</a>
               </div>
             </li>
             <li>
-              <a href="source/HTML/me">关于</a>
+              <a href="source/HTML/me.html" data-page="httpa://aozijx.github.io/xuao/source/HTML/me.html">关于</a>
+              <div class="dropdown-menu" id="two-nav">
+                <a href="source/HTML/fw.html" data-page="source/HTML/me.html">ME</a>
+                <a href="source/HTML/fw.html" data-page="assistance/re1">smile</a>
+                <a href="source/HTML/fw.html">text</a>
+              </div>
             </li>
           </ul>  
         </nav>
         <h1 class="welcome-title"> Hello Everyone to Here🎉</h1>
         <div class="welcome-text">
-          <b>This is a simple HTML page.</b>
+          <p>This is a simple HTML page.</p>
           <p>（不知道在这一页添加什么，所以有了一些表情）</p>
         </div>
       </div>
@@ -438,6 +445,7 @@
     <div id="workboard"></div>
     <footer id="b" style="color: black;">Copyright &copy 2025 Hiner | <a href="https://chinese-font.netlify.app/zh-cn/fonts/lxgwwenkai/LXGWWenKai-Bold" style="text-decoration: none;">霞鹜文楷</a></footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery.min.js@3.5.1/jquery.min.js"></script>
+  </div>
     <meting-js
       server="tencent"
       type="playlist"
