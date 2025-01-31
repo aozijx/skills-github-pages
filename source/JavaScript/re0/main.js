@@ -141,18 +141,16 @@ window.onscroll = function() {
   var scrollY = window.scrollY;
   var windowHeight = window.innerHeight;
   var documentHeight = document.documentElement.scrollHeight;
-
   // 动态计算透明度，确保透明度在 0 和 x 之间
   var opacity = Math.min(0.9, Math.max(0, scrollY / windowHeight));
-
   // 防止在滚动到顶部时背景色依然是黑色
   if (scrollY === 0) {
     opacity = 0;  // 当滚动到顶部时透明度为 0
   }
-
   // 设置背景颜色的透明度
   navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
 };
+
 
 // spa页面跳转
 // 缓存已加载的页面
@@ -180,7 +178,7 @@ function loadPage(url) {
 }
 // 隐藏加载动画
 function hideLoadingAnimation() {
-  document.querySelector('.loading-overlay').style.display = 'none'; // 隐藏加载动画
+  const loadPage = document.querySelector('.loading-overlay').style.display = 'none';
 }
 // 导航点击事件
 document.querySelectorAll('#two-nav a').forEach(link =>
@@ -216,12 +214,8 @@ style.innerHTML = `
     animation: fadeIn 0.5s forwards;
   }
   @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
   }
   .loading::before {
     content: "Loading...";
@@ -262,3 +256,43 @@ document.querySelectorAll('nav a').forEach(link => {
 });
 // 设置页面滚动时的平滑效果
 document.documentElement.style.scrollBehavior = 'smooth';
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // 获取所有导航项
+  const navItems = document.querySelectorAll('.nav-item');
+  // 为每个导航项添加事件监听
+  navItems.forEach(item => {
+    const subnav = item.querySelector('.subnav');
+    // 鼠标悬停时展开
+    item.addEventListener('mouseenter', () => {
+      closeAllSubnavs();
+      if (subnav) subnav.classList.add('active');
+    });
+    // 鼠标离开时收起
+    item.addEventListener('mouseleave', () => {
+      if (subnav) subnav.classList.remove('active');
+    });
+    // 点击移动设备友好
+    item.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        subnav.classList.toggle('active');
+      }
+    });
+  });
+  // 关闭所有下拉菜单
+  function closeAllSubnavs() {
+    document.querySelectorAll('.subnav').forEach(sub => {
+      sub.classList.remove('active');
+    });
+  }
+  // 点击页面其他区域关闭菜单
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-item')) {
+      closeAllSubnavs();
+    }
+  });
+  // 窗口调整时关闭菜单
+  window.addEventListener('resize', closeAllSubnavs);
+});
