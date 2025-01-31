@@ -1,11 +1,12 @@
 
 ***欢迎来到我的个人博客！这是我记录学习、成长与生活点滴的地方。***
 
-### 我的[网页](re0)，看了很多后，我觉得我的好简陋啊，都不知道怎么称呼了，
+### 我的[网页](re0)，看了很多网站后，我感觉我的好简陋啊。
+[Jekyll主题](https://github.com/jekyll/jekyll/wiki/sites)感觉用的人好少啊，都是hexo、hugo等等，而且这个Jekyll教程数量有点少了，难道是外国的原因吗
 
 ---
 - **runoob上的网页**
-[烟花](source/HTML/fireworks) | [万花筒](source/HTML/canvas) | [五子棋](source/HTML/gobang) | [菜鸟手机](xuao/source/HTML/phone) | [百度热力图](source/HTML/map) | [菜单](source/HTML/menu) | [更多](https://www.jyshare.com/examples/)
+[菜鸟手机](xuao/source/HTML/phone) | [百度热力图](source/HTML/map) | [菜单](source/HTML/menu) | [更多](https://www.jyshare.com/examples/)
 
 - **HTML**
 [WebAIM：颜色对比度检查器](https://webaim.org/resources/contrastchecker/)
