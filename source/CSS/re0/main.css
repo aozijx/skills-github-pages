@@ -1,4 +1,4 @@
-* audio {
+* {
     box-sizing: border-box;
 }
 table {
@@ -25,24 +25,27 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #d8d8d8; /* 鼠标悬停时背景色 */
 }
-nav {
+.navbar {
     width: 100%;
-    height: 40px;
-    padding: 10px 0;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 6666;
+    z-index: 666;
 }
-nav li {
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-item {
     position: relative;
-    display: inline-block;
-    height: 30px;
 }
-nav li a {
+.navbar > ul > li > a {
     display: block;
     padding: 10px 20px;
     color: white;
@@ -51,63 +54,36 @@ nav li a {
     transition: background-color 0.3s ease;
     cursor: pointer;
 }
-nav li:hover > a {
+.navbar li:hover > a {
     color: rgba(0, 0, 0, 0.7);
     background-color: rgba(188, 210, 233, 0.9);
     border-radius: 5px;
 }
-.dropdown-menu {
+.subnav {
     position: absolute;
+    top: 100%;
     left: 0;
-    width: 100px;
-    z-index: 9999;
-    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
     background: rgba(255, 255, 255, 0.4);
     border-radius: 5px;
-    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.7);
-    opacity: 0;
+    box-shadow: 1px 4px 6px rgba(0, 0, 0);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    min-width: 100px;
 }
-.dropdown-menu li {
-    padding: 0;
-}
-.dropdown-menu a {
+.subnav a {
     display: block;
-    color: rgb(0, 0, 0, 0.7);
-    font-size: 18px;
+    padding: 12px 20px;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid #555;
     text-decoration: none;
-    opacity: 0;
-    animation: slideIn 0.8s ease-in-out forwards;
 }
-nav li:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    pointer-events: auto;
-}
-/* 为每个子项添加不同的延迟 */
-nav .dropdown-menu a:nth-child(1) {
-    animation-delay: 0.1s;
-}
-nav .dropdown-menu a:nth-child(2) {
-    animation-delay: 0.2s;
-}
-nav .dropdown-menu a:nth-child(3) {
-    animation-delay: 0.3s;
-}
-nav .dropdown-menu a:nth-child(4) {
-    animation-delay: 0.3s;
-}
-nav .dropdown-menu a:nth-child(5) {
-    animation-delay: 0.3s;
-}
-@keyframes slideIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* 展开状态 */
+.subnav.active {
+    max-height: 500px;
 }
 .span {
     display: flex;
@@ -147,15 +123,16 @@ nav .dropdown-menu a:nth-child(5) {
     text-decoration: none;
     font-size: 1.3rem;
 }
-/* 淡入动画 */
- @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
+/* 浮动动画 */
+@keyframes float {
+
+    0%,
     100% {
-      opacity: 1;
-      transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
     }
 }
 .scroll-down {
@@ -183,7 +160,7 @@ section {
     color: #ffffff;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 section a {
     text-decoration: none;
@@ -198,16 +175,26 @@ section p {
     gap: 15px;
     justify-content: center;
     flex-wrap: wrap;
-    /* margin-top: 100px; */
     margin-top: 70px;
 }
 .deep {
     position: relative;
-    width: 350px;
-    height: 300px;
+    width: 450px;
+    height: 340px;
+    padding: 10px;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 20px;
-    padding: 10px;
+    box-shadow: 2px 4px 6px rgb(0, 0, 0, 0.7);
+}
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .deep a {
     display: flex;
@@ -218,10 +205,6 @@ section p {
 .deep p {
     color: #000000;
     font-size: 18px;
-}
-iframe img {
-    max-width: 100%;
-    height: auto;
 }
 footer {
     display: flex;
@@ -234,7 +217,7 @@ footer {
     margin-bottom: 50px;
 }
 @media (min-width: 768px) and (max-width: 1080px) {
-    .body {
+    body {
         background-image: url(https://t.mwm.moe/mp);
         background-size: cover;
     }
